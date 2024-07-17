@@ -21,23 +21,22 @@ const Profile = () => {
     }
     return (
         <>
-            <div className='profileContainer'>
-                <div className='profileBox'>
-                    <div className='profileImg'>
-                        {lineProfile ? (
-                            <div>
-                                <p>{lineProfile.display_name}</p>
-                                <img src={lineProfile.picture_url} alt="Profile" />
-                                <p>User ID: {lineProfile.user_id}</p>
-                                <p>Status Messeage: {lineProfile.status_messeage}</p>
-                            </div>
-                        ) : (
-                            <p>Loading profile...</p>
-                        )}
+            {lineProfile ? (
+                <div className='profileContainer'>
+                    <div className='profileBox'>
+                        <p>{lineProfile.display_name}</p>
+                        <div className='profileImg'>
+                            <img src={lineProfile.picture_url} alt="Profile" />
+                        </div>
+                        <div>
+                            <p>User ID: {lineProfile.user_id}</p>
+                            <p>Status Messeage: {lineProfile.status_messeage}</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-
+            ) : (
+                <p>Loading profile...</p>
+            )}
         </>
     )
 }

@@ -22,29 +22,28 @@ const MyQr = () => {
 
   return (
     <>
-      <div className='myCardContainer'>
-        <div className='myCardBox'>
-          <div className='myCardQR'>
-            {lineProfile ? (
-              <div>
-                <p>{lineProfile.display_name}</p>
-                <img src={lineProfile.picture_url} alt="Profile" />
-                <p>User ID: {lineProfile.user_id}</p>
-              </div>
-            ) : (
-              <p>Loading profile...</p>
-            )}
-          </div>
-          <div>
-            <a href='#'>
-              <button className='mycardBtn'>
-                Scan
-              </button>
-            </a>
+      {lineProfile ? (
+        <div className='myQrContainer'>
+          <div className='myQrBox'>
+            <p>{lineProfile.display_name}</p>
+            <div className='myQrImg'>
+              <img src={lineProfile.picture_url} alt="Profile" />
+            </div>
+            <div>
+              <p>User ID: {lineProfile.user_id}</p>
+            </div>
+            <div>
+              <a href='#'>
+                <button className='myQrBtn'>
+                  Scan
+                </button>
+              </a>
+            </div>
           </div>
         </div>
-      </div>
-
+      ) : (
+        <p>Loading profile...</p>
+      )}
     </>
   )
 }

@@ -1,8 +1,8 @@
-.myCardContainer {
+.myQrContainer {
     display: flex;
 }
 
-.myCardContainer .myCardBox {
+.myQrContainer .myQrBox {
     flex: 1;
     min-width: 100%;
     height: 100vh;
@@ -12,16 +12,16 @@
     justify-content: center;
 }
 
-.myCardContainer .myCardQR p{
+.myQrContainer p{
     text-align: center;
 }
 
-.myCardContainer .myCardQR img {
+.myQrContainer .myQrImg img {
     width: 300px;
     height: 300px;
 }
 
-.myCardContainer .mycardBtn {
+.myQrContainer .myQrBtn {
     margin: 100px 0 0 0;
     border-radius: 30px;
     width: 200px;
