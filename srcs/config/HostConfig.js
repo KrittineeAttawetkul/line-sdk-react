@@ -9,7 +9,7 @@ if(hostname === 'localhost')
 }else
 {
     host_config = {
-        baseApi: 'https://5d54-118-175-206-107.ngrok-free.app'
+        baseApi: 'https://nilecon-hr-c10498hkj-krittinees-projects.vercel.app'
     }
 }
 
