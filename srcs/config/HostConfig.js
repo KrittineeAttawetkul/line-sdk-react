@@ -4,14 +4,14 @@ let host_config = {};
 if(hostname === 'localhost')
 {
     host_config = {
-        baseApi: 'https://37e4-184-22-34-185.ngrok-free.app'
+        baseApi: 'https://5d54-118-175-206-107.ngrok-free.app'
     }
-}
-else if(hostname === '')
+}else
 {
     host_config = {
-        baseApi: ''
+        baseApi: 'https://5d54-118-175-206-107.ngrok-free.app'
     }
 }
+
 
 export const BASE_URL = host_config

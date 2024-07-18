@@ -12,7 +12,7 @@ const Profile = () => {
     }, [])
 
     const LineLogin = async () => {
-        await useLineLogin(Liff_Id.profile);
+        // await useLineLogin(Liff_Id.profile);
         const storedProfile = localStorage.getItem('lineProfile');
         console.log('Stored Profile:', storedProfile); // Debugging log
         const profile = storedProfile ? JSON.parse(storedProfile) : null;
@@ -24,11 +24,11 @@ const Profile = () => {
             {lineProfile ? (
                 <div className='profileContainer'>
                     <div className='profileBox'>
-                        <p>{lineProfile.display_name}</p>
                         <div className='profileImg'>
                             <img src={lineProfile.picture_url} alt="Profile" />
                         </div>
-                        <div>
+                        <div className='profiletxt'>
+                            <p>{lineProfile.display_name}</p>
                             <p>User ID: {lineProfile.user_id}</p>
                             <p>Status Messeage: {lineProfile.status_messeage}</p>
                         </div>
