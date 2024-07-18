@@ -24,6 +24,7 @@ const MyQr = () => {
     userInit();
   }
 
+  // ****function addon 
   const userInit = async () => {
     const storedProfile = localStorage.getItem('lineProfile');
     console.log('Stored Profile:', storedProfile); // Debugging log
