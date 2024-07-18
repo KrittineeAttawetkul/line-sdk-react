@@ -8,7 +8,11 @@ export const USER_ACTION = {
 
 function getUserByUserId(user_id) {
     return new Promise(async resolve => {
-        axios.get(BASE_URL.baseApi+'/api/users/'+user_id, {})
+        axios.post(BASE_URL.baseApi+'/api/users', {user_id: user_id}, {
+            headers: {
+                "ngrok-skip-browser-warning": "69420"
+            }
+        })
             .then(res => {
                 console.log(res);
                 resolve(res.data);
