@@ -8,7 +8,7 @@ export const USER_ACTION = {
 
 function getUserByUserId(payload) {
     return new Promise(async resolve => {
-        axios.post(BASE_URL.baseApi+'/api/users', payload, {
+        axios.post(BASE_URL.baseApi + '/api/users', payload, {
             headers: {
                 "ngrok-skip-browser-warning": "69420"
             }
@@ -27,9 +27,9 @@ function getUserByUserId(payload) {
 function getDummy() {
     return new Promise(async resolve => {
         axios.get('https://jsonplaceholder.typicode.com/todos/1')
-        .then(res => {
-            resolve(res.data);
-            console.log('dummy: ', res);
-        })
+            .then(res => {
+                resolve(res.data);
+                console.log('dummy: ', res);
+            })
     })
 }

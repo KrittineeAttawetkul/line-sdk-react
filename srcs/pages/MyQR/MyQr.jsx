@@ -31,43 +31,17 @@ const MyQr = () => {
     setLineProfile(profile);
     console.log('Parsed Profile:', profile); // Debugging log
 
-    // Bypass
-    // let profile = {
-    //   "id_token": null,
-    //   "display_name": "KΓΙΤΤΙΝΞΞ",
-    //   "picture_url": "https://profile.line-scdn.net/0hT3lRjLChCxxBKxsOBkx1YzF7CHZiWlIOOE9NeyEvBisvExhObBgTeCQjVHx6S0wZOU9MKHN7VyVNOHx6X333KEYbVi19H0VKb0VG_w",
-    //   "status_messeage": "Bambam Status Message",
-    //   "user_id": "U4ed202ba32ea29aa7a38b04ae2efabae",
-    //   "access_token": "eyJhbGciOiJIUzI1NiJ9.a6FOGGTC3GV-68zz9YHFW0jG1sHeKsZaAuh76CNddqI0wLIZNZUSPg4HHnMUrxVeSd4wcqUV48-uu99XQ97dDmwZHIdC9WohKWpj0r_atbQNPhyQOEIM-R__K2c-cINDTUrMwG_2T6Phd_Hd2Zqqhb6n9saftTtUfno9T-BmcYg.bqoc2IU_UmXO6OB18g8eK5tZ1Gs-1fopKZ-019G3ERY"
-    // }
-
     const payload = { //ส่งเป็น obj
       user_id: profile.user_id
     }
     const res = await USER_ACTION.getUserByUserId(payload);
     console.log('user res: ', res);
-
     console.log('res Data: ', res.data);
-    console.log('qr_url: ', res.data.qr_url);
-
 
     setUserList(res.data)
 
     console.log('user List ', userList);
 
-    // if (!!profile) {
-    //   profile = {
-    //     "id_token": null,
-    //     "display_name": "KΓΙΤΤΙΝΞΞ",
-    //     "picture_url": "https://profile.line-scdn.net/0hT3lRjLChCxxBKxsOBkx1YzF7CHZiWlIOOE9NeyEvBisvExhObBgTeCQjVHx6S0wZOU9MKHN7VyVNOHx6X333KEYbVi19H0VKb0VG_w",
-    //     "status_messeage": "Bambam Status Message",
-    //     "user_id": "U4ed202ba32ea29aa7a38b04ae2efabae",
-    //     "access_token": "eyJhbGciOiJIUzI1NiJ9.a6FOGGTC3GV-68zz9YHFW0jG1sHeKsZaAuh76CNddqI0wLIZNZUSPg4HHnMUrxVeSd4wcqUV48-uu99XQ97dDmwZHIdC9WohKWpj0r_atbQNPhyQOEIM-R__K2c-cINDTUrMwG_2T6Phd_Hd2Zqqhb6n9saftTtUfno9T-BmcYg.bqoc2IU_UmXO6OB18g8eK5tZ1Gs-1fopKZ-019G3ERY"
-    //   }
-    //   setLineProfile(profile);
-    //   const res = await USER_ACTION.getUserByUserId(profile.user_id);
-    //   console.log('user res: ', res);
-    // }
   }
 
   return (
