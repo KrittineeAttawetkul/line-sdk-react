@@ -14,7 +14,7 @@ const MyQr = () => {
   }, [])
 
   const pageInit = async () => {
-    await useLineLogin(Liff_Id.my_qr);
+    // await useLineLogin(Liff_Id.my_qr);
     await userInit();
   }
 
