@@ -4,12 +4,12 @@ let host_config = {};
 if(hostname === 'localhost')
 {
     host_config = {
-        baseApi: 'https://1f41-118-175-206-107.ngrok-free.app'
+        baseApi: 'https://podsable.com:3998/'
     }
 }else
 {
     host_config = {
-        baseApi: 'https://1f41-118-175-206-107.ngrok-free.app'
+        baseApi: 'https://podsable.com:3998/'
     }
 }
 
