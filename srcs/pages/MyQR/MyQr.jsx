@@ -15,16 +15,17 @@ const MyQr = () => {
 
   const pageInit = async () => {
     // await useLineLogin(Liff_Id.my_qr);
-    await userInit();
+    userInit();
   }
 
-  const userInit = async() => {
-    const storedProfile = localStorage.getItem('lineProfile');
-    console.log('Stored Profile:', storedProfile); // Debugging log
-    const profile = storedProfile ? JSON.parse(storedProfile) : null;
-    setLineProfile(profile);
-    console.log('Parsed Profile:', profile); // Debugging log
-    profile = {
+  const userInit = async () => {
+    // const storedProfile = localStorage.getItem('lineProfile');
+    // console.log('Stored Profile:', storedProfile); // Debugging log
+    // const profile = storedProfile ? JSON.parse(storedProfile) : null;
+    // setLineProfile(profile);
+    // console.log('Parsed Profile:', profile); // Debugging log
+    // Bypass
+    let profile = {
       "id_token": null,
       "display_name": "KΓΙΤΤΙΝΞΞ",
       "picture_url": "https://profile.line-scdn.net/0hT3lRjLChCxxBKxsOBkx1YzF7CHZiWlIOOE9NeyEvBisvExhObBgTeCQjVHx6S0wZOU9MKHN7VyVNOHx6X333KEYbVi19H0VKb0VG_w",
@@ -35,6 +36,7 @@ const MyQr = () => {
     setLineProfile(profile);
     const res = await USER_ACTION.getUserByUserId(profile.user_id);
     console.log('user res: ', res);
+
     // if (!!profile) {
     //   profile = {
     //     "id_token": null,
