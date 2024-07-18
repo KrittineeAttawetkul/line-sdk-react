@@ -6,9 +6,9 @@ export const USER_ACTION = {
     getDummy
 };
 
-function getUserByUserId(user_id) {
+function getUserByUserId(payload) {
     return new Promise(async resolve => {
-        axios.post(BASE_URL.baseApi+'/api/users', {user_id: user_id}, {
+        axios.post(BASE_URL.baseApi+'/api/users', payload, {
             headers: {
                 "ngrok-skip-browser-warning": "69420"
             }

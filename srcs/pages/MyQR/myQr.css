@@ -14,12 +14,13 @@
 
 .myQrContainer p{
     text-align: center;
+    font-size: 40px;
 }
 
 .myQrContainer .myQrImg img {
     width: 300px;
     height: 300px;
-    border-radius: 300px;
+
 }
 
 .myQrContainer .myQrBtn {
