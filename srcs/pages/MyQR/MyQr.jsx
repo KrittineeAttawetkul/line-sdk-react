@@ -33,6 +33,7 @@ const MyQr = () => {
         "user_id": "U4ed202ba32ea29aa7a38b04ae2efabae",
         "access_token": "eyJhbGciOiJIUzI1NiJ9.a6FOGGTC3GV-68zz9YHFW0jG1sHeKsZaAuh76CNddqI0wLIZNZUSPg4HHnMUrxVeSd4wcqUV48-uu99XQ97dDmwZHIdC9WohKWpj0r_atbQNPhyQOEIM-R__K2c-cINDTUrMwG_2T6Phd_Hd2Zqqhb6n9saftTtUfno9T-BmcYg.bqoc2IU_UmXO6OB18g8eK5tZ1Gs-1fopKZ-019G3ERY"
     }
+    setLineProfile(profile);
       const res = await USER_ACTION.getUserByUserId(profile.user_id);
       console.log('user res: ', res);
     }
