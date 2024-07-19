@@ -9,7 +9,7 @@ if(hostname === 'localhost')
 }else
 {
     host_config = {
-        baseApi: 'https://podsable.com:3998'
+        baseApi: 'https://b67b-125-26-202-110.ngrok-free.app'
     }
 }
 
