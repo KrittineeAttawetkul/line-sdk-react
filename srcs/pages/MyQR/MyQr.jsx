@@ -38,9 +38,7 @@ const MyQr = () => {
     const res = await USER_ACTION.getUserByUserId(payload);
     console.log('user res: ', res);
     console.log('res Data: ', res.data);
-
     setUserList(res.data)
-
     console.log('user List ', userList);
 
   }
