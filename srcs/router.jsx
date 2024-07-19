@@ -1,4 +1,5 @@
 import * as React from "react";
+import './Main.css'
 import * as ReactDOM from "react-dom/client";
 import {
     createBrowserRouter,
@@ -6,7 +7,7 @@ import {
 } from "react-router-dom";
 import MyQr from "./pages/MyQR/MyQr";
 import Profile from "./pages/Profile/Profile";
-import './Main.css'
+import Scan from "./pages/Scan/Scan";
 
 const router = createBrowserRouter([
     {
@@ -19,7 +20,11 @@ const router = createBrowserRouter([
     },
     {
         path: "/profile",
-        element: (<Profile/>),
+        element: (<Profile />),
+    },
+    {
+        path: "/scan",
+        element: (<Scan />),
     },
 ]);
 

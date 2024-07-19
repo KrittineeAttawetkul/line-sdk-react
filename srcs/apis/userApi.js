@@ -18,7 +18,7 @@ function getUserByUserId(payload) {
                 resolve(res.data);
             })
             .catch(err => {
-                console.log('------- Get User Data --------');
+                console.log('------- getUserByUserId Error--------');
                 console.log('Error: ', err);
             })
     })

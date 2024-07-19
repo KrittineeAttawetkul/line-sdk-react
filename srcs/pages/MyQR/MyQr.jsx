@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import './myQr.css'
-import useLineLogin from '../../components/useLineLogin'
+import useLineLogin from '../../utils/addons/useLineLogin'
 import Liff_Id from '../../assets/Liff_Id'
 import { USER_ACTION } from '../../apis/userApi'
 import { BASE_URL } from '../../config/HostConfig';
@@ -47,25 +47,29 @@ const MyQr = () => {
 
   return (
     <>
-      {lineProfile ? (
-        <div className='myQrContainer'>
-          <div className='myQrBox'>
-            <p>{userList.display_name}</p>
-            <div className='myQrImg'>
-              <img src={`${BASE_URL.baseApi}${userList.qr_url}`} />
-            </div>
-            <div>
-              <a href='#'>
-                <button className='myQrBtn'>
-                  Scan
-                </button>
-              </a>
-            </div>
+      <div className='myQrContainer'>
+        <div className='myQrBox'>
+          {lineProfile ? (
+            <>
+              <div>
+                <p>{userList.display_name}</p>
+              </div>
+              <div className='myQrImg'>
+                <img src={`${BASE_URL.baseApi}${userList.qr_url}`} />
+              </div>
+            </>
+          ) : (
+            <p>Loading profile...</p>
+          )}
+          <div>
+            <a href='#'>
+              <button className='myQrBtn'>
+                Scan
+              </button>
+            </a>
           </div>
         </div>
-      ) : (
-        <p>Loading profile...</p>
-      )}
+      </div>
     </>
   )
 }

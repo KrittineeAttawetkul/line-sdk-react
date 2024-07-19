@@ -1,0 +1,15 @@
+.scanCam_container {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+
+/* .scanCam_container .cam {
+
+} */
+
+.scanCam_container .camImg {
+    width: 200px;
+    height: 200px;
+}

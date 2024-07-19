@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import './profile.css'
-import useLineLogin from '../../components/useLineLogin';
+import useLineLogin from '../../utils/addons/useLineLogin'
 import Liff_Id from '../../assets/Liff_Id';
 
 const Profile = () => {
