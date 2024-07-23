@@ -8,17 +8,22 @@ const Profile = () => {
     const [lineProfile, setLineProfile] = useState(null);
 
     useEffect(() => {
-        LineLogin();
+        pageInit();
     }, [])
 
-    const LineLogin = async () => {
-        // await useLineLogin(Liff_Id.profile);
+    const pageInit = async () => {
+        await useLineLogin(Liff_Id.profile);
+        userInit();
+    }
+    
+    const userInit = async () => {
         const storedProfile = localStorage.getItem('lineProfile');
         console.log('Stored Profile:', storedProfile); // Debugging log
         const profile = storedProfile ? JSON.parse(storedProfile) : null;
         setLineProfile(profile);
         console.log('Parsed Profile:', profile); // Debugging log
     }
+    
     return (
         <>
             {lineProfile ? (

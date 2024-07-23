@@ -40,7 +40,6 @@ const MyQr = () => {
     console.log('res Data: ', res.data);
     setUserList(res.data)
     console.log('user List ', userList);
-
   }
 
   return (
