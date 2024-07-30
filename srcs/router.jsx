@@ -6,7 +6,7 @@ import {
     RouterProvider,
 } from "react-router-dom";
 import MyQr from "./pages/MyQR/MyQr";
-import Profile from "./pages/Profile/Profile";
+import History from "./pages/History/History";
 import Scan from "./pages/Scan/Scan";
 
 const router = createBrowserRouter([
@@ -19,8 +19,8 @@ const router = createBrowserRouter([
         element: (<MyQr />),
     },
     {
-        path: "/profile",
-        element: (<Profile />),
+        path: "/history",
+        element: (<History />),
     },
     {
         path: "/scan",

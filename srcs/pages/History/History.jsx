@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import './profile.css'
+import './history.css'
 import useLineLogin from '../../utils/addons/useLineLogin'
 import Liff_Id from '../../assets/Liff_Id';
 
-const Profile = () => {
+const History = () => {
 
     const [lineProfile, setLineProfile] = useState(null);
 
@@ -46,4 +46,4 @@ const Profile = () => {
     )
 }
 
-export default Profile
+export default History
