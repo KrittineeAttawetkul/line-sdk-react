@@ -4,6 +4,7 @@ import useLineLogin from '../../utils/addons/useLineLogin'
 import Liff_Id from '../../assets/Liff_Id'
 import { USER_ACTION } from '../../apis/userApi'
 import { BASE_URL } from '../../config/HostConfig';
+import Button from '../../components/Button/Button'
 
 const MyQr = () => {
 
@@ -60,9 +61,7 @@ const MyQr = () => {
           )}
           <div>
             <a href='#'>
-              <button className='myQrBtn'>
-                Scan
-              </button>
+              <Button text='Scan' />
             </a>
           </div>
         </div>

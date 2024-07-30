@@ -3,6 +3,7 @@ import './scan.css'
 import ScanCam from './scanCam/scanCam'
 import useLineLogin from '../../utils/addons/useLineLogin';
 import Liff_Id from '../../assets/Liff_Id';
+import Button from '../../components/Button/Button'
 
 const Scan = () => {
 
@@ -43,9 +44,7 @@ const Scan = () => {
                     </div>
                     <div>
                         <a href='#'>
-                            <button className='scanBtn'>
-                                My QR
-                            </button>
+                            <Button text='My QR' />
                         </a>
                     </div>
                 </div>

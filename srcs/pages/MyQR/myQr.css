@@ -12,7 +12,7 @@
     justify-content: center;
 }
 
-.myQrContainer p{
+.myQrContainer p {
     text-align: center;
     font-size: 40px;
 }
@@ -21,15 +21,4 @@
     width: 300px;
     height: 300px;
 
-}
-
-.myQrContainer .myQrBtn {
-    margin: 100px 0 0 0;
-    border-radius: 30px;
-    width: 200px;
-    height: 56px;
-    border: none;
-    font-size: 40px;
-    cursor: pointer;
-    color: black;
 }

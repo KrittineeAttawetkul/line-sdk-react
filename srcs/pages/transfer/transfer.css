@@ -1,0 +1,33 @@
+.transferContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.transferContainer .transferBox {
+    background-color: cornflowerblue;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.transferContainer .transferTitle {
+    font-size: 26px;
+}
+
+.transferContainer .receiverProfile {
+    display: flex;
+}
+
+.transferContainer .transferForm {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.transferContainer .transferForm input {
+    border: #C1C1C1;
+    border-radius: 10px;
+    width: 375px;
+    height: 50px;
+}

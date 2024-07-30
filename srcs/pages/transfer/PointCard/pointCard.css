@@ -1,0 +1,26 @@
+.PointCardContainer {
+    background-color: #F6F6F6;
+    min-width: 375px;
+    height: 240px;
+    border-radius: 20px;
+    align-items: center;
+    justify-items: center;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+}
+
+.PointCardContainer .PointBox {
+    background-color: #EA4335;
+    min-width: 375px;
+    height: 140px;
+    text-align: center;
+    align-content: center;
+    font-size: 14px;
+    color: #FFFFFF;
+}
+
+.PointCardContainer .PointBox .PointText {
+    align-content: center; 
+    font-size: 90px;
+    color: #FFFFFF;
+}

@@ -8,6 +8,7 @@ import {
 import MyQr from "./pages/MyQR/MyQr";
 import History from "./pages/History/History";
 import Scan from "./pages/Scan/Scan";
+import Transfer from "./pages/transfer/Transfer";
 
 const router = createBrowserRouter([
     {
@@ -15,16 +16,20 @@ const router = createBrowserRouter([
         element: <div>No endpoint page</div>,
     },
     {
-        path: "/myqr",
+        path: "/api/myqr",
         element: (<MyQr />),
     },
     {
-        path: "/history",
+        path: "/api/history",
         element: (<History />),
     },
     {
-        path: "/scan",
+        path: "/api/scan",
         element: (<Scan />),
+    },
+    {
+        path: "/api/scan/transfer",
+        element: (<Transfer/>),
     },
 ]);
 

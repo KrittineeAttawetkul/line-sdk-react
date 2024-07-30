@@ -12,14 +12,3 @@
     align-items: center;
     justify-content: center;
 }
-
-.scanContainer .scanBtn {
-    margin: 100px 0 0 0;
-    border-radius: 30px;
-    width: 200px;
-    height: 56px;
-    border: none;
-    font-size: 40px;
-    cursor: pointer;
-    color: black;
-}
