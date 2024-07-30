@@ -15,26 +15,34 @@ const Transfer = () => {
                         <PointCard />
                     </div>
                     <div className='receiverProfile'>
-                        ไปยัง
-                        line Profile
+                        <div>
+                            ไปยัง
+                        </div>
+                        <div>
+                            <img src='' />
+                        </div>
                     </div>
-                    <div >
+                    <div>
                         <form className='transferForm'>
                             <div>
-                                <label>จำนวนคะแนน</label>
+                                <div>
+                                    <label>จำนวนคะแนน</label>
+                                </div>
+                                <div>
+                                    <input className='disInput' placeholder='1 คะแนน' disabled></input>
+                                </div>
                             </div>
                             <div>
-                                <input placeholder='จำนวนคะแนน'></input>
-                            </div>
-                            <div>
-                                <label>เหตุผลการให้คะแนน*</label>
-                            </div>
-                            <div>
-                                <input placeholder='comment'></input>
+                                <div>
+                                    <label>เหตุผลการให้คะแนน*</label>
+                                </div>
+                                <div>
+                                    <input placeholder='comment'></input>
+                                </div>
                             </div>
                         </form>
                     </div>
-                    <div>
+                    <div className='transferBtn'>
                         <a href='#'>
                             <Button text='โอนคะแนน' />
                         </a>

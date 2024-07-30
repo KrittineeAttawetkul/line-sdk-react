@@ -9,6 +9,7 @@ import MyQr from "./pages/MyQR/MyQr";
 import History from "./pages/History/History";
 import Scan from "./pages/Scan/Scan";
 import Transfer from "./pages/transfer/Transfer";
+import Verify from "./pages/Verify/Verify";
 
 const router = createBrowserRouter([
     {
@@ -29,7 +30,11 @@ const router = createBrowserRouter([
     },
     {
         path: "/api/scan/transfer",
-        element: (<Transfer/>),
+        element: (<Transfer />),
+    },
+    {
+        path: "/api/scan/transfer/verify",
+        element: (<Verify/>)
     },
 ]);
 

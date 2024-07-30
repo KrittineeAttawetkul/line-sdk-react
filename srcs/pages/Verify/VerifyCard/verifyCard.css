@@ -1,0 +1,34 @@
+.verifyCardContainer {
+    width: 375px;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    box-shadow: 0 2px 9px 0 rgba(0, 0, 0, 0.09)
+}
+
+.verifyCardContainer .verifyCardBox {
+    display: grid;
+    gap: 15px;
+    padding: 10px;
+    font-size: 14px;
+}
+
+.verifyCardContainer .verifyCardBox .verifyCardPoint {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.verifyCardContainer .verifyCardBox .verifyCardPoint .point {
+    text-align: end;
+    font-weight: 700;
+}
+
+.verifyCardContainer .verifyCardBox .verifyCardComment {
+    display: grid;
+    gap: 5px;
+    grid-template-rows: 1fr 1fr;
+}
+
+.verifyCardContainer .verifyCardBox .verifyCardComment .point {
+    text-align: end;
+    font-weight: 700;
+}
