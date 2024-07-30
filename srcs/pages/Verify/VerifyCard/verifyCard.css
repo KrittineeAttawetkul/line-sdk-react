@@ -7,8 +7,8 @@
 
 .verifyCardContainer .verifyCardBox {
     display: grid;
-    gap: 15px;
-    padding: 10px;
+    gap: 10px;
+    padding: 15px 10px;
     font-size: 14px;
 }
 
@@ -20,6 +20,11 @@
 .verifyCardContainer .verifyCardBox .verifyCardPoint .point {
     text-align: end;
     font-weight: 700;
+}
+
+.verifyCardContainer .verifyCardBox .Line {
+    height: 1px;
+    background: #F0F0F0;
 }
 
 .verifyCardContainer .verifyCardBox .verifyCardComment {

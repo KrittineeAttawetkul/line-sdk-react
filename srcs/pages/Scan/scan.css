@@ -3,12 +3,16 @@
 }
 
 .scanContainer .scanBox {
-
     flex: 1;
-    min-width: 100%;
-    height: 100vh;
+    min-width: 375;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin: 200px 0 0 0;
+}
+
+.scanContainer .scanBox .scanBtn {
+    position: fixed;
+    bottom: 50px;
 }

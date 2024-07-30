@@ -50,6 +50,7 @@ const MyQr = () => {
           {lineProfile ? (
             <>
               <div>
+                <p>{lineProfile.display_name}</p>
                 <p>{userList.display_name}</p>
               </div>
               <div className='myQrImg'>
@@ -59,7 +60,7 @@ const MyQr = () => {
           ) : (
             <p>Loading profile...</p>
           )}
-          <div>
+          <div className='myQrBtn'>
             <a href='#'>
               <Button text='Scan' />
             </a>

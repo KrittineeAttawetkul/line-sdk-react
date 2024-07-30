@@ -12,6 +12,7 @@ const VerifyCard = () => {
                             1.00
                         </div>
                     </div>
+                    <div className='Line'></div>
                     <div className='verifyCardComment'>
                         เหตุผลการให้คะแนน
                         <div className='point'>

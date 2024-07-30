@@ -42,7 +42,7 @@ const Scan = () => {
                     <div>
                         <ScanCam />
                     </div>
-                    <div>
+                    <div className='scanBtn'>
                         <a href='#'>
                             <Button text='My QR' />
                         </a>

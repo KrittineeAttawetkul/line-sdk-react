@@ -46,6 +46,17 @@
     box-sizing: border-box;
 }
 
+.transferContainer .transferForm textarea {
+    border: 0.5px solid #C1C1C1;
+    border-radius: 10px;
+    width: 375px;
+    height: 200px;
+    padding: 12px 20px;
+    font-size: 20px;
+    box-sizing: border-box;
+    resize: none;
+}
+
 .transferContainer .transferForm .disInput {
     border: none;
     border-radius: 10px;
@@ -62,5 +73,6 @@
 }
 
 .transferContainer .transferBtn {
-    margin: 50px 0 0 0;
+    position: fixed;
+    bottom: 50px;
 }

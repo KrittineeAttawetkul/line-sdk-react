@@ -16,7 +16,7 @@ const Transfer = () => {
                     </div>
                     <div className='receiverProfile'>
                         <div>
-                            ไปยัง
+                            ไปยัง :
                         </div>
                         <div>
                             <img src='' />
@@ -37,7 +37,7 @@ const Transfer = () => {
                                     <label>เหตุผลการให้คะแนน*</label>
                                 </div>
                                 <div>
-                                    <input placeholder='comment'></input>
+                                    <textarea placeholder='comment'></textarea>
                                 </div>
                             </div>
                         </form>
