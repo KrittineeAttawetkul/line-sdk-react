@@ -3,8 +3,13 @@ import './verify.css'
 import Button from '../../components/Button/Button'
 import VerifyCard from './VerifyCard/VerifyCard'
 import Swal from 'sweetalert2'
+import { useLocation } from 'react-router-dom';
 
 const Verify = () => {
+
+  const location = useLocation();
+  const { comment } = location.state || {};
+
   const popup = () => {
     Swal.fire({
       title: "โอนคะแนนสำเร็จ",
@@ -28,7 +33,7 @@ const Verify = () => {
             line name
           </div>
           <div>
-            <VerifyCard />
+            <VerifyCard comment={comment}/>
           </div>
           <div className='verifyBtn' onClick={popup}>
             <Button text='ยืนยัน' />

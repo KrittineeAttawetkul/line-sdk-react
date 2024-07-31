@@ -1,7 +1,7 @@
 import React from 'react'
 import './verifyCard.css'
 
-const VerifyCard = () => {
+const VerifyCard = (props) => {
     return (
         <>
             <div className='verifyCardContainer'>
@@ -16,7 +16,7 @@ const VerifyCard = () => {
                     <div className='verifyCardComment'>
                         เหตุผลการให้คะแนน
                         <div className='point'>
-                            Comment
+                            {props.comment}
                         </div>
                     </div>
                 </div>
