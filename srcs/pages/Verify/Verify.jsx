@@ -18,7 +18,8 @@ const Verify = () => {
       text: "คุณมียอดคงเหลือ 658 point",
       icon: "success",
       confirmButtonText: 'เรียบร้อย',
-      confirmButtonColor: "#DE2D1E"
+      confirmButtonColor: "#DE2D1E",
+      width: 375
     }).then(() => {
       setisTransferDone(true);
     });
