@@ -34,7 +34,7 @@ const router = createBrowserRouter([
     },
     {
         path: "/api/scan/transfer/verify",
-        element: (<Verify/>)
+        element: (<Verify />)
     },
 ]);
 
