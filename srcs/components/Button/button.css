@@ -7,4 +7,19 @@
     cursor: pointer;
     color: #fff;
     background-color: #DE2D1E;
+    transition: background-color 0.3s;
+}
+
+.Btn:hover {
+    background-color: #c52a18;
+}
+
+.Btn.disabled {
+    background-color: #ccc;
+    color: #777;
+    cursor: not-allowed;
+}
+
+.Btn:disabled {
+    pointer-events: none;
 }
