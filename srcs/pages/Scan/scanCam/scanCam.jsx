@@ -33,8 +33,8 @@ const ScanCam = () => {
     const handleQrReader = (result, error) => {
 
         if (!!result) {
-            console.log('result')
-            location.href = `${result}`
+            console.log(result)
+            // location.href = `${result}`
 
         }
         if (!!error) {
