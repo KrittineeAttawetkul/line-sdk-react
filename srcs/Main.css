@@ -1,3 +1,109 @@
 *{
     font-family: Arial, Helvetica, sans-serif;
 }
+/* Font Promot */
+/* Prompt-Thin */
+@font-face {
+    font-family: 'Prompt';
+    src: local("Prompt") url('../src/assets/Prompt/Prompt-Thin.ttf') format('truetype');
+    font-weight: 100;
+  }
+  
+  /* Prompt-ExtraLight */
+  @font-face {
+    font-family: 'Prompt';
+    src: local("Prompt") url('../src/assets/Prompt/Prompt-ExtraLight.ttf') format('truetype');
+    font-weight: 200;
+  }
+  
+  /* Prompt-Light */
+  @font-face {
+    font-family: 'Prompt';
+    src: local("Prompt") url('../src/assets/Prompt/Prompt-Light.ttf') format('truetype');
+    font-weight: 300;
+  }
+  
+  /* Prompt-Regular */
+  @font-face {
+    font-family: 'Prompt';
+    src: local("Prompt") url('../src/assets/Prompt/Prompt-Regular.ttf') format('truetype');
+    font-weight: 400;
+  }
+  
+  /* Prompt-Medium */
+  @font-face {
+    font-family: 'Prompt';
+    src: local("Prompt") url('../src/assets/Prompt/Prompt-Medium.ttf') format('truetype');
+    font-weight: 500;
+  }
+  
+  /* Prompt-SemiBold */
+  @font-face {
+    font-family: 'Prompt';
+    src: local("Prompt") url('../src/assets/Prompt/Prompt-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+  }
+  
+  /* Prompt-Bold */
+  @font-face {
+    font-family: 'Prompt';
+    src: local("Prompt") url('../src/assets/Prompt/Prompt-Bold.ttf') format('truetype');
+    font-weight: 700;
+  }
+  
+  /* Prompt-ExtraBold */
+  @font-face {
+    font-family: 'Prompt';
+    src: local("Prompt") url('../src/assets/Prompt/Prompt-ExtraBold.ttf') format('truetype');
+    font-weight: 800;
+  }
+  
+  /* Prompt-Black */
+  @font-face {
+    font-family: 'Prompt';
+    src: local("Prompt") url('../src/assets/Prompt/Prompt-Black.ttf') format('truetype');
+    font-weight: 900;
+  }
+  
+  /* Font Sukhumvit */
+  /* SukhumvitSet-Thin */
+  @font-face {
+    font-family: 'Sukhumvit Set';
+    src: local("SukhumvitSet") url('../src/assets/SukhumvitSet/SukhumvitSet-Thin.ttf') format('truetype');
+    font-weight: 300;
+  }
+  
+  /* SukhumvitSet-Light */
+  @font-face {
+    font-family: 'Sukhumvit Set';
+    src: local("SukhumvitSet") url('../src/assets/SukhumvitSet/SukhumvitSet-Light.ttf') format('truetype');
+    font-weight: 400;
+  }
+  
+  /* SukhumvitSet-Text */
+  @font-face {
+    font-family: 'Sukhumvit Set';
+    src: local("SukhumvitSet") url('../src/assets/SukhumvitSet/SukhumvitSet-Text.ttf') format('truetype');
+    font-weight: 600;
+  }
+  
+  /* SukhumvitSet-Medium */
+  @font-face {
+    font-family: 'Sukhumvit Set';
+    src: local("SukhumvitSet") url('../src/assets/SukhumvitSet/SukhumvitSet-Medium.ttf') format('truetype');
+    font-weight: 700;
+  }
+  
+  /* SukhumvitSet-SemiBold */
+  @font-face {
+    font-family: 'Sukhumvit Set';
+    src: local("SukhumvitSet") url('../src/assets/SukhumvitSet/SukhumvitSet-SemiBold.ttf') format('truetype');
+    font-weight: 800;
+  }
+  
+  /* SukhumvitSet-Bold */
+  @font-face {
+    font-family: 'Sukhumvit Set';
+    src: local("SukhumvitSet") url('../src/assets/SukhumvitSet/SukhumvitSet-Bold.ttf') format('truetype');
+    font-weight: 900;
+  }
