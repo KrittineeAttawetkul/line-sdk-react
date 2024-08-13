@@ -10,6 +10,7 @@ import History from "./pages/History/History";
 import Scan from "./pages/Scan/Scan";
 import Transfer from "./pages/transfer/Transfer";
 import Verify from "./pages/Verify/Verify";
+import TelVerify from "./pages/telVerify/TelVerify";
 
 const router = createBrowserRouter([
     {
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
     {
         path: "/api/history",
         element: (<History />),
+    },
+    {
+        path: "/api/telverify",
+        element: (<TelVerify />)
     },
     {
         path: "/api/scan",

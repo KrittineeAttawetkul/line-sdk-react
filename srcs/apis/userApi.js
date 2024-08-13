@@ -3,7 +3,8 @@ import { BASE_URL } from '../config/HostConfig';
 
 export const USER_ACTION = {
     getUserByUserId,
-    getDummy
+    getDummy,
+    checkTel
 };
 
 function getUserByUserId(payload) {
@@ -21,6 +22,26 @@ function getUserByUserId(payload) {
             })
             .catch(err => {
                 console.log('------- getUserByUserId Error--------');
+                console.log('Error: ', err);
+            })
+    })
+}
+
+function checkTel(payload) {
+    return new Promise(async resolve => {
+        axios.post(BASE_URL.baseApi + '/api/tel', payload,
+            {
+                headers: {
+                    "ngrok-skip-browser-warning": "69420"
+                }
+            }
+        )
+            .then(res => {
+                console.log(res);
+                resolve(res.data);
+            })
+            .catch(err => {
+                console.log('------- checkTel Error--------');
                 console.log('Error: ', err);
             })
     })
