@@ -7,6 +7,7 @@ import Button from '../../components/Button/Button'
 const TelVerify = () => {
     const [tel, setTel] = useState('')
     const [isSubmitting, setIsSubmitting] = useState(false)
+    const [response, setResponse] = useState(null);
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -24,6 +25,8 @@ const TelVerify = () => {
             const res = await USER_ACTION.checkTel(payload);
             console.log('user res: ', res);
             console.log('res Data: ', res.data);
+
+            setResponse(res.data);
         } catch (error) {
             console.error('Error:', error)
         }
@@ -53,6 +56,11 @@ const TelVerify = () => {
                             <Button text={isSubmitting ? 'ยืนยันแล้ว' : 'ยืนยัน'} disabled={isSubmitting} />
                         </div>
                     </form>
+                    {response && (
+                        <div className='responseMessage'>
+                            <p>Response: {response}</p>
+                        </div>
+                    )}
                 </div>
             </div>
         </>
