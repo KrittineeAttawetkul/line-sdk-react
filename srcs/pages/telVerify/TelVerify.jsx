@@ -6,9 +6,15 @@ import Button from '../../components/Button/Button'
 
 const TelVerify = () => {
     const [tel, setTel] = useState('')
+    const [isSubmitting, setIsSubmitting] = useState(false)
 
     const handleSubmit = async (e) => {
         e.preventDefault()
+
+        if (isSubmitting) return
+
+        setIsSubmitting(true)
+
         try {
 
             const payload = { //ส่งเป็น obj
@@ -43,8 +49,8 @@ const TelVerify = () => {
                                 required
                             />
                         </div>
-                        <div type="submit" className='telBtn'>
-                            <Button text='ยืนยัน' />
+                        <div type="submit" className={`telBtn ${isSubmitting ? 'disabled' : ''}`}>
+                            <Button text={isSubmitting ? 'ยืนยันแล้ว' : 'ยืนยัน'} disabled={isSubmitting} />
                         </div>
                     </form>
                 </div>

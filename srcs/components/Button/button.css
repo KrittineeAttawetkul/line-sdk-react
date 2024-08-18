@@ -10,7 +10,7 @@
     transition: background-color 0.3s;
 }
 
-.Btn:hover {
+.Btn :hover {
     background-color: #c52a18;
 }
 
@@ -20,6 +20,6 @@
     cursor: not-allowed;
 }
 
-.Btn:disabled {
+.Btn :disabled {
     pointer-events: none;
 }
