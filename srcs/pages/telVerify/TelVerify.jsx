@@ -39,6 +39,7 @@ const TelVerify = () => {
                                 value={tel}
                                 onChange={(e) => setTel(e.target.value)}
                                 placeholder='เบอร์โทรศัพท์มือถือ'
+                                pattern="[0][0-9]{2}[0-9]{3}[0-9]{4}"
                                 required
                             />
                         </div>
