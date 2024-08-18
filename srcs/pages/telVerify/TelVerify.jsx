@@ -1,5 +1,8 @@
 import React, { useState } from 'react'
 import { USER_ACTION } from '../../apis/userApi'
+import './telVerify.css'
+import Button from '../../components/Button/Button'
+
 
 const TelVerify = () => {
     const [tel, setTel] = useState('')
@@ -22,18 +25,29 @@ const TelVerify = () => {
 
     return (
         <>
-            <form onSubmit={handleSubmit}>
-                <div>
-                    <label>Tel</label>
+            <div className='telContainter'>
+                <div className='telBox'>
+                    <p>Security Sign In</p>
+                    <form onSubmit={handleSubmit} className='telForm'>
+                        <div className='telLabel'>
+                            <label>เบอร์โทรศัพท์มือถือ</label>
+                            <span>*</span>
+                        </div>
+                        <div>
+                            <input
+                                type="tel"
+                                value={tel}
+                                onChange={(e) => setTel(e.target.value)}
+                                placeholder='เบอร์โทรศัพท์มือถือ'
+                                required
+                            />
+                        </div>
+                        <div type="submit" className='telBtn'>
+                            <Button text='ยืนยัน' />
+                        </div>
+                    </form>
                 </div>
-                <input
-                    type="tel"
-                    value={tel}
-                    onChange={(e) => setTel(e.target.value)}
-                    required
-                />
-                <button type="submit">Verify</button>
-            </form>
+            </div>
         </>
     )
 }
