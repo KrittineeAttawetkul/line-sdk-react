@@ -1,15 +1,15 @@
 let hostname = location.hostname;
 let host_config = {};
 
-if(hostname === 'localhost')
-{
+if (hostname === 'localhost') {
     host_config = {
-        baseApi: 'https://b876-184-22-35-139.ngrok-free.app'
+        baseApi: 'https://5415-182-52-129-144.ngrok-free.app',
+        suburl:'/nilecon-hr'
     }
-}else
-{
+} else {
     host_config = {
-        baseApi: 'https://b876-184-22-35-139.ngrok-free.app'
+        baseApi: 'https://5415-182-52-129-144.ngrok-free.app',
+        suburl:'/nilecon-hr'
     }
 }
 

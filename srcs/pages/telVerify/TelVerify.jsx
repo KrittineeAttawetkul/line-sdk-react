@@ -1,13 +1,46 @@
-import React, { useState } from 'react'
-import { USER_ACTION } from '../../apis/userApi'
+import React, { useEffect, useState } from 'react'
 import './telVerify.css'
+import { USER_ACTION } from '../../apis/userApi'
+import { BASE_URL } from '../../config/HostConfig';
 import Button from '../../components/Button/Button'
+import useLineLogin from '../../utils/addons/useLineLogin'
+import Liff_Id from '../../assets/Liff_Id'
 
 
 const TelVerify = () => {
     const [tel, setTel] = useState('')
     const [isSubmitting, setIsSubmitting] = useState(false)
     const [response, setResponse] = useState(null);
+
+    const [lineProfile, setLineProfile] = useState(null);
+    const [userList, setUserList] = useState({
+        display_name: '',
+        picture_url: '',
+        status_message: '',
+        qr_url: ''
+    });
+
+    useEffect(() => {
+        pageInit();
+    }, [])
+
+    const pageInit = async () => {
+        await useLineLogin(Liff_Id.tel);
+        userInit();
+    }
+
+    // ****function addon 
+    const userInit = async () => {
+        const storedProfile = localStorage.getItem('lineProfile');
+        console.log('Stored Profile:', storedProfile); // Debugging log
+        const profile = storedProfile ? JSON.parse(storedProfile) : null;
+        setLineProfile(profile);
+        console.log('Parsed Profile:', profile); // Debugging log
+
+        const payload = { //ส่งเป็น obj
+            user_id: profile.user_id
+        }
+    }
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -58,7 +91,7 @@ const TelVerify = () => {
                     </form>
                     {response && (
                         <div className='responseMessage'>
-                            <p>Response: {response}</p>
+                            <p>{response}</p>
                         </div>
                     )}
                 </div>

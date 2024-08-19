@@ -11,34 +11,35 @@ import Scan from "./pages/Scan/Scan";
 import Transfer from "./pages/transfer/Transfer";
 import Verify from "./pages/Verify/Verify";
 import TelVerify from "./pages/telVerify/TelVerify";
+import { BASE_URL } from "./config/HostConfig";
 
 const router = createBrowserRouter([
     {
-        path: "/",
+        path: BASE_URL.suburl + "/",
         element: <div>No endpoint page</div>,
     },
     {
-        path: "/api/myqr",
+        path: BASE_URL.suburl + "/api/myqr",
         element: (<MyQr />),
     },
     {
-        path: "/api/history",
+        path: BASE_URL.suburl + "/api/history",
         element: (<History />),
     },
     {
-        path: "/api/telverify",
+        path: BASE_URL.suburl + "/api/telverify",
         element: (<TelVerify />)
     },
     {
-        path: "/api/scan",
+        path: BASE_URL.suburl + "/api/scan",
         element: (<Scan />),
     },
     {
-        path: "/api/scan/transfer",
+        path: BASE_URL.suburl + "/api/scan/transfer",
         element: (<Transfer />),
     },
     {
-        path: "/api/scan/transfer/verify",
+        path: BASE_URL.suburl + "/api/scan/transfer/verify",
         element: (<Verify />)
     },
 ]);
