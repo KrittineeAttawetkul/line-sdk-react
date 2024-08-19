@@ -13,12 +13,6 @@ const TelVerify = () => {
     const [response, setResponse] = useState(null);
 
     const [lineProfile, setLineProfile] = useState(null);
-    const [userList, setUserList] = useState({
-        display_name: '',
-        picture_url: '',
-        status_message: '',
-        qr_url: ''
-    });
 
     useEffect(() => {
         pageInit();
@@ -36,23 +30,22 @@ const TelVerify = () => {
         const profile = storedProfile ? JSON.parse(storedProfile) : null;
         setLineProfile(profile);
         console.log('Parsed Profile:', profile); // Debugging log
-
-        const payload = { //ส่งเป็น obj
-            user_id: profile.user_id
-        }
     }
 
     const handleSubmit = async (e) => {
         e.preventDefault()
 
-        if (isSubmitting) return
 
-        setIsSubmitting(true)
+        // if (isSubmitting)
+        //     return setIsSubmitting(true)
+        console.log('user_id', lineProfile.user_id)
+        console.log('isSubmitting', isSubmitting)
 
         try {
 
             const payload = { //ส่งเป็น obj
-                tel: tel
+                tel: tel,
+                user_id: lineProfile.user_id
             }
 
             const res = await USER_ACTION.checkTel(payload);
@@ -88,6 +81,7 @@ const TelVerify = () => {
                         <div type="submit" className={`telBtn ${isSubmitting ? 'disabled' : ''}`}>
                             <Button text={isSubmitting ? 'ยืนยันแล้ว' : 'ยืนยัน'} disabled={isSubmitting} />
                         </div>
+                        <p>Ver 7</p>
                     </form>
                     {response && (
                         <div className='responseMessage'>
