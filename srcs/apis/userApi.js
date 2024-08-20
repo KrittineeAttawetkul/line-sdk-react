@@ -4,7 +4,7 @@ import { BASE_URL } from '../config/HostConfig';
 export const USER_ACTION = {
     getUserByUserId,
     getDummy,
-    checkTel
+    Register
 };
 
 function getUserByUserId(payload) {
@@ -27,9 +27,9 @@ function getUserByUserId(payload) {
     })
 }
 
-function checkTel(payload) {
+function Register(payload) {
     return new Promise(async resolve => {
-        axios.post(BASE_URL.baseApi + '/api/tel', payload,
+        axios.post(BASE_URL.baseApi + '/api/register', payload,
             {
                 headers: {
                     "ngrok-skip-browser-warning": "69420"
