@@ -11,7 +11,6 @@ const TelVerify = () => {
     const [tel, setTel] = useState('')
     const [isSubmitting, setIsSubmitting] = useState(false)
     const [response, setResponse] = useState(null);
-
     const [lineProfile, setLineProfile] = useState(null);
 
     useEffect(() => {
@@ -19,7 +18,10 @@ const TelVerify = () => {
     }, [])
 
     const pageInit = async () => {
-        await useLineLogin(Liff_Id.tel);
+        console.log('liff id: ', Liff_Id.tel);
+
+        const local = await useLineLogin(Liff_Id.tel);
+        console.log('local', local)
         userInit();
     }
 
@@ -35,11 +37,8 @@ const TelVerify = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
 
-
-        // if (isSubmitting)
-        //     return setIsSubmitting(true)
-        console.log('user_id', lineProfile.user_id)
-        console.log('isSubmitting', isSubmitting)
+        if (isSubmitting) return
+        setIsSubmitting(true)
 
         try {
 
@@ -48,7 +47,7 @@ const TelVerify = () => {
                 user_id: lineProfile.user_id
             }
 
-            const res = await USER_ACTION.checkTel(payload);
+            const res = await USER_ACTION.Register(payload);
             console.log('user res: ', res);
             console.log('res Data: ', res.data);
 
@@ -63,6 +62,7 @@ const TelVerify = () => {
             <div className='telContainter'>
                 <div className='telBox'>
                     <p>Security Sign In</p>
+                    <p>Ver 20.5</p>
                     <form onSubmit={handleSubmit} className='telForm'>
                         <div className='telLabel'>
                             <label>เบอร์โทรศัพท์มือถือ</label>
@@ -81,7 +81,6 @@ const TelVerify = () => {
                         <div type="submit" className={`telBtn ${isSubmitting ? 'disabled' : ''}`}>
                             <Button text={isSubmitting ? 'ยืนยันแล้ว' : 'ยืนยัน'} disabled={isSubmitting} />
                         </div>
-                        <p>Ver 7</p>
                     </form>
                     {response && (
                         <div className='responseMessage'>
