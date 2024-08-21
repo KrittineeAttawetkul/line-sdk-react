@@ -5,6 +5,7 @@ import { BASE_URL } from '../../config/HostConfig';
 import Button from '../../components/Button/Button'
 import useLineLogin from '../../utils/addons/useLineLogin'
 import Liff_Id from '../../assets/Liff_Id'
+import Swal from 'sweetalert2'
 
 
 const TelVerify = () => {
@@ -16,6 +17,33 @@ const TelVerify = () => {
     useEffect(() => {
         pageInit();
     }, [])
+
+    const popup = (status) => {
+        console.log("status", status)
+
+        if (status) {
+            Swal.fire({
+                title: 'คุณเป็นพนักงาน Nilecon',
+                icon: "success",
+                confirmButtonText: 'เรียบร้อย',
+                confirmButtonColor: "#DE2D1E",
+                width: 350
+            }).then(() => {
+                setIsSubmitting(true);
+            });
+        }
+        else {
+            Swal.fire({
+                title: 'คุณไม่ได้เป็นพนักงาน Nilecon',
+                icon: "warning",
+                confirmButtonText: 'ยกเลิก',
+                confirmButtonColor: "#DE2D1E",
+                width: 350
+            }).then(() => {
+                setIsSubmitting(true);
+            });
+        }
+    }
 
     const pageInit = async () => {
         console.log('liff id: ', Liff_Id.tel);
@@ -37,8 +65,8 @@ const TelVerify = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
 
-        if (isSubmitting) return
-        setIsSubmitting(true)
+        // if (isSubmitting) return
+        // setIsSubmitting(true)
 
         try {
 
@@ -51,7 +79,10 @@ const TelVerify = () => {
             console.log('user res: ', res);
             console.log('res Data: ', res.data);
 
+            popup(res.status)
+
             setResponse(res.data);
+
         } catch (error) {
             console.error('Error:', error)
         }
@@ -62,7 +93,7 @@ const TelVerify = () => {
             <div className='telContainter'>
                 <div className='telBox'>
                     <p>Security Sign In</p>
-                    <p>Ver 20.5</p>
+                    <p>Ver 21.2</p>
                     <form onSubmit={handleSubmit} className='telForm'>
                         <div className='telLabel'>
                             <label>เบอร์โทรศัพท์มือถือ</label>
@@ -78,15 +109,15 @@ const TelVerify = () => {
                                 required
                             />
                         </div>
-                        <div type="submit" className={`telBtn ${isSubmitting ? 'disabled' : ''}`}>
+                        <div type="submit" className={`telBtn ${isSubmitting ? 'disabled' : ''}`} >
                             <Button text={isSubmitting ? 'ยืนยันแล้ว' : 'ยืนยัน'} disabled={isSubmitting} />
                         </div>
                     </form>
-                    {response && (
+                    {/* {response && (
                         <div className='responseMessage'>
                             <p>{response}</p>
                         </div>
-                    )}
+                    )} */}
                 </div>
             </div>
         </>
