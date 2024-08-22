@@ -6,10 +6,10 @@ import {
     RouterProvider,
 } from "react-router-dom";
 import MyQr from "./pages/MyQR/MyQr";
-import History from "./pages/History/History";
-import Scan from "./pages/Scan/Scan";
-import Transfer from "./pages/transfer/Transfer";
-import Verify from "./pages/Verify/Verify";
+// import History from "./pages/History/History";
+// import Scan from "./pages/Scan/Scan";
+// import Transfer from "./pages/transfer/Transfer";
+// import Verify from "./pages/Verify/Verify";
 import TelVerify from "./pages/telVerify/TelVerify";
 import { BASE_URL } from "./config/HostConfig";
 
@@ -23,25 +23,25 @@ const router = createBrowserRouter([
         element: (<MyQr />),
     },
     {
-        path: BASE_URL.suburl + "/history",
-        element: (<History />),
-    },
-    {
         path: BASE_URL.suburl + "/telverify",
         element: (<TelVerify />)
     },
-    {
-        path: BASE_URL.suburl + "/scan",
-        element: (<Scan />),
-    },
-    {
-        path: BASE_URL.suburl + "/scan/transfer",
-        element: (<Transfer />),
-    },
-    {
-        path: BASE_URL.suburl + "/scan/transfer/verify",
-        element: (<Verify />)
-    },
+    // {
+    //     path: BASE_URL.suburl + "/history",
+    //     element: (<History />),
+    // },
+    // {
+    //     path: BASE_URL.suburl + "/scan",
+    //     element: (<Scan />),
+    // },
+    // {
+    //     path: BASE_URL.suburl + "/scan/transfer",
+    //     element: (<Transfer />),
+    // },
+    // {
+    //     path: BASE_URL.suburl + "/scan/transfer/verify",
+    //     element: (<Verify />)
+    // },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
