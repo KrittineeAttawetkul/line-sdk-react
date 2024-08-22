@@ -19,27 +19,27 @@ const router = createBrowserRouter([
         element: <div>No endpoint page</div>,
     },
     {
-        path: BASE_URL.suburl + "/api/myqr",
+        path: BASE_URL.suburl + "/myqr",
         element: (<MyQr />),
     },
     {
-        path: BASE_URL.suburl + "/api/history",
+        path: BASE_URL.suburl + "/history",
         element: (<History />),
     },
     {
-        path: BASE_URL.suburl + "/api/telverify",
+        path: BASE_URL.suburl + "/telverify",
         element: (<TelVerify />)
     },
     {
-        path: BASE_URL.suburl + "/api/scan",
+        path: BASE_URL.suburl + "/scan",
         element: (<Scan />),
     },
     {
-        path: BASE_URL.suburl + "/api/scan/transfer",
+        path: BASE_URL.suburl + "/scan/transfer",
         element: (<Transfer />),
     },
     {
-        path: BASE_URL.suburl + "/api/scan/transfer/verify",
+        path: BASE_URL.suburl + "/scan/transfer/verify",
         element: (<Verify />)
     },
 ]);

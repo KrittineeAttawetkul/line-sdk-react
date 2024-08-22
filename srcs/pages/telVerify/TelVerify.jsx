@@ -18,30 +18,85 @@ const TelVerify = () => {
         pageInit();
     }, [])
 
-    const popup = (status) => {
+    const popup = (status, data) => {
         console.log("status", status)
 
         if (status) {
-            Swal.fire({
-                title: 'คุณเป็นพนักงาน Nilecon',
-                icon: "success",
-                confirmButtonText: 'เรียบร้อย',
-                confirmButtonColor: "#DE2D1E",
-                width: 350
-            }).then(() => {
-                setIsSubmitting(true);
-            });
+            if (data == 'User already exists') {
+                Swal.fire({
+                    title: 'เข้าสู่ระบบ',
+                    // text: "",
+                    icon: "success",
+                    confirmButtonText: 'ตกลง',
+                    confirmButtonColor: "#29AE4C",
+                    width: 350
+                }).then(() => {
+                    setIsSubmitting(true);
+                });
+            }
+            if (data == 'Success save record') {
+                Swal.fire({
+                    title: 'สมัครสมาชิกสำเร็จ',
+                    // text: "",
+                    icon: "success",
+                    confirmButtonText: 'ตกลง',
+                    confirmButtonColor: "#29AE4C",
+                    width: 350
+                }).then(() => {
+                    setIsSubmitting(true);
+                });
+            }
         }
         else {
-            Swal.fire({
-                title: 'คุณไม่ได้เป็นพนักงาน Nilecon',
-                icon: "warning",
-                confirmButtonText: 'ยกเลิก',
-                confirmButtonColor: "#DE2D1E",
-                width: 350
-            }).then(() => {
-                setIsSubmitting(true);
-            });
+            if (data == 'Different user') {
+                Swal.fire({
+                    title: 'มีผู้ใช้งานนี้แล้ว',
+                    // text: "",
+                    icon: "warning",
+                    confirmButtonText: 'ปิด',
+                    confirmButtonColor: "#C7C7C7",
+                    width: 350
+                }).then(() => {
+                    setIsSubmitting(true);
+                });
+            }
+            else if (data == 'คุณไม่ได้เป็นพนักงาน Nilecon') {
+                Swal.fire({
+                    title: 'คุณไม่ได้เป็นพนักงาน Nilecon',
+                    // text: "",
+                    icon: "warning",
+                    confirmButtonText: 'ปิด',
+                    confirmButtonColor: "#C7C7C7",
+                    width: 350
+                }).then(() => {
+                    setIsSubmitting(true);
+                });
+            }
+            else if (data == 'Failed to save record') {
+                Swal.fire({
+                    title: 'สมัครสมาชิกไม่สำเร็จ',
+                    // text: "",
+                    icon: "error",
+                    confirmButtonText: 'ปิด',
+                    confirmButtonColor: "#C7C7C7",
+                    width: 350
+                }).then(() => {
+                    setIsSubmitting(true);
+                });
+            }
+            else {
+                Swal.fire({
+                    title: 'เกิดปัญหาขัดข้อง',
+                    // text: "",
+                    icon: "error",
+                    confirmButtonText: 'ปิด',
+                    confirmButtonColor: "#C7C7C7",
+                    width: 350
+                }).then(() => {
+                    setIsSubmitting(true);
+                });
+
+            }
         }
     }
 
@@ -79,7 +134,7 @@ const TelVerify = () => {
             console.log('user res: ', res);
             console.log('res Data: ', res.data);
 
-            popup(res.status)
+            popup(res.status, res.data)
 
             setResponse(res.data);
 
@@ -93,7 +148,7 @@ const TelVerify = () => {
             <div className='telContainter'>
                 <div className='telBox'>
                     <p>Security Sign In</p>
-                    <p>Ver 21.2</p>
+                    <p>Ver 22.5</p>
                     <form onSubmit={handleSubmit} className='telForm'>
                         <div className='telLabel'>
                             <label>เบอร์โทรศัพท์มือถือ</label>
