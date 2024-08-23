@@ -148,7 +148,7 @@ const TelVerify = () => {
             <div className='telContainter'>
                 <div className='telBox'>
                     <p>Security Sign In</p>
-                    <p>Ver 22.5</p>
+                    <p>Ver 23.15</p>
                     <form onSubmit={handleSubmit} className='telForm'>
                         <div className='telLabel'>
                             <label>เบอร์โทรศัพท์มือถือ</label>

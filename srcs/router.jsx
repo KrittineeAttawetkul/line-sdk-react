@@ -12,11 +12,12 @@ import MyQr from "./pages/MyQR/MyQr";
 // import Verify from "./pages/Verify/Verify";
 import TelVerify from "./pages/telVerify/TelVerify";
 import { BASE_URL } from "./config/HostConfig";
+import Try from "./pages/try/Try";
 
 const router = createBrowserRouter([
     {
         path: BASE_URL.suburl + "/",
-        element: <div>No endpoint page</div>,
+        element: (<Try />),
     },
     {
         path: BASE_URL.suburl + "/myqr",

@@ -51,6 +51,7 @@ const MyQr = () => {
             <>
               <div>
                 <p>{lineProfile.display_name}</p>
+                <h3>Ver 23.15</h3>
                 {/* <p>{userList.display_name}</p> */}
               </div>
               <div className='myQrImg'>

@@ -1,7 +1,7 @@
 let hostname = location.hostname;
 let host_config = {};
 
-const ngrokUrl = 'https://a29e-125-25-205-153.ngrok-free.app' 
+const ngrokUrl = 'https://b951-118-175-205-86.ngrok-free.app' 
 
 if (hostname === 'localhost') {
     host_config = {
