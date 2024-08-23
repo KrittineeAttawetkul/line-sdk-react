@@ -55,17 +55,17 @@ const MyQr = () => {
                 {/* <p>{userList.display_name}</p> */}
               </div>
               <div className='myQrImg'>
-                {/* <img src={`${BASE_URL.baseApi}${userList.qr_url}`} /> */}
+                <img src={`${BASE_URL.baseApi}${userList.qr_url}`} />
               </div>
             </>
           ) : (
             <p>Loading profile...</p>
           )}
-          {/* <div className='myQrBtn'>
+          <div className='myQrBtn'>
             <a href='#'>
               <Button text='Scan' />
             </a>
-          </div> */}
+          </div>
         </div>
       </div>
     </>
