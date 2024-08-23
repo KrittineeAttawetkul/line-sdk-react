@@ -5,9 +5,6 @@ export default function useLineLogin(liffID) {
         try {
             await liff.init({
                 liffId: liffID,
-                view: {
-                    type: "compact"
-                }
             });
 
             console.log('login: ', liffID);
