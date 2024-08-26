@@ -32,6 +32,7 @@ const TelVerify = () => {
                     width: 350
                 }).then(() => {
                     setIsSubmitting(true);
+                    liff.closeWindow();
                 });
             }
             if (data == 'Success save record') {
@@ -44,6 +45,7 @@ const TelVerify = () => {
                     width: 350
                 }).then(() => {
                     setIsSubmitting(true);
+                    liff.closeWindow();
                 });
             }
         }
@@ -58,6 +60,7 @@ const TelVerify = () => {
                     width: 350
                 }).then(() => {
                     setIsSubmitting(true);
+                    liff.closeWindow();
                 });
             }
             else if (data == 'คุณไม่ได้เป็นพนักงาน Nilecon') {
@@ -70,6 +73,7 @@ const TelVerify = () => {
                     width: 350
                 }).then(() => {
                     setIsSubmitting(true);
+                    liff.closeWindow();
                 });
             }
             else if (data == 'Failed to save record') {
@@ -82,6 +86,7 @@ const TelVerify = () => {
                     width: 350
                 }).then(() => {
                     setIsSubmitting(true);
+                    liff.closeWindow();
                 });
             }
             else {
@@ -94,6 +99,7 @@ const TelVerify = () => {
                     width: 350
                 }).then(() => {
                     setIsSubmitting(true);
+                    liff.closeWindow();
                 });
 
             }

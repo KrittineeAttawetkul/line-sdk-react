@@ -1,17 +1,20 @@
 let hostname = location.hostname;
 let host_config = {};
 
-const ngrokUrl = 'https://704e-49-228-101-140.ngrok-free.app' 
+const ngrokUrl = 'https://937e-180-180-122-99.ngrok-free.app'
+const serverUrl = 'https://www.podsland.com:3998'
 
 if (hostname === 'localhost') {
     host_config = {
         baseApi: ngrokUrl,
-        suburl:'/nilecon-hr'
+        suburl: '/nilecon-hr',
+        apiurl: serverUrl
     }
 } else {
     host_config = {
         baseApi: ngrokUrl,
-        suburl:'/nilecon-hr'
+        suburl: '/nilecon-hr',
+        apiurl: serverUrl
     }
 }
 

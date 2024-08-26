@@ -51,11 +51,11 @@ const MyQr = () => {
             <>
               <div>
                 <p>{lineProfile.display_name}</p>
-                <h3>Ver 23.15</h3>
+                <h3>Ver 26.5</h3>
                 {/* <p>{userList.display_name}</p> */}
               </div>
               <div className='myQrImg'>
-                <img src={`${BASE_URL.baseApi}${userList.qr_url}`} />
+                <img src={`${BASE_URL.apiurl}${userList.qr_url}`} />
               </div>
             </>
           ) : (
