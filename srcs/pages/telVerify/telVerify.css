@@ -10,44 +10,61 @@
     align-items: center;
 }
 
-.telContainter .telBox p {
+.telContainter .telBox .t1 {
     font-size: 26px;
     font-weight: 700;
-    padding: 0 0 20px 0;
+    padding: 42px 0 10px 0;
+    color: #333333;
+}
+
+.telContainter .telBox .t2 {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21.15px;
+
+    padding: 0 0 40px 0;
     color: #333333;
 }
 
 .telContainter .telBox .telForm {
     display: grid;
     grid-template-rows: 1fr 2fr;
-    gap: 3px;
+    gap: 6px;
 }
 
 .telContainter .telBox .telForm .telLabel label {
     font-size: 14px;
-    font-weight: 500;
+    font-weight: 400;
+    line-height: 21.15px;
     color: #333333;
 }
 
 .telContainter .telBox .telForm .telLabel span {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21.15px;
     color: #FF0000;
 }
 
 .telContainter .telBox .telForm input {
     border: 1px solid #C1C1C1;
-    border-radius: 10px;
+    border-radius: 8px;
     width: 350px;
     height: 40px;
-    padding: 12px 20px;
+    padding: 12px 15px;
     font-size: 16px;
     box-sizing: border-box;
+
+    
 }
 
 .telContainter .telBox .telForm ::placeholder {
     color: #C1C1C1;
-    font-size: 16px;
-    text-align: left;
-    font-weight: 300;
+
+    font-size: var(--sds-typography-body-size-medium);
+    font-weight: 400;
+    line-height: 16px;
+
 }
 
 .telContainter .telBox .telForm .telBtn {

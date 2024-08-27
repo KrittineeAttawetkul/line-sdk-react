@@ -49,21 +49,18 @@ const MyQr = () => {
         <div className='myQrBox'>
           {lineProfile ? (
             <>
-              <div>
-                <p>{lineProfile.display_name}</p>
-                <h3>Ver 26.5</h3>
-                {/* <p>{userList.display_name}</p> */}
+              <div className='title'>
+                My QR Code
               </div>
-              <div className='myQrImg'>
-                <img src={`${BASE_URL.apiurl}${userList.qr_url}`} />
-              </div>
+              <img src={`${BASE_URL.baseApi}${userList.qr_url}`} />
+              <div className='name'>{lineProfile.display_name}</div>
             </>
           ) : (
             <p>Loading profile...</p>
           )}
           <div className='myQrBtn'>
             <a href='#'>
-              <Button text='Scan' />
+              <Button text='สแกนคิวอาร์โค้ด' />
             </a>
           </div>
         </div>

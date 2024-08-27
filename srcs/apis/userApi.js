@@ -9,13 +9,7 @@ export const USER_ACTION = {
 
 function getUserByUserId(payload) {
     return new Promise(async resolve => {
-        axios.post(BASE_URL.baseApi + '/api/users', payload,
-            {
-                headers: {
-                    "ngrok-skip-browser-warning": "69420"
-                }
-            }
-        )
+        axios.post(`${BASE_URL.baseApi}/api/users`, payload)
             .then(res => {
                 console.log(res);
                 resolve(res.data);
@@ -29,13 +23,7 @@ function getUserByUserId(payload) {
 
 function Register(payload) {
     return new Promise(async resolve => {
-        axios.post(BASE_URL.baseApi + '/api/register', payload,
-            {
-                headers: {
-                    "ngrok-skip-browser-warning": "69420"
-                }
-            }
-        )
+        axios.post(`${BASE_URL.baseApi}/api/register`, payload)
             .then(res => {
                 console.log(res);
                 resolve(res.data);
