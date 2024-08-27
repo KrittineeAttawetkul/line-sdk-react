@@ -2,8 +2,9 @@ import axios from 'axios';
 import { BASE_URL } from '../config/HostConfig';
 
 export const USER_ACTION = {
-    getUserByUserId,
     getDummy,
+    getUserByUserId,
+    getQrByUserId,
     Register
 };
 
@@ -16,6 +17,19 @@ function getUserByUserId(payload) {
             })
             .catch(err => {
                 console.log('------- getUserByUserId Error--------');
+                console.log('Error: ', err);
+            })
+    })
+}
+function getQrByUserId(payload) {
+    return new Promise(async resolve => {
+        axios.post(`${BASE_URL.baseApi}/api/qr`, payload)
+            .then(res => {
+                console.log(res);
+                resolve(res.data);
+            })
+            .catch(err => {
+                console.log('------- getQrByUserId Error--------');
                 console.log('Error: ', err);
             })
     })

@@ -9,16 +9,21 @@ import Button from '../../components/Button/Button'
 const MyQr = () => {
 
   const [lineProfile, setLineProfile] = useState(null);
-  const [userList, setUserList] = useState({
-    display_name: '',
-    picture_url: '',
-    status_message: '',
+  const [userQr, setUserQr] = useState({
     qr_url: ''
   });
+
+  const [statusQr, setStatus] = useState(false);
 
   useEffect(() => {
     pageInit();
   }, [])
+
+  useEffect(() => {
+    if (statusQr) {
+      console.log("user QR : ",userQr);
+    }
+  },[statusQr])
 
   const pageInit = async () => {
     await useLineLogin(Liff_Id.my_qr);
@@ -36,11 +41,19 @@ const MyQr = () => {
     const payload = { //ส่งเป็น obj
       user_id: profile.user_id
     }
-    const res = await USER_ACTION.getUserByUserId(payload);
+    const res = await USER_ACTION.getQrByUserId(payload);
     console.log('user res: ', res);
     console.log('res Data: ', res.data);
-    setUserList(res.data)
-    console.log('user List ', userList);
+    if (res.status) {
+      setStatus(res.status)
+      setUserQr(res.data)
+      // console.log('user QR ', userQr);
+    }else{
+      setStatus(res.status)
+      console.log("getQrByUserId (Error) : Error Api ");
+      
+    }
+
   }
 
   return (
@@ -52,7 +65,11 @@ const MyQr = () => {
               <div className='title'>
                 My QR Code
               </div>
-              <img src={`${BASE_URL.baseApi}${userList.qr_url}`} />
+              {statusQr && userQr.qr_url !== "" ? (
+                <img src={`${BASE_URL.baseApi}${userQr.qr_url}`} />
+              ) : (
+                <p>Loading QR...</p>
+              )}
               <div className='name'>{lineProfile.display_name}</div>
             </>
           ) : (
