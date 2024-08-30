@@ -2,7 +2,8 @@ export default { //ออกเป็น Obj
     // PLS WORK
     tel: '2006140913-M2deQ3a3',
     my_qr: '2006140913-OLVnxQDQ',
-    try: '2006140913-1Ov9EnVn',
+    member: '2006140913-BWZQp2E2',
+
 
     // ALONE
     // my_qr: '2005813934-ej2E7N5k',

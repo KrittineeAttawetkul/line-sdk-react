@@ -6,7 +6,7 @@ import {
     RouterProvider,
 } from "react-router-dom";
 import MyQr from "./pages/MyQR/MyQr";
-// import History from "./pages/History/History";
+import Member from "./pages/member/Member";
 // import Scan from "./pages/Scan/Scan";
 // import Transfer from "./pages/transfer/Transfer";
 // import Verify from "./pages/Verify/Verify";
@@ -27,10 +27,10 @@ const router = createBrowserRouter([
         path: BASE_URL.suburl + "/telverify",
         element: (<TelVerify />)
     },
-    // {
-    //     path: BASE_URL.suburl + "/history",
-    //     element: (<History />),
-    // },
+    {
+        path: BASE_URL.suburl + "/member",
+        element: (<Member />),
+    },
     // {
     //     path: BASE_URL.suburl + "/scan",
     //     element: (<Scan />),

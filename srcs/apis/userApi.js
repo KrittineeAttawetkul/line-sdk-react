@@ -3,20 +3,20 @@ import { BASE_URL } from '../config/HostConfig';
 
 export const USER_ACTION = {
     getDummy,
-    getUserByUserId,
+    getCardByUserId,
     getQrByUserId,
     Register
 };
 
-function getUserByUserId(payload) {
+function getCardByUserId(payload) {
     return new Promise(async resolve => {
-        axios.post(`${BASE_URL.baseApi}/api/users`, payload)
+        axios.post(`${BASE_URL.baseApi}/api/member`, payload)
             .then(res => {
                 console.log(res);
                 resolve(res.data);
             })
             .catch(err => {
-                console.log('------- getUserByUserId Error--------');
+                console.log('------- getCardByUserId Error--------');
                 console.log('Error: ', err);
             })
     })
