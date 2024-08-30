@@ -9,7 +9,7 @@ export default function useLineLogin(liffID) {
 
                 console.log('login: ', liffID);
 
-                let LineProfileStatus = !!localStorage.getItem('line_profile') ? true : false;
+                // let LineProfileStatus = !!localStorage.getItem('line_profile') ? true : false;
 
                 if (liff.isLoggedIn()) {
                     console.log('islogin: ', liff.isLoggedIn());
@@ -24,7 +24,7 @@ export default function useLineLogin(liffID) {
                         id_token: idToken,
                         display_name: profile.displayName,
                         picture_url: profile.pictureUrl,
-                        status_messeage: profile.statusMessage,
+                        status_message: profile.statusMessage,
                         user_id: profile.userId,
                         access_token: accessToken
                     };
