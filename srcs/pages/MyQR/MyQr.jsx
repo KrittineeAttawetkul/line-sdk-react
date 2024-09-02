@@ -21,9 +21,9 @@ const MyQr = () => {
 
   useEffect(() => {
     if (statusQr) {
-      console.log("user QR : ",userQr);
+      console.log("user QR : ", userQr);
     }
-  },[statusQr])
+  }, [statusQr])
 
   const pageInit = async () => {
     await useLineLogin(Liff_Id.my_qr);
@@ -48,10 +48,10 @@ const MyQr = () => {
       setStatus(res.status)
       setUserQr(res.data)
       // console.log('user QR ', userQr);
-    }else{
+    } else {
       setStatus(res.status)
       console.log("getQrByUserId (Error) : Error Api ");
-      
+
     }
 
   }
@@ -76,7 +76,7 @@ const MyQr = () => {
             <p>Loading profile...</p>
           )}
           <div className='myQrBtn'>
-            <a href='#'>
+            <a href='https://liff.line.me/2006140913-9Byp8ana'>
               <Button text='สแกนคิวอาร์โค้ด' />
             </a>
           </div>
