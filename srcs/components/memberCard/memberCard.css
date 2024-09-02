@@ -22,7 +22,7 @@
     justify-content: center;
     position: relative;
     /* Needed for positioning .name absolutely */
-    margin: 40px 0 0 0;
+    /* margin: 40px 0 0 0; */
 }
 
 /* .memberContainer .memberBox .memberCard {

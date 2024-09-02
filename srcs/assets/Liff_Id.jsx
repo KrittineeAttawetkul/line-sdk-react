@@ -4,6 +4,7 @@ export default { //ออกเป็น Obj
     my_qr: '2006140913-OLVnxQDQ',
     member: '2006140913-BWZQp2E2',
     scan: '2006140913-9Byp8ana',
+    transfer: '2006140913-kJo9OWDW',
 
 
     // ALONE

@@ -63,7 +63,7 @@ const MyQr = () => {
           {lineProfile ? (
             <>
               <div className='title'>
-                My QR Code
+                คิวอาร์โค้ด
               </div>
               {statusQr && userQr.qr_url !== "" ? (
                 <img src={`${BASE_URL.baseApi}${userQr.qr_url}`} />

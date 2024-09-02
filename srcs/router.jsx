@@ -5,14 +5,14 @@ import {
     createBrowserRouter,
     RouterProvider,
 } from "react-router-dom";
+import { BASE_URL } from "./config/HostConfig";
+import Try from "./pages/try/Try";
+import TelVerify from "./pages/telVerify/TelVerify";
 import MyQr from "./pages/myQr/MyQr";
 import Member from "./pages/member/Member";
 import Scan from "./pages/scan/Scan";
-// import Transfer from "./pages/transfer/Transfer";
-// import Verify from "./pages/Verify/Verify";
-import TelVerify from "./pages/telVerify/TelVerify";
-import { BASE_URL } from "./config/HostConfig";
-import Try from "./pages/try/Try";
+import Transfer from "./pages/transfer/Transfer";
+
 
 const router = createBrowserRouter([
     {
@@ -35,10 +35,10 @@ const router = createBrowserRouter([
         path: BASE_URL.suburl + "/scan",
         element: (<Scan />),
     },
-    // {
-    //     path: BASE_URL.suburl + "/scan/transfer",
-    //     element: (<Transfer />),
-    // },
+    {
+        path: BASE_URL.suburl + "/scan/transfer",
+        element: (<Transfer />),
+    },
     // {
     //     path: BASE_URL.suburl + "/scan/transfer/verify",
     //     element: (<Verify />)
