@@ -7,10 +7,10 @@ import { USER_ACTION } from '../../apis/userApi'
 
 const Member = () => {
 
-    const [lineProfile, setLineProfile] = useState(null);
-    const [userCard, setUserCard] = useState({
-        card_url: ''
-    });
+    // const [lineProfile, setLineProfile] = useState(null);
+    // const [userCard, setUserCard] = useState({
+    //     card_url: ''
+    // });
     const [statusCard, setStatus] = useState(false);
     const [data, setData] = useState({ userCard: '', lineProfile: null });
 
@@ -20,7 +20,7 @@ const Member = () => {
 
     useEffect(() => {
         if (statusCard) {
-            console.log("userCard : ", userCard);
+            console.log("userCard : ", data.userCard);
         }
     }, [statusCard])
 
@@ -33,7 +33,7 @@ const Member = () => {
         const storedProfile = localStorage.getItem('lineProfile');
         console.log('Stored Profile:', storedProfile); // Debugging log
         const profile = storedProfile ? JSON.parse(storedProfile) : null;
-        setLineProfile(profile);
+        // setLineProfile(profile);
         console.log('Parsed Profile:', profile); // Debugging log
 
         const payload = {
@@ -45,7 +45,7 @@ const Member = () => {
 
         if (res.status) {
             setStatus(res.status);
-            setUserCard(res.data);
+            // setUserCard(res.data);
             setData({
                 userCard: res.data,
                 lineProfile: profile

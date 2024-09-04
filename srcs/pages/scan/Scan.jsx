@@ -6,11 +6,13 @@ import liff from '@line/liff';
 import { permissionChecker } from '../../utils/addons/addons';
 import Swal from 'sweetalert2'
 import { BASE_URL } from '../../config/HostConfig';
+import { useNavigate } from 'react-router-dom';
 
 const Scan = () => {
     const [lineProfile, setLineProfile] = useState(null);
     const [scanResult, setScanResult] = useState(null);
     const [scanUserID, setScanUserID] = useState(null);
+    const navigate = useNavigate();
 
     useEffect(() => {
         pageInit();
@@ -18,6 +20,8 @@ const Scan = () => {
 
     const pageInit = async () => {
         console.log("Initializing LINE login for scan page");
+        localStorage.removeItem('receiver_id');
+
         await useLineLogin(Liff_Id.scan);
         userInit();
 
@@ -59,12 +63,19 @@ const Scan = () => {
             const isValidQR = scanResult.startsWith('NLCHR-MYQR-');
 
             if (isValidQR) {
-                const user_id = scanResult.slice(11);
-                console.log('Scanned user ID:', user_id);
+                const receiver_id = scanResult.slice(11);
+                console.log('Scanned user ID:', receiver_id);
 
-                if (user_id !== lineProfile.user_id) {
-                    setScanUserID(user_id);
-                    location.replace("https://www.podsland.com/nilecon-hr/scan/transfer");
+                if (receiver_id !== lineProfile.user_id) {
+                    setScanUserID(receiver_id);
+
+                    // Remove receiver_id from localStorage before navigating
+                    // localStorage.removeItem('receiver_id');
+
+                    navigate(BASE_URL.suburl + "/scan/transfer", { state: { receiver_id } });
+
+
+                    // location.replace("https://www.podsland.com/nilecon-hr/scan/transfer");
                     // liff.openWindow({
                     //     url: "https://liff.line.me/2006140913-kJo9OWDW",
                     //     external: false,

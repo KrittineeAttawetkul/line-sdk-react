@@ -5,14 +5,15 @@ export const USER_ACTION = {
     getDummy,
     getCardByUserId,
     getQrByUserId,
-    Register
+    Register,
+    getProfile
 };
 
 function getCardByUserId(payload) {
     return new Promise(async resolve => {
         axios.post(`${BASE_URL.baseApi}/api/member`, payload)
             .then(res => {
-                console.log(res);
+                console.log('API getCardByUserId', res);
                 resolve(res.data);
             })
             .catch(err => {
@@ -25,7 +26,7 @@ function getQrByUserId(payload) {
     return new Promise(async resolve => {
         axios.post(`${BASE_URL.baseApi}/api/qr`, payload)
             .then(res => {
-                console.log(res);
+                console.log('API getQrByUserId', res);
                 resolve(res.data);
             })
             .catch(err => {
@@ -39,7 +40,7 @@ function Register(payload) {
     return new Promise(async resolve => {
         axios.post(`${BASE_URL.baseApi}/api/register`, payload)
             .then(res => {
-                console.log(res);
+                console.log('API Register', res);
                 resolve(res.data);
             })
             .catch(err => {
@@ -55,6 +56,20 @@ function getDummy() {
             .then(res => {
                 resolve(res.data);
                 console.log('dummy: ', res);
+            })
+    })
+}
+
+function getProfile(payload) {
+    return new Promise(async resolve => {
+        axios.post(`${BASE_URL.baseApi}/api/getprofile`, payload)
+            .then(res => {
+                console.log('API getProfile', res);
+                resolve(res.data);
+            })
+            .catch(err => {
+                console.log('------- getProfile Error--------');
+                console.log('Error: ', err);
             })
     })
 }

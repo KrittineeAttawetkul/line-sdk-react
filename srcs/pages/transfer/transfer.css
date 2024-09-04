@@ -1,10 +1,37 @@
 .transferContainer {
+    margin: 42px 0 0 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.transferContainer .receiverProfile {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.transferContainer .receiverProfile .receiverPic {
+    width: 85px;
+    height: 85px;
+    border-radius: 50%;
+}
+
+.transferContainer .receiverProfile p {
+    font-family: sans-serif;
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 26px;
+
+}
+
+.transferCardContainer {
     /* margin: 100px 0 0 0; */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-end;
-    height: 600px;
+    height: 350px;
     margin: 0;
     /* background-color: cadetblue; */
     /* border: solid cornflowerblue */
@@ -12,4 +39,17 @@
 
 .custom-textarea {
     resize: none;
+}
+
+.transferCardContainer .Gif {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.transferCardContainer .Gif .loadingGif {
+    width: 50px;
+    position: absolute;
+    top: 220px;
+    z-index: -1;
 }

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useSpring, animated } from '@react-spring/web';
 import { useDrag } from '@use-gesture/react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { useState } from 'react';
 import './transfer.css'
@@ -9,15 +9,33 @@ import MemberCard from '../../components/memberCard/MemberCard'
 import Liff_Id from '../../assets/Liff_Id';
 import useLineLogin from '../../utils/addons/useLineLogin';
 import { USER_ACTION } from '../../apis/userApi';
+import liff from '@line/liff';
+import loadingGif from '../../assets/arrow.gif'; // Import the GIF file
 
 function Transfer() {
-    const [lineProfile, setLineProfile] = useState(null);
-    const [userCard, setUserCard] = useState({
-        card_url: ''
-    });
+    // const [lineProfile, setLineProfile] = useState(null);
+    const [receiverLine, setReceiverLine] = useState(null);
+    // const [userCard, setUserCard] = useState({
+    //     card_url: ''
+    // });
     const [statusCard, setStatus] = useState(false);
     const [moveCard, setMoveCard] = useState('0');
     const [data, setData] = useState({ userCard: '', lineProfile: null });
+    // const [receiver, setReceiver] = useState({
+    //     receiver_id: ''
+    // });
+
+    const location = useLocation();
+
+    useEffect(() => {
+        const savedReceiver = localStorage.getItem('receiver_id');
+        if (savedReceiver) {
+            // setReceiver(savedReceiver);
+        } else if (location.state) {
+            localStorage.setItem('receiver_id', location.state.receiver_id);
+            // setReceiver(location.state.receiver_id);
+        }
+    }, [location.state]);
 
     useEffect(() => {
         pageInit();
@@ -25,7 +43,7 @@ function Transfer() {
 
     useEffect(() => {
         if (statusCard) {
-            console.log("userCard : ", userCard);
+            console.log("userCard : ", data.userCard);
         }
     }, [statusCard])
 
@@ -36,39 +54,50 @@ function Transfer() {
     }, [moveCard])
 
     const pageInit = async () => {
-        await useLineLogin(Liff_Id.transfer);
+        // await useLineLogin(Liff_Id.transfer);
         userInit();
+        receiverProfile()
+        localStorage.removeItem('receiver_id');
     }
 
     const userInit = async () => {
-        const storedProfile = localStorage.getItem('lineProfile');
-        console.log('Stored Profile:', storedProfile); // Debugging log
-        const profile = storedProfile ? JSON.parse(storedProfile) : null;
-        setLineProfile(profile);
-        console.log('Parsed Profile:', profile); // Debugging log
+        try {
+            const storedProfile = localStorage.getItem('lineProfile');
+            const profile = storedProfile ? JSON.parse(storedProfile) : null;
+            // setLineProfile(profile);
 
-        const payload = {
-            user_id: profile.user_id
-        }
-        const res = await USER_ACTION.getCardByUserId(payload);
-        console.log('user res: ', res);
-        console.log('res Data: ', res.data);
+            const payload = { user_id: profile.user_id };
+            const res = await USER_ACTION.getCardByUserId(payload);
 
-        if (res.status) {
-            setStatus(res.status);
-            setUserCard(res.data);
-            setData({
-                userCard: res.data,
-                lineProfile: profile
-            });
-        } else {
-            setStatus(res.status);
-            console.log("getQrByUserId (Error) : Error Api ");
+            if (res.status) {
+                setStatus(res.status);
+                // setUserCard(res.data);
+                setData({
+                    userCard: res.data,
+                    lineProfile: profile
+                });
+            } else {
+                console.error("Error fetching card data:", res.status);
+            }
+
+        } catch (error) {
+            console.error("getCardByUserId API call error:", error);
         }
-    }
+    };
+
+    const receiverProfile = async () => {
+        const receiver_id = localStorage.getItem('receiver_id');
+        console.log('receiverProfile receiver_id', receiver_id);
+
+        const payload = { user_id: receiver_id };
+
+        const res = await USER_ACTION.getProfile(payload);
+        console.log('receiverProfile', res);
+
+        setReceiverLine(res)
+    };
 
     const [{ x, y }, api] = useSpring(() => ({ x: 0, y: 0 }));
-    const navigate = useNavigate();
     const [positionLocked, setPositionLocked] = useState(false);
     const [alertVisible, setAlertVisible] = useState(false);
 
@@ -76,15 +105,15 @@ function Transfer() {
     const bind = useDrag(async ({ down, movement: [mx, my] }) => {
         if (alertVisible) return; // Prevent dragging if alert is visible
 
-        const newY = positionLocked ? -300 : (down ? Math.min(0, Math.max(my, -300)) : 0);
+        const pos = -250
+
+        const newY = positionLocked ? pos : (down ? Math.min(0, Math.max(my, pos)) : 0);
 
         api.start({ x: down ? mx : 0, y: newY, immediate: down });
         console.log("newY : ", newY);
 
-
-
-        if (newY <= -300 && !positionLocked) {
-            if (newY === -300 && moveCard === '0') {
+        if (newY <= pos && !positionLocked) {
+            if (newY === pos && moveCard === '0') {
                 setMoveCard('1')
                 setPositionLocked(true);
                 setAlertVisible(true); // Lock position while alert is visible
@@ -132,20 +161,44 @@ function Transfer() {
     return (
         <>
             <div className='transferContainer'>
-                <animated.div
-                    {...bind()} // Apply the drag bindings
-                    style={{
-                        y,
-                        // width: '325px',
-                        // height: '208px',
-                        // backgroundColor: 'pink',
-                        touchAction: 'none',
-                        willChange: 'transform, opacity',
-                        position: 'absolute'
-                    }}
-                >
-                    <MemberCard data={data} />
-                </animated.div>
+                <div className='receiverProfile'>
+                    {receiverLine ? (
+                        <>
+                            <img className='receiverPic' src={receiverLine.pictureUrl} />
+                            <p>{receiverLine.displayName}</p>
+                        </>
+                    ) : (
+                        <>
+                            <img className='receiverPic' src='https://fastly.picsum.photos/id/56/200/200.jpg?hmac=rRTTTvbR4tHiWX7-kXoRxkV7ix62g9Re_xUvh4o47jA' />
+                            <p>Loading...</p>
+                        </>
+                    )}
+                    {/* <h3>{receiver ? `You submitted: ${receiver}` : 'No message was submitted.'}</h3> */}
+                </div>
+
+                <div className='transferCardContainer'>
+                    <animated.div
+                        {...bind()} // Apply the drag bindings
+                        style={{
+                            y,
+                            // width: '325px',
+                            // height: '208px',
+                            // backgroundColor: 'pink',
+                            touchAction: 'none',
+                            willChange: 'transform, opacity',
+                            position: 'absolute',
+                        }}
+                    >
+                        <MemberCard data={data} />
+                    </animated.div>
+                    <div className='Gif'>
+                        <img
+                            className='loadingGif'
+                            src={loadingGif}
+                            alt='Loading...'
+                        />
+                    </div>
+                </div>
             </div>
         </>
     );
