@@ -51,8 +51,7 @@ const Member = () => {
                 lineProfile: profile
             });
         } else {
-            setStatus(res.status);
-            console.log("getQrByUserId (Error) : Error Api ");
+            console.log("getCardByUserId (Error) : Error Api ");
         }
     }
 
