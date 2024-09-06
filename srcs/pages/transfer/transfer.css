@@ -1,3 +1,70 @@
+.custom-popup {
+    border-radius: 15px;
+    /* Custom border radius for the popup */
+}
+
+.custom-input-label {
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 22px;
+    text-align: left;
+}
+
+.custom-textarea {
+    resize: none;
+    border-radius: 10px;
+}
+
+.custom-input-placeholder {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 22px;
+    text-align: left;
+    color: #C1C1C1;
+}
+
+.swal2-actions {
+    display: flex;
+    justify-content: space-between;
+}
+
+.custom-cancel-button {
+    order: 1;
+    /* Position the cancel button first */
+    background-color: #CFCFCF;
+    /* Red */
+    color: white;
+    border-radius: 25px;
+    padding: 10px 20px;
+
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 22px;
+    text-align: center;
+
+    width: 100px;
+    height: 50px;
+}
+
+.custom-confirm-button {
+    order: 2;
+    /* Position the confirm button second */
+    background-color: #29AE4C;
+    /* Green */
+    color: white;
+    border-radius: 25px;
+    padding: 10px 20px;
+
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 22px;
+    text-align: center;
+
+    width: 120px;
+    height: 50px;
+
+}
+
 .transferContainer {
     margin: 42px 0 0 0;
     display: flex;
@@ -35,10 +102,6 @@
     margin: 0;
     /* background-color: cadetblue; */
     /* border: solid cornflowerblue */
-}
-
-.custom-textarea {
-    resize: none;
 }
 
 .transferCardContainer .Gif {

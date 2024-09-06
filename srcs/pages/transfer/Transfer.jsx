@@ -125,15 +125,22 @@ function Transfer() {
     const moveCardTrue = async () => {
         const result = await Swal.fire({
             input: "textarea",
-            inputLabel: "Message",
-            inputPlaceholder: "Type your message here...",
+            inputLabel: "เหตุผลการให้คะแนน",
+            inputPlaceholder: "เหตุผลการให้คะแนน...",
             inputAttributes: {
-                "aria-label": "Type your message here",
+                // "aria-label": "Type your message here",
                 style: "height: 200px;",
             },
             showCancelButton: true,
+            confirmButtonText: 'ตกลง',
+            cancelButtonText: 'ยกเลิก',
             customClass: {
-                input: 'custom-textarea' // Add a custom class to the textarea
+                popup: 'custom-popup', // Add a custom class to the popup
+                inputLabel:'custom-input-label',
+                input: 'custom-textarea',
+                inputPlaceholder: 'custom-input-placeholder',
+                confirmButton: 'custom-confirm-button', // Add a custom class to the confirm button
+                cancelButton: 'custom-cancel-button',// Add a custom class to the cancel button // Add a custom class to the textarea
             }
 
         });
