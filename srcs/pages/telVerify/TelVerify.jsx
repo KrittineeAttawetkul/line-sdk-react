@@ -5,7 +5,7 @@ import { BASE_URL } from '../../config/HostConfig';
 import Button from '../../components/Button/Button'
 import useLineLogin from '../../utils/addons/useLineLogin'
 import Liff_Id from '../../assets/Liff_Id'
-import Swal from 'sweetalert2'
+import { POPUP } from '../../components/popUp/PopUP';
 
 
 const TelVerify = () => {
@@ -23,84 +23,74 @@ const TelVerify = () => {
 
         if (status) {
             if (data == 'User already exists') {
-                Swal.fire({
+
+                POPUP.successPopUp({
                     title: 'เข้าสู่ระบบ',
-                    // text: "",
-                    icon: "success",
-                    confirmButtonText: 'ตกลง',
-                    confirmButtonColor: "#29AE4C",
-                    width: 350
-                }).then(() => {
-                    setIsSubmitting(true);
-                    liff.closeWindow();
-                });
+                    text: 'คุณได้เข้าสู่ระบบสำเร็จ',
+                    function: () => {
+                        setIsSubmitting(true);
+                        liff.closeWindow();
+                    } // Correct way to pass the function
+                })
             }
+
             if (data == 'Success save record') {
-                Swal.fire({
+
+                POPUP.successPopUp({
                     title: 'สมัครสมาชิกสำเร็จ',
-                    // text: "",
-                    icon: "success",
-                    confirmButtonText: 'ตกลง',
-                    confirmButtonColor: "#29AE4C",
-                    width: 350
-                }).then(() => {
-                    setIsSubmitting(true);
-                    liff.closeWindow();
-                });
+                    text: 'คุณได้สมัครสมาชิกสำเร็จ',
+                    function: () => {
+                        setIsSubmitting(true);
+                        liff.closeWindow();
+                    } // Correct way to pass the function
+                })
             }
         }
         else {
             if (data == 'Different user') {
-                Swal.fire({
-                    title: 'มีผู้ใช้งานนี้แล้ว',
-                    // text: "",
-                    icon: "warning",
-                    confirmButtonText: 'ปิด',
-                    confirmButtonColor: "#C7C7C7",
-                    width: 350
-                }).then(() => {
-                    setIsSubmitting(true);
-                    liff.closeWindow();
-                });
+
+                POPUP.erroePopUp({
+                    title: 'โอ้ว..ไม่นะ',
+                    text: 'มีชื่อผู้ใช้งานนี้แล้ว',
+                    function: () => {
+                        setIsSubmitting(true);
+                        liff.closeWindow();
+                    } // Correct way to pass the function
+                })
             }
             else if (data == 'คุณไม่ได้เป็นพนักงาน Nilecon') {
-                Swal.fire({
-                    title: 'คุณไม่ได้เป็นพนักงาน Nilecon',
-                    // text: "",
-                    icon: "warning",
-                    confirmButtonText: 'ปิด',
-                    confirmButtonColor: "#C7C7C7",
-                    width: 350
-                }).then(() => {
-                    setIsSubmitting(true);
-                    liff.closeWindow();
-                });
+
+                POPUP.erroePopUp({
+                    title: 'โอ้ว..ไม่นะ',
+                    text: 'คุณไม่ได้เป็นพนักงาน Nilecon',
+                    function: () => {
+                        setIsSubmitting(true);
+                        liff.closeWindow();
+                    } // Correct way to pass the function
+                })
+
             }
             else if (data == 'Failed to save record') {
-                Swal.fire({
-                    title: 'สมัครสมาชิกไม่สำเร็จ',
-                    // text: "",
-                    icon: "error",
-                    confirmButtonText: 'ปิด',
-                    confirmButtonColor: "#C7C7C7",
-                    width: 350
-                }).then(() => {
-                    setIsSubmitting(true);
-                    liff.closeWindow();
-                });
+
+                POPUP.erroePopUp({
+                    title: 'เข้าสู่ระบบไม่สำเร็จ',
+                    text: 'ชื่อผู้ใช้หรือรหัสไม่ถูกต้อง ลองอีกครั้ง',
+                    function: () => {
+                        setIsSubmitting(true);
+                        liff.closeWindow();
+                    } // Correct way to pass the function
+                })
             }
             else {
-                Swal.fire({
+       
+                POPUP.erroePopUp({
                     title: 'เกิดปัญหาขัดข้อง',
-                    // text: "",
-                    icon: "error",
-                    confirmButtonText: 'ปิด',
-                    confirmButtonColor: "#C7C7C7",
-                    width: 350
-                }).then(() => {
-                    setIsSubmitting(true);
-                    liff.closeWindow();
-                });
+                    text: 'เกิดปัญหาขัดข้อง ลองอีกครั้ง',
+                    function: () => {
+                        setIsSubmitting(true);
+                        liff.closeWindow();
+                    } // Correct way to pass the function
+                })
 
             }
         }

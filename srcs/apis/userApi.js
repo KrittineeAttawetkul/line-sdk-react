@@ -6,7 +6,8 @@ export const USER_ACTION = {
     getCardByUserId,
     getQrByUserId,
     Register,
-    getProfile
+    getProfile,
+    transferPoint,
 };
 
 function getCardByUserId(payload) {
@@ -22,6 +23,7 @@ function getCardByUserId(payload) {
             })
     })
 }
+
 function getQrByUserId(payload) {
     return new Promise(async resolve => {
         axios.post(`${BASE_URL.baseApi}/api/qr`, payload)
@@ -69,6 +71,20 @@ function getProfile(payload) {
             })
             .catch(err => {
                 console.log('------- getProfile Error--------');
+                console.log('Error: ', err);
+            })
+    })
+}
+
+function transferPoint(payload) {
+    return new Promise(async resolve => {
+        axios.post(`${BASE_URL.baseApi}/api/transfer`, payload)
+            .then(res => {
+                console.log('API transferPoint', res);
+                resolve(res.data);
+            })
+            .catch(err => {
+                console.log('------- transferPoint Error--------');
                 console.log('Error: ', err);
             })
     })

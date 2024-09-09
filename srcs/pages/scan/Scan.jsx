@@ -4,9 +4,9 @@ import useLineLogin from '../../utils/addons/useLineLogin';
 import Liff_Id from '../../assets/Liff_Id';
 import liff from '@line/liff';
 import { permissionChecker } from '../../utils/addons/addons';
-import Swal from 'sweetalert2'
 import { BASE_URL } from '../../config/HostConfig';
 import { useNavigate } from 'react-router-dom';
+import { POPUP } from '../../components/popUp/PopUP';
 
 const Scan = () => {
     const [lineProfile, setLineProfile] = useState(null);
@@ -45,19 +45,6 @@ const Scan = () => {
         console.log('Stored profile:', profile);
     };
 
-    const handleInvalidQRCode = (message) => {
-        console.log(message);
-        Swal.fire({
-            title: message,
-            icon: "warning",
-            confirmButtonText: 'ปิด',
-            confirmButtonColor: "#C7C7C7",
-            width: 350
-        }).then(() => {
-            liff.closeWindow();
-        });
-    };
-
     useEffect(() => {
         if (scanResult && lineProfile) {
             const isValidQR = scanResult.startsWith('NLCHR-MYQR-');
@@ -69,22 +56,27 @@ const Scan = () => {
                 if (receiver_id !== lineProfile.user_id) {
                     setScanUserID(receiver_id);
 
-                    // Remove receiver_id from localStorage before navigating
-                    // localStorage.removeItem('receiver_id');
-
                     navigate(BASE_URL.suburl + "/scan/transfer", { state: { receiver_id } });
+                }
+                else {
 
-
-                    // location.replace("https://www.podsland.com/nilecon-hr/scan/transfer");
-                    // liff.openWindow({
-                    //     url: "https://liff.line.me/2006140913-kJo9OWDW",
-                    //     external: false,
-                    // });
-                } else {
-                    handleInvalidQRCode('Owner user ID detected.');
+                    POPUP.warningPopUp({
+                        title: 'โอ๊ะโอ',
+                        text: `คิวอาร์โค้ดนี้ไม่สามารถใช้ได้ โปรดลองใหม่อีกครั้ง`,
+                        function: () => {
+                            liff.closeWindow();
+                        } // Correct way to pass the function
+                    })
                 }
             } else {
-                handleInvalidQRCode('Not a valid Nilecon QR code. Closing window.');
+
+                POPUP.warningPopUp({
+                    title: 'โอ๊ะโอ',
+                    text: `คิวอาร์โค้ดนี้ไม่สามารถใช้ได้ โปรดลองใหม่อีกครั้ง`,
+                    function: () => {
+                        liff.closeWindow();
+                    } // Correct way to pass the function
+                })
             }
         }
     }, [scanResult, lineProfile]);

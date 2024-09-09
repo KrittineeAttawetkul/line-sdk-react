@@ -3,6 +3,7 @@ import { useSpring, animated } from '@react-spring/web';
 import { useDrag } from '@use-gesture/react';
 import { useLocation } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import { POPUP } from '../../components/popUp/PopUP';
 import { useState } from 'react';
 import './transfer.css'
 import MemberCard from '../../components/memberCard/MemberCard'
@@ -13,7 +14,7 @@ import liff from '@line/liff';
 import loadingGif from '../../assets/arrow.gif'; // Import the GIF file
 
 function Transfer() {
-    // const [lineProfile, setLineProfile] = useState(null);
+    const [lineProfile, setLineProfile] = useState(null);
     const [receiverLine, setReceiverLine] = useState(null);
     // const [userCard, setUserCard] = useState({
     //     card_url: ''
@@ -44,6 +45,16 @@ function Transfer() {
     useEffect(() => {
         if (statusCard) {
             console.log("userCard : ", data.userCard);
+            if (data.userCard.balance === 0) {
+
+                POPUP.warningPopUp({
+                    title: 'โอ๊ะโอ',
+                    text: 'คะแนนของคุณไม่เพียงพอ',
+                    function: () => {
+                        liff.closeWindow();
+                    } // Correct way to pass the function
+                })
+            }
         }
     }, [statusCard])
 
@@ -64,7 +75,7 @@ function Transfer() {
         try {
             const storedProfile = localStorage.getItem('lineProfile');
             const profile = storedProfile ? JSON.parse(storedProfile) : null;
-            // setLineProfile(profile);
+            setLineProfile(profile);
 
             const payload = { user_id: profile.user_id };
             const res = await USER_ACTION.getCardByUserId(payload);
@@ -123,38 +134,68 @@ function Transfer() {
     });
 
     const moveCardTrue = async () => {
+
         const result = await Swal.fire({
             input: "textarea",
             inputLabel: "เหตุผลการให้คะแนน",
             inputPlaceholder: "เหตุผลการให้คะแนน...",
             inputAttributes: {
-                // "aria-label": "Type your message here",
                 style: "height: 200px;",
             },
-            showCancelButton: true,
             confirmButtonText: 'ตกลง',
+            showCancelButton: true,
             cancelButtonText: 'ยกเลิก',
+            allowOutsideClick: false,
             customClass: {
                 popup: 'custom-popup', // Add a custom class to the popup
-                inputLabel:'custom-input-label',
+                inputLabel: 'custom-input-label',
                 input: 'custom-textarea',
                 inputPlaceholder: 'custom-input-placeholder',
                 confirmButton: 'custom-confirm-button', // Add a custom class to the confirm button
                 cancelButton: 'custom-cancel-button',// Add a custom class to the cancel button // Add a custom class to the textarea
             }
-
         });
+
+        // const result = await POPUP.textAreaPopUp({
+        //     inputLabel: "เหตุผลการให้คะแนน",
+        //     inputPlaceholder: "เหตุผลการให้คะแนน...",
+        // })
 
         setAlertVisible(false); // Unlock after alert is closed
 
+        // console.log('receiverLine', receiverLine);
+
+        const transfer = async () => {
+
+            const transPayload = {
+                sender_id: lineProfile.user_id,
+                receiver_id: receiverLine.userId,
+                point_amount: "1",
+                comment: result.value
+            }
+            console.log('transPayload ', transPayload);
+
+            const res = await USER_ACTION.transferPoint(transPayload);
+            console.log('transfer', res);
+
+            const total = data.userCard.balance - transPayload.point_amount
+
+            if (res.status) {
+
+                POPUP.successPopUp({
+                    title: 'โอนคะแนนสำเร็จ',
+                    html: `<span class="small-text">คุณมียอดคงเหลือ </span><span class="large-text">${total} </span><span class="small-text">คะแนน</span>`,
+                    function: () => {
+                        liff.closeWindow();
+                    } // Correct way to pass the function
+                })
+            }
+        };
+
         if (result.isConfirmed && result.value) {
-            Swal.fire(result.value).then(() => {
-                // Navigate to the next page and pass the value using state
-                // navigate('/next-page', { state: { message: result.value } });
-                // setMoveCard('0')
-                // setPositionLocked(false);
-                liff.closeWindow();
-            });
+
+            transfer()
+
         } else {
             // User cancelled or no value was provided, reset position
             console.log("moveCard :", moveCard);
@@ -164,6 +205,8 @@ function Transfer() {
             setMoveCard('0')
         }
     }
+
+
 
     return (
         <>
