@@ -1,0 +1,15 @@
+.rankingContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.rankingContainer .rankingBox{
+    display: flex;
+}
+.rankingContainer .historyBox{
+    display: flex;
+    position: fixed;
+    bottom: 0px;
+}

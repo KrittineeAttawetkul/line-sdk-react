@@ -1,0 +1,89 @@
+.historyCardContainer {
+    display: flex;
+    flex-direction: column;
+    width: 394px;
+    box-shadow: 0px 1px 6px 0px #00000014;
+    border-radius: 8px;
+    padding: 15px;
+    margin: 30px 0;
+}
+
+.historyCardContainer .historyCardText {
+    display: flex;
+    flex-direction: column;
+}
+
+.historyCardContainer .historyCardText .historyType {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 14px;
+    text-align: left;
+    color: #333333;
+}
+
+.historyCardContainer .historyCardText .historyType .point {
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 14px;
+    text-align: right;
+
+    color: #34A853;
+}
+
+.historyCardContainer .historyCardText hr {
+    border: 0;
+    border-top: 1.5px dashed #E3E3E3;
+    width: 100%;
+}
+
+.historyCardContainer .historyCardText .historyData {
+    display: grid;
+    grid-template-columns: 30px 3fr 1fr;
+    gap: 10px;
+
+}
+
+.historyCardContainer .historyCardText .historyData .historyPic {
+    display: flex;
+    justify-content: center;
+}
+
+.historyCardContainer .historyCardText .historyData .historyPic img {
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+}
+
+.historyCardContainer .historyCardText .historyData .historyText {
+    display: flex;
+    flex-direction: column;
+}
+
+.historyCardContainer .historyCardText .historyData .historyText .name {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 16px;
+    text-align: left;
+
+    color: #333333;
+}
+
+.historyCardContainer .historyCardText .historyData .historyText .comment {
+    font-size: 11px;
+    font-weight: 400;
+    line-height: 15.51px;
+    text-align: left;
+    color: #666666;
+}
+
+.historyCardContainer .historyCardText .historyData .historyDate {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 12px;
+    text-align: right;
+    color: #B3B3B3;
+
+}

@@ -12,6 +12,7 @@ import MyQr from "./pages/myQr/MyQr";
 import Member from "./pages/member/Member";
 import Scan from "./pages/scan/Scan";
 import Transfer from "./pages/transfer/Transfer";
+import Ranking from "./pages/ranking/Ranking";
 
 
 const router = createBrowserRouter([
@@ -39,10 +40,10 @@ const router = createBrowserRouter([
         path: BASE_URL.suburl + "/scan/transfer",
         element: (<Transfer />),
     },
-    // {
-    //     path: BASE_URL.suburl + "/scan/transfer/verify",
-    //     element: (<Verify />)
-    // },
+    {
+        path: BASE_URL.suburl + "/ranking",
+        element: (<Ranking />)
+    },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
