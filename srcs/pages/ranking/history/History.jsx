@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import './history.css'
 import HistoryCard from '../../../components/historyCard/HistoryCard';
 import { USER_ACTION } from '../../../apis/userApi'
+import Button from '../../../components/Button/Button'
 
 
 const History = () => {
@@ -41,7 +42,7 @@ const History = () => {
                 earn: 1,
                 burn: 1
             },
-            itemPerPage: 5
+            itemPerPage: 4
         }
         setActiveTab(type);
         const res = await USER_ACTION.historyTransfer(payload)
@@ -50,13 +51,13 @@ const History = () => {
 
             const data = res.data;
 
-            console.log("data :",data);
+            console.log("data :", data);
 
             if (type === "tab1") {
                 setHistory(res.data.all)
-            }else if (type === "tab2") {
+            } else if (type === "tab2") {
                 setHistory(res.data.earn)
-            }else if (type === "tab3") {
+            } else if (type === "tab3") {
                 setHistory(res.data.burn)
             }
         }
@@ -68,19 +69,19 @@ const History = () => {
             <div className="tabs">
                 <button
                     className={activeTab === 'tab1' ? 'tab active' : 'tab'}
-                    onClick={() => gethistoryTransfer(lineProfile.user_id,'tab1')}
+                    onClick={() => gethistoryTransfer(lineProfile.user_id, 'tab1')}
                 >
                     รวมทั้งหมด
                 </button>
                 <button
                     className={activeTab === 'tab2' ? 'tab active' : 'tab'}
-                    onClick={() => gethistoryTransfer(lineProfile.user_id,'tab2')}
+                    onClick={() => gethistoryTransfer(lineProfile.user_id, 'tab2')}
                 >
                     คะแนนที่ได้รับ
                 </button>
                 <button
                     className={activeTab === 'tab3' ? 'tab active' : 'tab'}
-                    onClick={() => gethistoryTransfer(lineProfile.user_id,'tab3')}
+                    onClick={() => gethistoryTransfer(lineProfile.user_id, 'tab3')}
                 >
                     คะแนนที่ถูกใช้
                 </button>
@@ -114,26 +115,24 @@ const History = () => {
                     </div>}
                 </div>
             ) : (
-                <div className="tab-content">
+                <div className="tab-content none">
                     {activeTab === 'tab1' && <div>
                         <div className='content'>
-                            empty
+                            ยังไม่มีประวัติ
                         </div>
                     </div>}
                     {activeTab === 'tab2' && <div>
                         <div className='content'>
-                            empty
+                            ยังไม่มีประวัติ
                         </div>
                     </div>}
                     {activeTab === 'tab3' && <div>
                         <div className='content'>
-                            empty
+                            ยังไม่มีประวัติ
                         </div>
                     </div>}
                 </div>
-            )
-            }
-
+            )}
         </div>
     );
 }

@@ -1,13 +1,32 @@
 import React from 'react'
 import './historyCard.css'
+import { BASE_URL } from '../../config/HostConfig';
 
 const HistoryCard = ({ history }) => {
 
     const utcTime = new Date(history.transfer_at);
-    const thailandTime = utcTime.toLocaleString('en-GB', {
-        timeZone: 'Asia/Bangkok',
-        hour12: false, // Use 24-hour format, set to true for 12-hour format
+    // Format the date
+    const optionsDate = {
+        day: 'numeric',
+        month: 'short', // 'short' will give abbreviated month like ก.ย.
+    };
+    // Format the time
+    const optionsTime = {
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: false, // Use 24-hour format
+    };
+    // Convert to Thailand time
+    const thailandDate = utcTime.toLocaleDateString('th-TH', {
+        ...optionsDate,
+        timeZone: 'Asia/Bangkok'
     });
+    const thailandTime = utcTime.toLocaleTimeString('th-TH', {
+        ...optionsTime,
+        timeZone: 'Asia/Bangkok'
+    });
+    // Combine date and time
+    const formattedDateTime = `${thailandDate} , ${thailandTime} น.`;
 
 
     return (
@@ -23,13 +42,13 @@ const HistoryCard = ({ history }) => {
                     <hr />
                     <div className='historyData'>
                         <div className='historyPic'>
-                            <img src='https://fastly.picsum.photos/id/866/200/200.jpg?hmac=i0ngmQOk9dRZEzhEosP31m_vQnKBQ9C19TBP1CGoIUA' />
+                            <img src={history.pictureUrl ? history.pictureUrl : `${BASE_URL.baseApi}/images/NileconProfile.png`} />
                         </div>
                         <div className='historyText'>
                             <div className='name'>
-                                Name
+                                {history.displayName ? history.displayName : 'Nilecon HR'}
                                 <div className='historyDate'>
-                                    {thailandTime}
+                                    {formattedDateTime}
                                 </div>
                             </div>
                             <div className='comment'>
