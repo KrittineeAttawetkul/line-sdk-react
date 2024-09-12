@@ -5,6 +5,7 @@ export default { //ออกเป็น Obj
     member: '2006140913-BWZQp2E2',
     scan: '2006140913-9Byp8ana',
     transfer: '2006140913-kJo9OWDW',
+    ranking: '2006140913-08D1lyGy',
 
 
     // ALONE

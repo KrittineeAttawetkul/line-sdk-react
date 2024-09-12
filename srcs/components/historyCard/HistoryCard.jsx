@@ -1,7 +1,13 @@
 import React from 'react'
 import './historyCard.css'
 
-const HistoryCard = () => {
+const HistoryCard = ({ history }) => {
+
+    const utcTime = new Date(history.transfer_at);
+    const thailandTime = utcTime.toLocaleString('en-GB', {
+        timeZone: 'Asia/Bangkok',
+        hour12: false, // Use 24-hour format, set to true for 12-hour format
+    });
 
 
     return (
@@ -9,8 +15,10 @@ const HistoryCard = () => {
             <div className='historyCardContainer'>
                 <div className='historyCardText'>
                     <div className='historyType'>
-                        <div>คะแนนที่ได้รับ</div>
-                        <div className='point'>+1 คะแนน</div>
+                        <div>{history.point_type === 'earn' ? "คะแนนที่ได้รับ" : history.point_type === 'burn' ? 'คะแนนที่ถูกใช้' : ""}</div>
+                        <div className={`${history.point_type === 'earn' ? "earn" : history.point_type === 'burn' ? 'burn' : ""}`}>
+                            {history.point_type === 'earn' ? `+${history.point_amount} คะแนน` : history.point_type === 'burn' ? `-${history.point_amount} คะแนน` : ""}
+                        </div>
                     </div>
                     <hr />
                     <div className='historyData'>
@@ -20,14 +28,13 @@ const HistoryCard = () => {
                         <div className='historyText'>
                             <div className='name'>
                                 Name
+                                <div className='historyDate'>
+                                    {thailandTime}
+                                </div>
                             </div>
                             <div className='comment'>
-                                ทำงานตรงเวลา ความใส่ใจในรายละเอียดและความมุ่งมั่นใน
-                                การทำตามกำหนดเวลานั้นน่าประทับใจจริงๆ
+                                {history.comment}
                             </div>
-                        </div>
-                        <div className='historyDate'>
-                            7 ส.ค.,11:59 น.
                         </div>
                     </div>
                 </div>

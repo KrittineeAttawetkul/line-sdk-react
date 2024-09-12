@@ -71,6 +71,9 @@
     overflow: auto;
 }
 
-/* .tab-content .content {
-    background-color: #007bff;
-} */
+.tab-content .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* background-color: #007bff; */
+}
