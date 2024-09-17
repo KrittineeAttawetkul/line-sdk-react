@@ -3,7 +3,7 @@ import './historyCard.css'
 import { BASE_URL } from '../../config/HostConfig';
 
 const HistoryCard = ({ history }) => {
-
+    // console.log('comp data:',history);
     const utcTime = new Date(history.transfer_at);
     // Format the date
     const optionsDate = {

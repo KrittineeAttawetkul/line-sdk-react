@@ -64,11 +64,17 @@
 /* Styling for the tab content */
 .tab-content {
     display: flex;
-    /* padding: 40px; */
+    flex-direction: column;
+    padding: 0 0 40px 0;
     /* background-color: palegreen; */
     height: 400px;
-    justify-content: center;
+    /* justify-content: center; */
     overflow: auto;
+}
+
+.tab-content ul {
+    list-style-type: none;
+    padding: 0px;
 }
 
 .tab-content.none {
@@ -92,5 +98,13 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    /* background-color: #007bff; */
+}
+
+.tab-content .loadMore {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 0 20px 0;
     /* background-color: #007bff; */
 }
