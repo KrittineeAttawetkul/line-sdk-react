@@ -8,6 +8,7 @@
     display: flex;
     justify-content: space-around;
     border-bottom: 1px solid #F1F1F1;
+    background-color: white;
 }
 
 .tab {
@@ -67,7 +68,7 @@
     flex-direction: column;
     padding: 0 0 40px 0;
     /* background-color: palegreen; */
-    height: 400px;
+    height: 30vh;
     /* justify-content: center; */
     overflow: auto;
 }
@@ -80,8 +81,8 @@
 .tab-content.none {
     display: flex;
     /* padding: 40px; */
-    /* background-color: palegreen; */
-    height: 400px;
+    background-color: white;
+    height: 250px;
     overflow: auto;
     justify-content: center;
     align-items: center;

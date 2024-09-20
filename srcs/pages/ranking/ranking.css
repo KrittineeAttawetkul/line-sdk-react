@@ -1,15 +1,43 @@
-.rankingContainer{
+.rankingContainer {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color: lightslategray;
+    padding: 0 0 50px 0;
 }
 
-.rankingContainer .rankingBox{
+.rankingContainer .rankingBox {
     display: flex;
+    flex-direction: column;
 }
-.rankingContainer .historyBox{
+
+.rankingContainer .rankingBox .rankingBoxTitle {
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 22px;
+    text-align: center;
+    color: #333333;
+
+    padding: 20px 0 23px 0;
+}
+
+.rankingContainer .historyBox {
     display: flex;
+    flex-direction: column;
     position: fixed;
     bottom: 0px;
+    z-index: -1;
+
+    /* height: 50vh; */
+}
+
+.rankingContainer .historyBoxTitle {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 27.2px;
+
+    display: flex;
+    padding: 0 0 0 2%;
+
 }

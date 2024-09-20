@@ -1,0 +1,35 @@
+.container{
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+}
+.containerStyles {
+    height: 7px;
+    width: 100%;
+    background-color: #F5F5F5;
+    border-radius: 50px;
+    margin: 10px 0 10px 0;
+}
+
+.fillerStyles {
+    height: 100%;
+    border-radius: inherit;
+    text-align: right;
+}
+
+.labelStyles {
+    font-size: 10px;
+    line-height: 10px;
+}
+
+.fillerStyles {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.fillerStyles img {
+    width: 15px;
+    height: 15px;
+    border-radius: 100%;
+}

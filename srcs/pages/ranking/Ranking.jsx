@@ -4,6 +4,7 @@ import History from './history/History'
 import useLineLogin from '../../utils/addons/useLineLogin'
 import Liff_Id from '../../assets/Liff_Id'
 import { USER_ACTION } from '../../apis/userApi'
+import RankingCard from './rankingCard/RankingCard'
 
 const Ranking = () => {
   const [lineProfile, setLineProfile] = useState(null);
@@ -20,9 +21,15 @@ const Ranking = () => {
     <>
       <div className='rankingContainer'>
         <div className='rankingBox'>
-          <p>Ranking</p>
+          <div className='rankingBoxTitle'>
+            ตารางคะแนน
+          </div>
+          <RankingCard />
         </div>
         <div className='historyBox'>
+          <div className='historyBoxTitle'>
+            ประวัติคะแนน
+          </div>
           <History />
         </div>
       </div>

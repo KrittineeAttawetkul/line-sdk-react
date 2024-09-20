@@ -23,7 +23,6 @@ const History = () => {
     const observer = useRef();
     const isInitialMount = useRef(true); // Track the first mount
     const [payload, setPayload] = useState({
-        // user_id: 'U956e1520ac3235c6778f4725b4b09200',
         user_id: '',
         pageNo: {
             all: '',
