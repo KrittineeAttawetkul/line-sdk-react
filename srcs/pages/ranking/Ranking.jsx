@@ -3,8 +3,8 @@ import './ranking.css'
 import History from './history/History'
 import useLineLogin from '../../utils/addons/useLineLogin'
 import Liff_Id from '../../assets/Liff_Id'
-import { USER_ACTION } from '../../apis/userApi'
 import RankingCard from './rankingCard/RankingCard'
+import RankingBG from '../../assets/RankingBG.png'
 
 const Ranking = () => {
   const [lineProfile, setLineProfile] = useState(null);
@@ -23,6 +23,9 @@ const Ranking = () => {
         <div className='rankingBox'>
           <div className='rankingBoxTitle'>
             ตารางคะแนน
+          </div>
+          <div className='rankingBoxPic'>
+            <img src={RankingBG} />
           </div>
           <RankingCard />
         </div>

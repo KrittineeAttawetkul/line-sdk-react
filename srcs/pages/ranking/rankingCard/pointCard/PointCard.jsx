@@ -1,7 +1,24 @@
 import React from 'react'
 import './pointCard.css'
+import silverIcon from '../../../../assets/silverIcon.png'
+import goldIcon from '../../../../assets/goldIcon.png'
+import platinumIcon from '../../../../assets/platinumIcon.png'
 
-const PointCard = () => {
+const PointCard = (props) => {
+
+    const { lv_name, balance } = props;
+
+    console.log('lv_name',lv_name);
+
+    let icon;
+    if (lv_name === 'Silver') {
+        icon = silverIcon
+    } else if (lv_name === 'Gold') {
+        icon = goldIcon
+    } else if (lv_name === 'Platinum') {
+        icon = platinumIcon
+    }
+
     return (
         <>
             <div className='pointCardContainer'>
@@ -10,10 +27,10 @@ const PointCard = () => {
                         คะแนนปัจจุบัน
                     </div>
                     <div className='icon'>
-                        <img src='https://fastly.picsum.photos/id/901/200/200.jpg?hmac=BofL61KMrHssTtPwqR7iI272BvpjGsjt5PJ_ultE4Z8' />
+                        <img src={icon} />
                     </div>
                     <div className='point'>
-                        <div className='num'>658</div>
+                        <div className='num'>{balance}</div>
                         <div className='end'>คะแนน</div>
                     </div>
                 </div>

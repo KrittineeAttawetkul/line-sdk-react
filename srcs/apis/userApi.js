@@ -9,6 +9,7 @@ export const USER_ACTION = {
     getProfile,
     transferPoint,
     historyTransfer,
+    balanceRanking,
 };
 
 function getCardByUserId(payload) {
@@ -95,11 +96,25 @@ function historyTransfer(payload) {
     return new Promise(async resolve => {
         axios.post(`${BASE_URL.baseApi}/api/history`, payload)
             .then(res => {
-                console.log('API transferPoint', res);
+                console.log('API historyTransfer', res);
                 resolve(res.data);
             })
             .catch(err => {
-                console.log('------- transferPoint Error--------');
+                console.log('------- historyTransfer Error--------');
+                console.log('Error: ', err);
+            })
+    })
+}
+
+function balanceRanking(payload) {
+    return new Promise(async resolve => {
+        axios.post(`${BASE_URL.baseApi}/api/ranking`, payload)
+            .then(res => {
+                console.log('API balanceRanking', res);
+                resolve(res.data);
+            })
+            .catch(err => {
+                console.log('------- balanceRanking Error--------');
                 console.log('Error: ', err);
             })
     })

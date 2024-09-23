@@ -1,17 +1,19 @@
 .rankingCardContainer {
     display: flex;
     width: 90vw;
-    min-height: 250px;
+    /* min-height: 250px; */
     border-radius: 10px;
     background-color: white;
     align-items: center;
     justify-content: center;
+    box-shadow: 4px 2px 18px 0px #0000001A;
 }
 
 .rankingCardContainer .rankingCardBox {
     display: flex;
     flex-direction: column;
     padding: 10px;
+
 }
 
 .rankingCardContainer .rankingCardBox .rankingCardTop {
