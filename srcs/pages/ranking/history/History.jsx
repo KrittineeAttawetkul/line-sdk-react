@@ -45,6 +45,7 @@ const History = () => {
 
     const pageInit = async () => {
         setPayload({
+            // user_id: 'U956e1520ac3235c6778f4725b4b09200',
             user_id: JSON.parse(localStorage.getItem('lineProfile')).user_id,
             pageNo: {
                 all: 1,
@@ -141,9 +142,9 @@ const History = () => {
             </div>
 
             {/* Tab content */}
-            <div className={`tab-content ${loading ? '' : allHistory.length === 0 ? 'none' : earnHistory.length === 0 ? 'none' : burnHistory.length === 0 ? 'none' : ''}`}>
+            <div className='tab-content'>
                 {activeTab === 'tab1' && <div>
-                    <div className='content'>
+                    <div className={`content ${loading ? '' : allHistory.length === 0 ? 'none' : ''}`}>
                         <ul>
                             {allHistory.map((history, i) => (
                                 <li
@@ -159,7 +160,7 @@ const History = () => {
                 </div>}
 
                 {activeTab === 'tab2' && <div>
-                    <div className='content'>
+                    <div className={`content ${loading ? '' : earnHistory.length === 0 ? 'none' : ''}`}>
                         <ul>
                             {earnHistory.map((history, i) => (
                                 <li
@@ -175,7 +176,7 @@ const History = () => {
                 </div>}
 
                 {activeTab === 'tab3' && <div>
-                    <div className='content'>
+                    <div className={`content ${loading ? '' : burnHistory.length === 0 ? 'none' : ''}`}>
                         <ul>
                             {burnHistory.map((history, i) => (
                                 <li
