@@ -4,12 +4,13 @@
     justify-content: center;
     align-items: center;
     /* background-color: lightslategray; */
-    padding: 0 0 10px 0;
+    /* padding: 0 0 10px 0; */
 }
 
 .rankingContainer .rankingBox {
     display: flex;
     flex-direction: column;
+    padding: 0 0 60px 0;
 }
 
 .rankingContainer .rankingBox .rankingBoxTitle {
@@ -19,7 +20,7 @@
     text-align: center;
     color: #333333;
 
-    padding: 20px 0 23px 0;
+    padding: 20px 0 20px 0;
 }
 
 .rankingContainer .rankingBox .rankingBoxPic {
