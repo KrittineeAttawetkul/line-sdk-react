@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useRef, useState } from 'react'
 import './history.css'
 import HistoryCard from '../../../components/historyCard/HistoryCard';
 import { USER_ACTION } from '../../../apis/userApi'
+import LoadingIcon from '../../../components/loadingIcon/LoadingIcon'
 
 
 
@@ -159,7 +160,7 @@ const History = () => {
                                 </li>
                             ))}
                         </ul>
-                        {loading ? <p>Loading...</p> : History.length === 0 ? <div>ยังไม่มีประวัติ</div> : ''}
+                        {loading ? <LoadingIcon /> : History.length === 0 ? <div>ยังไม่มีประวัติ</div> : ''}
                     </div>
                 </div>}
                 {activeTab === 'tab2' && <div>
@@ -174,7 +175,7 @@ const History = () => {
                                 </li>
                             ))}
                         </ul>
-                        {loading ? <p>Loading...</p> : History.length === 0 ? <div>ยังไม่มีประวัติ</div> : ''}
+                        {loading ? <LoadingIcon /> : History.length === 0 ? <div>ยังไม่มีประวัติ</div> : ''}
                         {/* Message indicating no more posts */}
                     </div>
                 </div>}
@@ -190,7 +191,7 @@ const History = () => {
                                 </li>
                             ))}
                         </ul>
-                        {loading ? <p>Loading...</p> : History.length === 0 ? <div>ยังไม่มีประวัติ</div> : ''}
+                        {loading ? <LoadingIcon /> : History.length === 0 ? <div>ยังไม่มีประวัติ</div> : ''}
                         {/* Message indicating no more posts */}
                     </div>
                 </div>}
