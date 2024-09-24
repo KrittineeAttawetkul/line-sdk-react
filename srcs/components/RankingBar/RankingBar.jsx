@@ -28,7 +28,7 @@ const RankingBar = () => {
 
     // Filter and sort the Ranking array based on balance
     const sortedRanking = Ranking
-        .filter(ranking => ranking.status) // Keep only users with a valid balance
+        .filter(ranking => ranking.errMsg != 'Balance is zero') // Keep only users with a valid balance
         .sort((a, b) => {
             const balanceA = a.balance;
             const balanceB = b.balance;

@@ -3,6 +3,7 @@ import './rankingCard.css'
 import PointCard from './pointCard/PointCard'
 import RankingBar from '../../../components/RankingBar/RankingBar'
 import { USER_ACTION } from '../../../apis/userApi'
+import LoadingIcon from '../../../components/loadingIcon/LoadingIcon'
 
 const RankingCard = () => {
 
@@ -86,10 +87,11 @@ const RankingCard = () => {
                     </div>
                 ) : (
                     <div>
-                        Loading
+                        <LoadingIcon />
                     </div>
                 )
                 }
+                <div className='overlay' onContextMenu={(e) => e.preventDefault()} onTouchStart={(e) => e.preventDefault()} />
             </div>
 
         </>

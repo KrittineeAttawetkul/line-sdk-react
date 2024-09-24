@@ -5,6 +5,7 @@ import Liff_Id from '../../assets/Liff_Id'
 import { USER_ACTION } from '../../apis/userApi'
 import { BASE_URL } from '../../config/HostConfig';
 import Button from '../../components/Button/Button'
+import LoadingIcon from '../../components/loadingIcon/LoadingIcon'
 
 const MyQr = () => {
 
@@ -35,6 +36,13 @@ const MyQr = () => {
     const storedProfile = localStorage.getItem('lineProfile');
     console.log('Stored Profile:', storedProfile); // Debugging log
     const profile = storedProfile ? JSON.parse(storedProfile) : null;
+
+    // const profile = {
+    //     display_name: "KΓΙΤΤΙΝΞΞ",
+    //     picture_url: "https://profile.line-scdn.net/0hT3lRG4bpCxxBKxu4e151YzF7CHZiWlIOOE9NeyEvBisvExhObBgTeCQjVHx6S0wZOU9MKHN7VyVNOHx6X333KEYbVi19HExPbEVE-A",
+    //     status_messeage: "Status Message TestTest",
+    //     user_id: "U956e1520ac3235c6778f4725b4b09200",
+    // }
     setLineProfile(profile);
     console.log('Parsed Profile:', profile); // Debugging log
 
@@ -60,21 +68,28 @@ const MyQr = () => {
     <>
       <div className='myQrContainer'>
         <div className='myQrBox'>
-          {lineProfile ? (
-            <>
-              <div className='title'>
-                คิวอาร์โค้ด
+          <div className='myQrBoxOverlay'>
+            {lineProfile ? (
+              <>
+                <div className='title'>
+                  คิวอาร์โค้ด
+                </div>
+                {statusQr && userQr.qr_url !== "" ? (
+                  <img className='QRpic' src={`${BASE_URL.baseApi}${userQr.qr_url}`} />
+                ) : (
+                  <div className='LoadingQR'>
+                    <LoadingIcon />
+                  </div>
+                )}
+                <div className='name'>{lineProfile.display_name}</div>
+              </>
+            ) : (
+              <div className='LoadingFull'>
+                <LoadingIcon />
               </div>
-              {statusQr && userQr.qr_url !== "" ? (
-                <img src={`${BASE_URL.baseApi}${userQr.qr_url}`} />
-              ) : (
-                <p>Loading QR...</p>
-              )}
-              <div className='name'>{lineProfile.display_name}</div>
-            </>
-          ) : (
-            <p>Loading profile...</p>
-          )}
+            )}
+            <div className='overlay' onContextMenu={(e) => e.preventDefault()} onTouchStart={(e) => e.preventDefault()} />
+          </div>
           <div className='myQrBtn'>
             <a href='https://liff.line.me/2006140913-9Byp8ana'>
               <Button text='สแกนคิวอาร์โค้ด' />

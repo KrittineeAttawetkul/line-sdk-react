@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import './memberCard.css'
 import { BASE_URL } from '../../config/HostConfig'
+import LoadingIcon from '../loadingIcon/LoadingIcon'
 
 const MemberCard = ({ data }) => {
     const { userCard, lineProfile } = data;
@@ -16,7 +17,10 @@ const MemberCard = ({ data }) => {
                             <div className='memberCard'>
                                 {userCard && userCard !== "" ? (
                                     <>
-                                        <img src={`${BASE_URL.baseApi}${userCard.card_url}`} alt="Member Card" draggable={false} />
+                                        <img src={`${BASE_URL.baseApi}${userCard.card_url}`}
+                                            alt="Member Card"
+                                            draggable={false}
+                                        />
                                         <div className='cardText'>
                                             <div className='point'>
                                                 Points
@@ -30,13 +34,14 @@ const MemberCard = ({ data }) => {
                                         </div>
                                     </>
                                 ) : (
-                                    <p>Loading Card...</p>
+                                    <LoadingIcon />
                                 )}
                             </div>
                         </>
                     ) : (
-                        <p>Loading profile...</p>
+                        <LoadingIcon />
                     )}
+                    <div className='overlay' onContextMenu={(e) => e.preventDefault()} onTouchStart={(e) => e.preventDefault()} />
                 </div>
             </div>
         </>

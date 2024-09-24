@@ -1,6 +1,7 @@
 .memberContainer {
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 
 /* .memberContainer .title {

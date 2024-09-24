@@ -68,7 +68,7 @@
     flex-direction: column;
     padding: 0 0 40px 0;
     /* background-color: palegreen; */
-    height: 30vh;
+    height: 300px;
     /* justify-content: center; */
     overflow: auto;
 }
@@ -82,8 +82,7 @@
     display: flex;
     /* padding: 40px; */
     background-color: white;
-    height: 250px;
-    overflow: auto;
+    height: 300px;
     justify-content: center;
     align-items: center;
 
@@ -99,7 +98,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* background-color: #007bff; */
+    background-color: white;
 }
 
 .tab-content .loadMore {

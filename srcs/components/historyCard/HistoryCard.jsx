@@ -57,6 +57,7 @@ const HistoryCard = ({ history }) => {
                         </div>
                     </div>
                 </div>
+                <div className='overlay' onContextMenu={(e) => e.preventDefault()} onTouchStart={(e) => e.preventDefault()} />
             </div>
 
         </>

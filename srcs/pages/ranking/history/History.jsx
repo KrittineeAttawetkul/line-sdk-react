@@ -4,20 +4,26 @@ import HistoryCard from '../../../components/historyCard/HistoryCard';
 import { USER_ACTION } from '../../../apis/userApi'
 import LoadingIcon from '../../../components/loadingIcon/LoadingIcon'
 
-
-
 const History = () => {
     const [activeTab, setActiveTab] = useState('tab1');
 
     const handleTabClick = (tab) => {
         setActiveTab(tab);
         setPage(1); // Reset to the first page
-        setHistory([]); // Clear the history to load new posts
+        if (tab === 'tab1') {
+            setAllHistory([]); // Clear all history to load new posts
+        } else if (tab === 'tab2') {
+            setEarnHistory([]); // Clear earn history
+        } else {
+            setBurnHistory([]); // Clear burn history
+        }
         setHasMore(true); // Reset hasMore to true
         setLoading(false);
     };
 
-    const [History, setHistory] = useState([]);
+    const [allHistory, setAllHistory] = useState([]);
+    const [earnHistory, setEarnHistory] = useState([]);
+    const [burnHistory, setBurnHistory] = useState([]);
     const [page, setPage] = useState(1);
     const [loading, setLoading] = useState(false);
     const [hasMore, setHasMore] = useState(true);
@@ -33,16 +39,12 @@ const History = () => {
         itemPerPage: ''
     });
 
-    // const [lineProfile, setLineProfile] = useState(null);
-
     useEffect(() => {
         pageInit();
     }, [])
 
     const pageInit = async () => {
-        // userInit();
         setPayload({
-            // user_id: 'U956e1520ac3235c6778f4725b4b09200',
             user_id: JSON.parse(localStorage.getItem('lineProfile')).user_id,
             pageNo: {
                 all: 1,
@@ -50,22 +52,12 @@ const History = () => {
                 burn: 1
             },
             itemPerPage: 3
-        })
+        });
     }
-
-    // // ****function addon 
-    // const userInit = async () => {
-    //     const storedProfile = localStorage.getItem('lineProfile');
-    //     console.log('Stored Profile:', storedProfile); // Debugging log
-    //     const profile = storedProfile ? JSON.parse(storedProfile) : null;
-    //     setLineProfile(profile);
-    //     console.log('Parsed Profile:', profile); // Debugging log
-    // }
 
     const loadMorePosts = useCallback(async () => {
         setLoading(true);
 
-        // Update the page number based on the active tab
         const updatedPayload = {
             ...payload,
             pageNo: {
@@ -77,22 +69,28 @@ const History = () => {
 
         const newPosts = await USER_ACTION.historyTransfer(updatedPayload);
 
-        const postsToAdd =
-            activeTab === 'tab1' ? newPosts.data.all :
-                activeTab === 'tab2' ? newPosts.data.earn :
-                    newPosts.data.burn;
-
-        console.log(newPosts.data);
-
+        let postsToAdd = [];
+        if (activeTab === 'tab1') {
+            postsToAdd = newPosts.data.all;
+        } else if (activeTab === 'tab2') {
+            postsToAdd = newPosts.data.earn;
+        } else {
+            postsToAdd = newPosts.data.burn;
+        }
 
         if (postsToAdd.length === 0) {
             setHasMore(false); // No more posts
         } else {
-            setHistory((prevPosts) => [...prevPosts, ...postsToAdd]);
+            if (activeTab === 'tab1') {
+                setAllHistory((prevPosts) => [...prevPosts, ...postsToAdd]);
+            } else if (activeTab === 'tab2') {
+                setEarnHistory((prevPosts) => [...prevPosts, ...postsToAdd]);
+            } else {
+                setBurnHistory((prevPosts) => [...prevPosts, ...postsToAdd]);
+            }
         }
         setLoading(false);
     }, [page, payload, activeTab]);
-
 
     const lastPostElementRef = useCallback(
         (node) => {
@@ -125,74 +123,70 @@ const History = () => {
                 <button
                     className={activeTab === 'tab1' ? 'tab active' : 'tab'}
                     onClick={() => handleTabClick('tab1')}
-                // onClick={() => gethistoryTransfer(payload.user_id, 'tab1')}
                 >
                     รวมทั้งหมด
                 </button>
                 <button
                     className={activeTab === 'tab2' ? 'tab active' : 'tab'}
                     onClick={() => handleTabClick('tab2')}
-                // onClick={() => gethistoryTransfer(payload.user_id, 'tab2')}
                 >
                     คะแนนที่ได้รับ
                 </button>
                 <button
                     className={activeTab === 'tab3' ? 'tab active' : 'tab'}
                     onClick={() => handleTabClick('tab3')}
-                // onClick={() => gethistoryTransfer(payload.user_id, 'tab3')}
                 >
                     คะแนนที่ถูกใช้
                 </button>
             </div>
 
-
             {/* Tab content */}
-            <div className={`tab-content ${loading ? '' : History.length === 0 ? 'none' : ''}`}>
+            <div className={`tab-content ${loading ? '' : allHistory.length === 0 ? 'none' : earnHistory.length === 0 ? 'none' : burnHistory.length === 0 ? 'none' : ''}`}>
                 {activeTab === 'tab1' && <div>
                     <div className='content'>
                         <ul>
-                            {History.map((history, i) => (
+                            {allHistory.map((history, i) => (
                                 <li
-                                    key={i} // Combines post.id with index to ensure uniqueness
-                                    ref={History.length === i + 1 ? lastPostElementRef : null}
+                                    key={i}
+                                    ref={allHistory.length === i + 1 ? lastPostElementRef : null}
                                 >
                                     <HistoryCard history={history} />
                                 </li>
                             ))}
                         </ul>
-                        {loading ? <LoadingIcon /> : History.length === 0 ? <div>ยังไม่มีประวัติ</div> : ''}
+                        {loading ? <LoadingIcon /> : allHistory.length === 0 ? <div>ยังไม่มีประวัติ</div> : ''}
                     </div>
                 </div>}
+
                 {activeTab === 'tab2' && <div>
                     <div className='content'>
                         <ul>
-                            {History.map((history, i) => (
+                            {earnHistory.map((history, i) => (
                                 <li
-                                    key={i} // Combines post.id with index to ensure uniqueness
-                                    ref={History.length === i + 1 ? lastPostElementRef : null}
+                                    key={i}
+                                    ref={earnHistory.length === i + 1 ? lastPostElementRef : null}
                                 >
                                     <HistoryCard history={history} />
                                 </li>
                             ))}
                         </ul>
-                        {loading ? <LoadingIcon /> : History.length === 0 ? <div>ยังไม่มีประวัติ</div> : ''}
-                        {/* Message indicating no more posts */}
+                        {loading ? <LoadingIcon /> : earnHistory.length === 0 ? <div>ยังไม่มีประวัติ</div> : ''}
                     </div>
                 </div>}
+
                 {activeTab === 'tab3' && <div>
                     <div className='content'>
                         <ul>
-                            {History.map((history, i) => (
+                            {burnHistory.map((history, i) => (
                                 <li
-                                    key={i} // Combines post.id with index to ensure uniqueness
-                                    ref={History.length === i + 1 ? lastPostElementRef : null}
+                                    key={i}
+                                    ref={burnHistory.length === i + 1 ? lastPostElementRef : null}
                                 >
                                     <HistoryCard history={history} />
                                 </li>
                             ))}
                         </ul>
-                        {loading ? <LoadingIcon /> : History.length === 0 ? <div>ยังไม่มีประวัติ</div> : ''}
-                        {/* Message indicating no more posts */}
+                        {loading ? <LoadingIcon /> : burnHistory.length === 0 ? <div>ยังไม่มีประวัติ</div> : ''}
                     </div>
                 </div>}
             </div>
@@ -200,4 +194,4 @@ const History = () => {
     );
 }
 
-export default History
+export default History;

@@ -9,6 +9,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    position: relative;
 }
 
 .transferContainer .receiverProfile .receiverPic {
@@ -43,7 +44,7 @@
     align-items: center;
 }
 
-.transferCardContainer .Gif .loadingGif {
+.transferCardContainer .Gif .slideGif {
     width: 50px;
     position: absolute;
     top: 220px;

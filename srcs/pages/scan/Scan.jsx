@@ -7,6 +7,7 @@ import { permissionChecker } from '../../utils/addons/addons';
 import { BASE_URL } from '../../config/HostConfig';
 import { useNavigate } from 'react-router-dom';
 import { POPUP } from '../../components/popUp/PopUP';
+import loadingScreen from '../../assets/loadingScreen.gif'
 
 const Scan = () => {
     const [lineProfile, setLineProfile] = useState(null);
@@ -82,16 +83,11 @@ const Scan = () => {
     }, [scanResult, lineProfile]);
 
     return (
-        <div>
-            <h1>Scan</h1>
-            {scanResult && scanUserID ? (
-                <>
-                    <p>Scan result: {scanResult}</p>
-                    <p>Scan userId: {scanUserID}</p>
-                </>
-            ) : (
-                <p>No scan result yet.</p>
-            )}
+        <div className='scanContainer'>
+            <div className='loadingPic'>
+                <img src={loadingScreen} />
+                <div className='overlay' onContextMenu={(e) => e.preventDefault()} onTouchStart={(e) => e.preventDefault()} />
+            </div>
         </div>
     );
 };

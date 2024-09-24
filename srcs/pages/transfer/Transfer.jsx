@@ -11,7 +11,9 @@ import Liff_Id from '../../assets/Liff_Id';
 import useLineLogin from '../../utils/addons/useLineLogin';
 import { USER_ACTION } from '../../apis/userApi';
 import liff from '@line/liff';
-import loadingGif from '../../assets/arrow.gif'; // Import the GIF file
+import slideGif from '../../assets/arrow.gif'; // Import the GIF file
+import { BASE_URL } from '../../config/HostConfig';
+
 
 function Transfer() {
     const [lineProfile, setLineProfile] = useState(null);
@@ -219,11 +221,12 @@ function Transfer() {
                         </>
                     ) : (
                         <>
-                            <img className='receiverPic' src='https://fastly.picsum.photos/id/56/200/200.jpg?hmac=rRTTTvbR4tHiWX7-kXoRxkV7ix62g9Re_xUvh4o47jA' />
+                            <img className='receiverPic' src={`${BASE_URL.baseApi}/images/NileconProfile.png`} />
                             <p>Loading...</p>
                         </>
                     )}
                     {/* <h3>{receiver ? `You submitted: ${receiver}` : 'No message was submitted.'}</h3> */}
+                    <div className='overlay' onContextMenu={(e) => e.preventDefault()} onTouchStart={(e) => e.preventDefault()} />
                 </div>
 
                 <div className='transferCardContainer'>
@@ -243,8 +246,8 @@ function Transfer() {
                     </animated.div>
                     <div className='Gif'>
                         <img
-                            className='loadingGif'
-                            src={loadingGif}
+                            className='slideGif'
+                            src={slideGif}
                             alt='Loading...'
                         />
                     </div>

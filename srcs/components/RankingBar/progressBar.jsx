@@ -20,10 +20,19 @@ const ProgressBar = (props) => {
     icon = platinumIcon
   }
 
-  const fillerStyles = {
-    width: `${completed}%`,
-    backgroundColor: bgcolor,
-  };
+  let fillerStyles;
+  if (completed <= 0) {
+    fillerStyles = {
+      width: `${5}%`,
+      backgroundColor: bgcolor,
+    };
+  }
+  else {
+    fillerStyles = {
+      width: `${completed}%`,
+      backgroundColor: bgcolor,
+    };
+  }
 
   return (
     <><div className='ProgressBar-container' >

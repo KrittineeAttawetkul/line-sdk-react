@@ -7,6 +7,7 @@
     align-items: center;
     justify-content: center;
     box-shadow: 4px 2px 18px 0px #0000001A;
+    position: relative;
 }
 
 .rankingCardContainer .rankingCardBox {
