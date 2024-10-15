@@ -6,6 +6,7 @@ export default { //ออกเป็น Obj
     scan: '2006140913-9Byp8ana',
     transfer: '2006140913-kJo9OWDW',
     ranking: '2006140913-08D1lyGy',
+    rewardlist: '2006140913-Wj0P9818',
 
 
     // ALONE

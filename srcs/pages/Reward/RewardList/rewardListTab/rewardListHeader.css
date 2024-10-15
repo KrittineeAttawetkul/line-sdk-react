@@ -1,0 +1,34 @@
+.rewardListHeaderContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    width: 100vw;
+    height: 70px;
+    justify-content: center;
+    box-shadow: 4px 2px 18px 0px #0000001A;
+}
+
+.rewardListHeaderContainer .rewardListHeaderBox {
+    display: flex;
+    align-items: center;
+    width: 90%;
+}
+
+.rewardListHeaderContainer .rewardListHeaderTitle {
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 22px;
+    text-align: center;
+    color: #DE2D1E;
+    position: absolute;
+    /* Center title absolutely */
+    left: 50%;
+    transform: translateX(-50%);
+    /* Perfect center horizontally */
+}
+
+.rewardListHeaderContainer .rewardListHeaderBtn {
+    margin-left: auto;
+    /* Push button to the right */
+}

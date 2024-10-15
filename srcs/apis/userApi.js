@@ -10,6 +10,7 @@ export const USER_ACTION = {
     transferPoint,
     historyTransfer,
     balanceRanking,
+    allReward,
 };
 
 function getCardByUserId(payload) {
@@ -115,6 +116,20 @@ function balanceRanking(payload) {
             })
             .catch(err => {
                 console.log('------- balanceRanking Error--------');
+                console.log('Error: ', err);
+            })
+    })
+}
+
+function allReward(payload) {
+    return new Promise(async resolve => {
+        axios.post(`${BASE_URL.baseApi}/api/allreward`, payload)
+            .then(res => {
+                console.log('API allReward', res);
+                resolve(res.data);
+            })
+            .catch(err => {
+                console.log('------- allReward Error--------');
                 console.log('Error: ', err);
             })
     })

@@ -13,6 +13,7 @@ import Member from "./pages/member/Member";
 import Scan from "./pages/scan/Scan";
 import Transfer from "./pages/transfer/Transfer";
 import Ranking from "./pages/ranking/Ranking";
+import RewardList from "./pages/Reward/RewardList/RewardList";
 
 
 const router = createBrowserRouter([
@@ -44,6 +45,14 @@ const router = createBrowserRouter([
         path: BASE_URL.suburl + "/ranking",
         element: (<Ranking />)
     },
+    {
+        path: BASE_URL.suburl + "/rewardlist",
+        element: (<RewardList />)
+    },
+    // {
+    //     path: BASE_URL.suburl + "/reward/:reward",
+    //     element: (<Ranking />)
+    // },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(

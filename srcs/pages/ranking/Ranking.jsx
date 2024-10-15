@@ -5,9 +5,11 @@ import useLineLogin from '../../utils/addons/useLineLogin'
 import Liff_Id from '../../assets/Liff_Id'
 import RankingCard from './rankingCard/RankingCard'
 import RankingBG from '../../assets/RankingBG.png'
+// import { useParams } from 'react-router-dom'
 
 const Ranking = () => {
   const [lineProfile, setLineProfile] = useState(null);
+  // const {reward_id} = useParams() // Reward
 
   useEffect(() => {
     pageInit();

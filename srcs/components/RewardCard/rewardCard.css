@@ -1,0 +1,72 @@
+.rewardCard-container {
+    display: flex;
+}
+
+.rewardCard-container .rewardCard-box {
+    width: 150px;
+    height: 200px;
+    background-color: white;
+    /* background-color: gold; */
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 4px 2px 18px 0px #0000001A;
+}
+
+.rewardCard-container .rewardCard-box .rewardPic {
+    width: 100%;
+    border-radius: 10px 10px 0 0;
+    display: flex;
+}
+
+.rewardCard-container .rewardCard-box .rewardPic .img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px 10px 0 0;
+    /* Ensures the image fills the container properly */
+
+}
+
+.rewardCard-container .rewardCard-box .rewardCard-text {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    /* background-color: #ffaca4; */
+    padding: 5px 10px 5px 10px;
+    justify-content: space-between;
+}
+
+.rewardCard-container .rewardCard-box .rewardCard-text .rewardName {
+    font-size: 15px;
+    font-weight: 700;
+    text-align: left;
+    color: #333333;
+    white-space: normal;
+    /* Prevents the text from wrapping to a new line */
+    overflow: hidden;
+    /* Hides the overflow text */
+    text-overflow: ellipsis;
+    /* Adds an ellipsis (...) to indicate overflow */
+}
+
+
+
+.rewardCard-container .rewardCard-box .rewardCard-text .rewardPoint {
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 15.11px;
+    text-align: left;
+    color: #FF1400;
+}
+
+.rewardCard-container .rewardCard-box .rewardCard-text .rewardBottom {
+    font-size: 9px;
+    font-weight: 400;
+    line-height: 13.6px;
+    text-align: end;
+}
+
+.rewardCard-container .rewardBottom .rewardExp {
+    text-align: end;
+}

@@ -1,0 +1,46 @@
+.rewardListContainer {
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+}
+
+.rewardListContainer .rewardListBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.rewardListContainer .rewardListBox .rewardListHeader {
+    display: flex;
+    position: fixed;
+    top: 0px;
+    z-index: 1;
+}
+
+.rewardListContainer .rewardListBox .rewardListRewardBox {
+    margin: 50px 0 0 0;
+    height: 100vh;
+    /* background-color: deeppink; */
+}
+
+.rewardListContainer .rewardListBox .rewardListRewardBox ul {
+    list-style-type: none;
+    padding: 0px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* background-color: cadetblue; */
+    overflow-y: auto;
+    padding: 0 0 20px 0;
+    gap: 10px;
+}
+
+.rewardListContainer .rewardListBox .rewardListRewardBox button {
+    border: none;
+    background-color: transparent;
+    padding: 10px;
+}
+
+.loading {
+    text-align: center;
+    margin-top: 20px;
+}
