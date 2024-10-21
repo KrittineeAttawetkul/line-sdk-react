@@ -26,7 +26,7 @@ const RewardDetail = () => {
 
     const pageInit = async () => {
         try {
-            // await useLineLogin(Liff_Id.rewardDetail);
+            await useLineLogin(Liff_Id.rewardDetail);
             const params = new URLSearchParams(window.location.search);
             const rewardId = params.get('reward_id');
             setRewardId(rewardId); // Setting rewardId here will trigger userInit from useEffect
@@ -47,8 +47,8 @@ const RewardDetail = () => {
         };
 
         const userPayload = {
-            // user_id: profile.user_id
-            user_id: 'U956e1520ac3235c6778f4725b4b09200'
+            user_id: profile.user_id
+            // user_id: 'U956e1520ac3235c6778f4725b4b09200'
         }
 
         try {
