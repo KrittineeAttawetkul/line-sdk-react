@@ -8,8 +8,10 @@ import './rewardDetail.css';
 const RewardDetail = () => {
     const [rewardId, setRewardId] = useState(null);
     const [lineProfile, setLineProfile] = useState(null);
-    const [status, setStatus] = useState(null);
+    const [RewardStatus, setRewardStatus] = useState(null);
+    const [BalanceStatus, setBalanceStatus] = useState(null);
     const [RewardData, setRewardData] = useState(null);
+    const [BalanceData, setBalanceData] = useState(null);
 
     useEffect(() => {
         pageInit();
@@ -44,23 +46,39 @@ const RewardDetail = () => {
             reward_id: 'RW-15102024-1271',
         };
 
+        const userPayload = {
+            // user_id: profile.user_id
+            user_id: 'U956e1520ac3235c6778f4725b4b09200'
+        }
+
         try {
             const reward = await USER_ACTION.getRewardByReward_id(rewardPayload);
             if (reward.status) {
-                setStatus(reward.status);
+                setRewardStatus(reward.status);
                 setRewardData(reward.data);
             } else {
-                setStatus(reward.status);
-                console.error("Error API");
+                setRewardStatus(reward.status);
+                console.error("Error reward API");
+            }
+
+            const balance = await USER_ACTION.getCardByUserId(userPayload);
+
+            if (balance.status) {
+                setBalanceStatus(balance.data);
+                setBalanceData(balance.data.balance);
+                // setBalanceData('10');
+            } else {
+                setBalanceStatus(balance.status);
+                console.error("Error balance API");
             }
         } catch (error) {
-            console.error("Error fetching reward by reward ID: ", error);
+            console.error("Error fetching ", error);
         }
     };
 
     return (
         <>
-            {RewardData ? (
+            {RewardData && BalanceData ? (
                 <div className='rewardDetailContainer'>
                     <div className='rewardDetailBox'>
                         <div className='rewardDetailTitle'>
@@ -91,16 +109,17 @@ const RewardDetail = () => {
                     <div className='rewardDetailFooter'>
                         <div className='rewardDetailFooterBox'>
                             <div className='rewardBalance'>
-                                50
+                                {BalanceData}
                             </div>
                             <div className='rewardPrice'>
                                 /{RewardData.reward_price}
                             </div>
-                            <div className='rewardDetailBtn'>
-                                <button>
+                            <div >
+                                <button className={`rewardDetailBtn ${BalanceData < RewardData.reward_price ? 'disabled' : ''}`} disabled={BalanceData < RewardData.reward_price}>
                                     แลก
                                 </button>
                             </div>
+
                         </div>
                     </div>
                 </div>

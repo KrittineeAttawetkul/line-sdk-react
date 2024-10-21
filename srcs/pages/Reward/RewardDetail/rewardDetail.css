@@ -118,18 +118,31 @@
 
 .rewardDetailContainer .rewardDetailFooterBox .rewardDetailBtn {
     display: flex;
-}
-
-.rewardDetailContainer .rewardDetailFooterBox .rewardDetailBtn button {
     border: none;
     width: 115px;
     height: 36px;
     border-radius: 21px;
     background-color: #DE2D1E;
+    justify-content: center;
+    align-items: center;
 
     font-size: 20px;
     font-weight: 700;
     line-height: 30.22px;
     text-align: center;
     color: #FFFFFF;
+}
+
+.rewardDetailContainer .rewardDetailFooterBox .rewardDetailBtn :hover {
+    background-color: #c52a18;
+}
+
+.rewardDetailContainer .rewardDetailFooterBox .rewardDetailBtn.disabled {
+    background-color: #ccc;
+    color: #777;
+    cursor: not-allowed;
+}
+
+.rewardDetailContainer .rewardDetailFooterBox .rewardDetailBtn :disabled {
+    pointer-events: none;
 }
