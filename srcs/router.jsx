@@ -14,7 +14,7 @@ import Scan from "./pages/scan/Scan";
 import Transfer from "./pages/transfer/Transfer";
 import Ranking from "./pages/ranking/Ranking";
 import RewardList from "./pages/Reward/RewardList/RewardList";
-
+import RewardDetail from "./pages/Reward/RewardDetail/RewardDetail"
 
 const router = createBrowserRouter([
     {
@@ -49,9 +49,13 @@ const router = createBrowserRouter([
         path: BASE_URL.suburl + "/rewardlist",
         element: (<RewardList />)
     },
+    {
+        path: BASE_URL.suburl + "/RewardDetail",
+        element: (<RewardDetail />)
+    },
     // {
-    //     path: BASE_URL.suburl + "/reward/:reward",
-    //     element: (<Ranking />)
+    //     path: BASE_URL.suburl + "/RewardDetail/:rewardid",
+    //     element: (<RewardDetail />)
     // },
 ]);
 

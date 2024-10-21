@@ -11,6 +11,7 @@ export const USER_ACTION = {
     historyTransfer,
     balanceRanking,
     allReward,
+    getRewardByReward_id,
 };
 
 function getCardByUserId(payload) {
@@ -130,6 +131,20 @@ function allReward(payload) {
             })
             .catch(err => {
                 console.log('------- allReward Error--------');
+                console.log('Error: ', err);
+            })
+    })
+}
+
+function getRewardByReward_id(payload) {
+    return new Promise(async resolve => {
+        axios.post(`${BASE_URL.baseApi}/api/getreward`, payload)
+            .then(res => {
+                console.log('API getreward', res);
+                resolve(res.data);
+            })
+            .catch(err => {
+                console.log('------- getreward Error--------');
                 console.log('Error: ', err);
             })
     })

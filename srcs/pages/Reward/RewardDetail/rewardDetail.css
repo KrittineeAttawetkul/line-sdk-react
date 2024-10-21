@@ -1,0 +1,135 @@
+.rewardDetailContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.rewardDetailContainer .rewardDetailBox {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.rewardDetailContainer .rewardDetailBox .rewardDetailTitle {
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 26px;
+    text-align: center;
+    padding: 14px 0px;
+}
+
+.rewardDetailContainer .rewardDetailBox .rewardDetailPic {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 0 14px 0;
+}
+
+.rewardDetailContainer .rewardDetailBox .rewardDetailPic img {
+    width: 312px;
+    height: 312px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.rewardDetailContainer .rewardDetailBox .dataBox {
+    padding: 20px;
+    margin: 0 0 40px 0;
+}
+
+.rewardDetailContainer .rewardDetailBox .dataBox .rewardDetailName {
+    font-size: 20px;
+    font-weight: 700;
+    text-align: left;
+}
+
+.rewardDetailContainer .rewardDetailBox .dataBox .rewardDetailAmount {
+    font-size: 14px;
+    font-weight: 400;
+    text-align: left;
+}
+
+.rewardDetailContainer .rewardDetailBox .dataBox .rewardDetailExp {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21.15px;
+    text-align: left;
+    padding: 0 0 15px 0;
+}
+
+.rewardDetailContainer .rewardDetailBox .dataBox hr {
+    width: 100%;
+    border: 0;
+    border-top: 1px solid #D9D9D9;
+    margin: 0;
+}
+
+.rewardDetailContainer .rewardDetailBox .dataBox .rewardDetailDetailTitle {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 30.22px;
+    text-align: left;
+    padding: 10px 0 6px 0;
+}
+
+.rewardDetailContainer .rewardDetailBox .dataBox .rewardDetail {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21.15px;
+    text-align: left;
+
+}
+
+.rewardDetailContainer .rewardDetailFooter {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    height: 60px;
+    /* background-color: aquamarine; */
+    background-color: white;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 4px 2px 18px 0px #0000001A;
+}
+
+.rewardDetailContainer .rewardDetailFooterBox {
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+}
+
+.rewardDetailContainer .rewardDetailFooterBox .rewardBalance {
+    display: flex;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 36.26px;
+    text-align: left;
+}
+
+.rewardDetailContainer .rewardDetailFooterBox .rewardPrice {
+    flex: 4;
+    display: flex;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 36.26px;
+    text-align: left;
+}
+
+.rewardDetailContainer .rewardDetailFooterBox .rewardDetailBtn {
+    display: flex;
+}
+
+.rewardDetailContainer .rewardDetailFooterBox .rewardDetailBtn button {
+    border: none;
+    width: 115px;
+    height: 36px;
+    border-radius: 21px;
+    background-color: #DE2D1E;
+
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 30.22px;
+    text-align: center;
+    color: #FFFFFF;
+}
