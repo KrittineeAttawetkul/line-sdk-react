@@ -14,7 +14,7 @@
     font-weight: 700;
     line-height: 26px;
     text-align: center;
-    padding: 14px 0px;
+    padding: 0 0 14px 0px;
 }
 
 .rewardDetailContainer .rewardDetailBox .rewardDetailPic {
@@ -33,7 +33,7 @@
 
 .rewardDetailContainer .rewardDetailBox .dataBox {
     padding: 20px;
-    margin: 0 0 40px 0;
+    margin: 0 0 60px 0;
 }
 
 .rewardDetailContainer .rewardDetailBox .dataBox .rewardDetailName {
@@ -85,7 +85,7 @@
     bottom: 0;
     left: 0;
     width: 100vw;
-    height: 60px;
+    height: 80px;
     /* background-color: aquamarine; */
     background-color: white;
     justify-content: center;
@@ -105,6 +105,7 @@
     font-weight: 400;
     line-height: 36.26px;
     text-align: left;
+    align-items: center;
 }
 
 .rewardDetailContainer .rewardDetailFooterBox .rewardPrice {
@@ -114,14 +115,15 @@
     font-weight: 700;
     line-height: 36.26px;
     text-align: left;
+    align-items: center;
 }
 
 .rewardDetailContainer .rewardDetailFooterBox .rewardDetailBtn {
     display: flex;
     border: none;
     width: 115px;
-    height: 36px;
-    border-radius: 21px;
+    height: 50px;
+    border-radius: 30px;
     background-color: #DE2D1E;
     justify-content: center;
     align-items: center;

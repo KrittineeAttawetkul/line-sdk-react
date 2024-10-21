@@ -34,7 +34,13 @@ const HistoryCard = ({ history }) => {
             <div className='historyCardContainer'>
                 <div className='historyCardText'>
                     <div className='historyType'>
-                        <div>{history.point_type === 'earn' ? "คะแนนที่ได้รับ" : history.point_type === 'burn' ? 'คะแนนที่ถูกใช้' : ""}</div>
+                        <div>
+                            {history.point_type === 'earn'
+                                ? "คะแนนที่ได้รับ"
+                                : history.point_type === 'burn' && history.type === 'redeem'
+                                    ? 'คุณได้แลกของรางวัล'
+                                    : 'คะแนนที่ถูกใช้'}
+                        </div>
                         <div className={`${history.point_type === 'earn' ? "earn" : history.point_type === 'burn' ? 'burn' : ""}`}>
                             {history.point_type === 'earn' ? `+${history.point_amount} คะแนน` : history.point_type === 'burn' ? `-${history.point_amount} คะแนน` : ""}
                         </div>

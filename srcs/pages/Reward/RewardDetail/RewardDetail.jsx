@@ -42,8 +42,8 @@ const RewardDetail = () => {
         setLineProfile(profile);
 
         const rewardPayload = {
-            // reward_id: rewardId,
-            reward_id: 'RW-15102024-1271',
+            reward_id: rewardId,
+            // reward_id: 'RW-15102024-1271',
         };
 
         const userPayload = {
