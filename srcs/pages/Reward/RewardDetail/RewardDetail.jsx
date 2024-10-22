@@ -4,6 +4,10 @@ import Liff_Id from '../../../assets/Liff_Id';
 import { USER_ACTION } from '../../../apis/userApi';
 import useLineLogin from '../../../utils/addons/useLineLogin';
 import './rewardDetail.css';
+import { useNavigate } from 'react-router-dom';
+import { BASE_URL } from '../../../config/HostConfig';
+import { POPUP } from '../../../components/popUp/PopUP';
+import loadingScreen from '../../../assets/loadingScreen.gif'
 
 const RewardDetail = () => {
     const [rewardId, setRewardId] = useState(null);
@@ -12,10 +16,25 @@ const RewardDetail = () => {
     const [BalanceStatus, setBalanceStatus] = useState(null);
     const [RewardData, setRewardData] = useState(null);
     const [BalanceData, setBalanceData] = useState(null);
+    const navigate = useNavigate();
 
     useEffect(() => {
         pageInit();
     }, []);
+
+    const pageInit = async () => {
+        try {
+            await useLineLogin(Liff_Id.rewardDetail);
+            const params = new URLSearchParams(window.location.search);
+            const rewardId = params.get('reward_id');
+            console.log('rewardId', rewardId);
+
+            setRewardId(rewardId); // Setting rewardId here will trigger userInit from useEffect
+            // userInit();
+        } catch (err) {
+            console.error(err);
+        }
+    };
 
     // Run userInit only when rewardId is available
     useEffect(() => {
@@ -23,18 +42,6 @@ const RewardDetail = () => {
             userInit();
         }
     }, [rewardId]);
-
-    const pageInit = async () => {
-        try {
-            await useLineLogin(Liff_Id.rewardDetail);
-            const params = new URLSearchParams(window.location.search);
-            const rewardId = params.get('reward_id');
-            setRewardId(rewardId); // Setting rewardId here will trigger userInit from useEffect
-            userInit();
-        } catch (err) {
-            console.error(err);
-        }
-    };
 
     const userInit = async () => {
         const storedProfile = localStorage.getItem('lineProfile');
@@ -54,11 +61,70 @@ const RewardDetail = () => {
         try {
             const reward = await USER_ACTION.getRewardByReward_id(rewardPayload);
             if (reward.status) {
+                // console.log('reward.status', reward.status);
+                // console.log('reward.data', reward.data);
+
                 setRewardStatus(reward.status);
                 setRewardData(reward.data);
             } else {
                 setRewardStatus(reward.status);
+                setRewardData(reward.data);
                 console.error("Error reward API");
+
+                if (reward.errMsg === 'Sorry, this reward is out of stock') {
+                    POPUP.errorPopUp({
+                        title: 'ของรางวัลนี้หมดแล้ว',
+                        html: `<span class="small-text">ของรางวัลนี้หมดแล้ว</span>`,
+                        function: () => {
+                            liff.closeWindow();
+                        }
+                    });
+                }
+                else if (reward.errMsg === 'This reward has expired') {
+                    POPUP.errorPopUp({
+                        title: 'รางวัลนี้หมดอายุแล้ว',
+                        html: `<span class="small-text">รางวัลนี้หมดอายุแล้ว</span>`,
+                        function: () => {
+                            liff.closeWindow();
+                        }
+                    });
+                }
+                else if (reward.errMsg === 'This reward has not started yet') {
+                    POPUP.errorPopUp({
+                        title: 'รางวัลนี้ยังไม่เริ่มใช้งาน',
+                        html: `<span class="small-text">รางวัลนี้ยังไม่เริ่มใช้งาน</span>`,
+                        function: () => {
+                            liff.closeWindow();
+                        }
+                    });
+                }
+                else if (reward.errMsg === 'This reward has not started yet') {
+                    POPUP.errorPopUp({
+                        title: 'รางวัลนี้ยังไม่เริ่มใช้งาน',
+                        html: `<span class="small-text">รางวัลนี้ยังไม่เริ่มใช้งาน</span>`,
+                        function: () => {
+                            liff.closeWindow();
+                        }
+                    });
+                }
+                else if (reward.errMsg === 'Reward not found') {
+                    POPUP.errorPopUp({
+                        title: 'ไม่พบรางวัลนี้',
+                        html: `<span class="small-text">ไม่พบรางวัลนี้</span>`,
+                        function: () => {
+                            liff.closeWindow();
+                        }
+                    });
+                }
+                else {
+                    POPUP.errorPopUp({
+                        title: 'เกิดข้อผิดพลาด',
+                        html: `<span class="small-text">เกิดข้อผิดพลาด</span>`,
+                        function: () => {
+                            liff.closeWindow();
+                        }
+                    });
+                }
             }
 
             const balance = await USER_ACTION.getCardByUserId(userPayload);
@@ -114,17 +180,22 @@ const RewardDetail = () => {
                             <div className='rewardPrice'>
                                 /{RewardData.reward_price}
                             </div>
-                            <div >
-                                <button className={`rewardDetailBtn ${BalanceData < RewardData.reward_price ? 'disabled' : ''}`} disabled={BalanceData < RewardData.reward_price}>
-                                    แลก
-                                </button>
-                            </div>
-
+                            <button
+                                className={`rewardDetailBtn ${BalanceData < RewardData.reward_price ? 'disabled' : ''}`}
+                                disabled={BalanceData < RewardData.reward_price}
+                                onClick={() => navigate(BASE_URL.suburl + "/rewardverify", { state: { reward: RewardData, user_id: lineProfile.user_id, balance: BalanceData } })}
+                            >
+                                แลก
+                            </button>
                         </div>
                     </div>
                 </div>
             ) : (
-                <p>Loading reward details...</p>
+                <div className='loadingBox'>
+                    <div className='loadingPic'>
+                        <img src={loadingScreen} />
+                    </div>
+                </div>
             )}
         </>
     );

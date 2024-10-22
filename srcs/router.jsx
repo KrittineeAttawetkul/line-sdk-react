@@ -15,6 +15,7 @@ import Transfer from "./pages/transfer/Transfer";
 import Ranking from "./pages/ranking/Ranking";
 import RewardList from "./pages/Reward/RewardList/RewardList";
 import RewardDetail from "./pages/Reward/RewardDetail/RewardDetail"
+import RewardVerify from "./pages/Reward/RewardVerify/RewardVerify"
 
 const router = createBrowserRouter([
     {
@@ -50,8 +51,12 @@ const router = createBrowserRouter([
         element: (<RewardList />)
     },
     {
-        path: BASE_URL.suburl + "/RewardDetail",
+        path: BASE_URL.suburl + "/rewarddetail",
         element: (<RewardDetail />)
+    },
+    {
+        path: BASE_URL.suburl + "/rewardverify",
+        element: (<RewardVerify />)
     },
     // {
     //     path: BASE_URL.suburl + "/RewardDetail/:rewardid",

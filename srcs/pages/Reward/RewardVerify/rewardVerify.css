@@ -1,0 +1,68 @@
+.rewardVerifyContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.rewardVerifyContainer .rewardVerifyBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.rewardVerifyContainer .rewardVerifyBox .rewardVerifyTitle {
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 22px;
+    text-align: center;
+    padding: 0 0 23px 0;
+}
+
+.rewardVerifyContainer .rewardVerifyBox .rewardBoxContainer {
+    width: 90vw;
+    height: 166px;
+    border-radius: 10px;
+    box-shadow: 4px 2px 18px 0px #0000001A;
+    display: flex;
+    align-items: center;
+}
+
+.rewardVerifyContainer .rewardVerifyBox .rewardBoxContainer .rewardBox {
+    width: 100%;
+    padding: 15px;
+    display: flex;
+    gap: 20px;
+}
+
+.rewardVerifyContainer .rewardVerifyBox .rewardBoxContainer .rewardBox .rewardPic img {
+    width: 135px;
+    height: 142px;
+    object-fit: cover;
+    border-radius: 5px;
+    display: flex;
+}
+
+.rewardVerifyContainer .rewardVerifyBox .rewardBoxContainer .rewardBox .rewardDetail {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.rewardVerifyContainer .rewardVerifyBox .rewardBoxContainer .rewardBox .rewardDetail .rewardName {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 25px;
+    text-align: left;
+}
+
+.rewardVerifyContainer .rewardVerifyBox .rewardBoxContainer .rewardBox .rewardDetail .rewardPrice {
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 15.11px;
+    text-align: left;
+
+}
+
+.rewardVerifyContainer .rewardVerifyBox .rewardVerifyBtn {
+    position: fixed;
+    bottom: 50px;
+}

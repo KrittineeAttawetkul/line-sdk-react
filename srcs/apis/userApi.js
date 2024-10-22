@@ -12,6 +12,7 @@ export const USER_ACTION = {
     balanceRanking,
     allReward,
     getRewardByReward_id,
+    RewardRedeem,
 };
 
 function getCardByUserId(payload) {
@@ -145,6 +146,20 @@ function getRewardByReward_id(payload) {
             })
             .catch(err => {
                 console.log('------- getreward Error--------');
+                console.log('Error: ', err);
+            })
+    })
+}
+
+function RewardRedeem(payload) {
+    return new Promise(async resolve => {
+        axios.post(`${BASE_URL.baseApi}/api/redeem`, payload)
+            .then(res => {
+                console.log('API RewardRedeem', res);
+                resolve(res.data);
+            })
+            .catch(err => {
+                console.log('------- RewardRedeem Error--------');
                 console.log('Error: ', err);
             })
     })

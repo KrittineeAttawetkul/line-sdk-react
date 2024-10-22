@@ -133,6 +133,8 @@
     line-height: 30.22px;
     text-align: center;
     color: #FFFFFF;
+
+    cursor: pointer;
 }
 
 .rewardDetailContainer .rewardDetailFooterBox .rewardDetailBtn :hover {
@@ -147,4 +149,24 @@
 
 .rewardDetailContainer .rewardDetailFooterBox .rewardDetailBtn :disabled {
     pointer-events: none;
+}
+
+
+.loadingBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loadingBox .loadingPic {
+    width: 95vw;
+    height: 95vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.loadingBox .loadingPic img {
+    width: 110%;
 }

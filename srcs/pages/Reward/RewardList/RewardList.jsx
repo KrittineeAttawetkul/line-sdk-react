@@ -1,8 +1,10 @@
 import React, { useEffect, useState, useRef, useCallback } from 'react';
 import { USER_ACTION } from '../../../apis/userApi'; // Adjust the path as needed
 import RewardCard from '../../../components/RewardCard/RewardCard';
-import RewardListHeader from './rewardListTab/RewardListHeader'
+import RewardListHeader from './rewardListTab/RewardListHeader';
+import liff from '@line/liff';
 import './rewardList.css';
+import Liff_Id from '../../../assets/Liff_Id';
 
 const RewardList = () => {
     const [rewards, setRewards] = useState([]);
@@ -11,6 +13,17 @@ const RewardList = () => {
     const [hasMore, setHasMore] = useState(true);
     const itemPerPage = 8; // Set a constant value for items per page
     const isInitialMount = useRef(true); // Track the first mount
+
+    // Initialize LIFF
+    useEffect(() => {
+        liff.init({ liffId: Liff_Id.rewardlist }) // Replace with your actual LIFF ID
+            .then(() => {
+                console.log('LIFF initialized');
+            })
+            .catch((err) => {
+                console.error('LIFF initialization failed:', err);
+            });
+    }, []);
 
     const loadMorePosts = useCallback(async () => {
         if (loading || !hasMore) return; // Prevent fetching if already loading or no more items
@@ -75,7 +88,25 @@ const RewardList = () => {
                         {
                             rewards.map((reward, i) => (
                                 <li key={`${reward.reward_id}-${i}`}>
-                                    <button onClick={() => alert(reward.reward_id)}>
+                                    <button
+                                        onClick={() => {
+                                            const rewardUrl = `https://liff.line.me/2006140913-67Argbab?reward_id=${reward.reward_id}`;
+                                            console.log('Navigating to:', rewardUrl);
+                                            window.location.href = rewardUrl;
+                                            
+                                            // location.replace(rewardUrl)
+
+                                            // // Check if inside LINE app, use LIFF to open
+                                            // if (liff.isInClient()) {
+                                            //     liff.openWindow({
+                                            //         url: rewardUrl,
+                                            //         external: false // Open inside the LINE app
+                                            //     });
+                                            // } else {
+                                            //     // Fallback for external browsers
+                                            //     window.location.href = rewardUrl;
+                                            // }
+                                        }}>
                                         <RewardCard Reward={reward} />
                                     </button>
                                 </li>

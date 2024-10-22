@@ -5,7 +5,7 @@ import './popUp.css'
 export const POPUP = {
     successPopUp,
     warningPopUp,
-    erroePopUp,
+    errorPopUp,
     textAreaPopUp
 };
 
@@ -55,7 +55,7 @@ function warningPopUp(content) {
     });
 }
 
-function erroePopUp(content) {
+function errorPopUp(content) {
     Swal.fire({
         title: content.title,
         text: content.text,
