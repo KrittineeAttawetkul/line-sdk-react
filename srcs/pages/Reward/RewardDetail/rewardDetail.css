@@ -101,8 +101,8 @@
 
 .rewardDetailContainer .rewardDetailFooterBox .rewardBalance {
     display: flex;
-    font-size: 20px;
-    font-weight: 400;
+    font-size: 24px;
+    font-weight: 700;
     line-height: 36.26px;
     text-align: left;
     align-items: center;
@@ -111,11 +111,12 @@
 .rewardDetailContainer .rewardDetailFooterBox .rewardPrice {
     flex: 4;
     display: flex;
-    font-size: 24px;
-    font-weight: 700;
+    font-size: 20px;
+    font-weight: 400;
     line-height: 36.26px;
     text-align: left;
     align-items: center;
+    color: #333333;
 }
 
 .rewardDetailContainer .rewardDetailFooterBox .rewardDetailBtn {
