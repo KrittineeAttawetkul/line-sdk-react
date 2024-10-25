@@ -10,7 +10,9 @@ const RewardListHeader = () => {
             รายการของรางวัล
           </div>
           <div className='rewardListHeaderBtn'>
-            <button>ประวัติการแลก</button>
+            <a href='https://www.podsland.com/nilecon-hr/rewardhistory'>
+              <button>ประวัติการแลก</button>
+            </a>
           </div>
         </div>
       </div>

@@ -13,6 +13,7 @@ export const USER_ACTION = {
     allReward,
     getRewardByReward_id,
     RewardRedeem,
+    getRewardHistoryByUserId,
 };
 
 function getCardByUserId(payload) {
@@ -160,6 +161,19 @@ function RewardRedeem(payload) {
             })
             .catch(err => {
                 console.log('------- RewardRedeem Error--------');
+                console.log('Error: ', err);
+            })
+    })
+}
+function getRewardHistoryByUserId(payload) {
+    return new Promise(async resolve => {
+        axios.post(`${BASE_URL.baseApi}/api/rewardhistory`, payload)
+            .then(res => {
+                console.log('API getRewardHistoryByUserId', res);
+                resolve(res.data);
+            })
+            .catch(err => {
+                console.log('------- getRewardHistoryByUserId Error--------');
                 console.log('Error: ', err);
             })
     })

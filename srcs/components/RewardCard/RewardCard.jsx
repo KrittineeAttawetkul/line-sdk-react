@@ -36,13 +36,11 @@ const RewardCard = ({ Reward }) => {
         <div className='rewardCard-container'>
             <div className='rewardCard-box'>
                 <div className='rewardPic'>
-                    <div className='pic'>
-                        <img
-                            className='img'
-                            src={Reward.reward_url || 'https://fastly.picsum.photos/id/16/500/300.jpg?hmac=SU2Y-E3ZP-ugNciYn7JT774pevCOLNShSuN3XPEk0Ag'}
-                            alt="Reward"
-                        />
-                    </div>
+                    <img
+                        className='img'
+                        src={Reward.reward_url || 'https://fastly.picsum.photos/id/16/500/300.jpg?hmac=SU2Y-E3ZP-ugNciYn7JT774pevCOLNShSuN3XPEk0Ag'}
+                        alt="Reward"
+                    />
                 </div>
                 <div className='rewardCard-text'>
                     <div className='rewardName'>

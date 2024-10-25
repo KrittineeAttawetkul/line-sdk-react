@@ -93,7 +93,7 @@ const RewardList = () => {
                                             const rewardUrl = `https://liff.line.me/2006140913-67Argbab?reward_id=${reward.reward_id}`;
                                             console.log('Navigating to:', rewardUrl);
                                             window.location.href = rewardUrl;
-                                            
+
                                             // location.replace(rewardUrl)
 
                                             // // Check if inside LINE app, use LIFF to open

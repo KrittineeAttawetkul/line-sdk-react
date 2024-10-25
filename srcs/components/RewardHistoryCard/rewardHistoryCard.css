@@ -1,0 +1,113 @@
+.RewardHistoryCardContainer {
+    display: flex;
+    width: 90vw;
+    height: 166px;
+    border-radius: 10px;
+    background-color: white;
+    /* background-color: burlywood; */
+    justify-content: center;
+    align-items: center;
+    box-shadow: 4px 2px 18px 0px #0000001A;
+}
+
+.RewardHistoryCardContainer .RewardHistoryCardBox {
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    width: 100%;
+    gap: 20px;
+}
+
+.RewardHistoryCardContainer .RewardHistoryCardBox .rewardPic {
+    width: 135px;
+    height: 142px;
+    border-radius: 5px;
+    display: flex;
+}
+
+.RewardHistoryCardContainer .RewardHistoryCardBox .rewardPic img {
+    width: 135px;
+    height: 142px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.RewardHistoryCardContainer .RewardHistoryCardBox .rewardDetail {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.RewardHistoryCardContainer .RewardHistoryCardBox .rewardDetail .rewardName {
+    font-size: 20px;
+    font-weight: 700;
+    text-align: left;
+    line-height: 19px;
+}
+
+.RewardHistoryCardContainer .RewardHistoryCardBox .rewardDetail .rewardName .rewardRedeemDate {
+    font-size: 10px;
+    font-weight: 400;
+    text-align: left;
+    padding: 5px 0 0 0;
+}
+
+.RewardHistoryCardContainer .RewardHistoryCardBox .rewardDetail .rewardBottom {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.RewardHistoryCardContainer .RewardHistoryCardBox .rewardDetail .rewardBottom .rewardPoint {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 18.13px;
+    text-align: left;
+
+}
+
+.RewardHistoryCardContainer .RewardHistoryCardBox .rewardDetail .rewardBottom .rewardStatusBox {
+    height: 40px;
+    border-radius: 50px;
+    background-color: #B5B5B5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 10px;
+    color: #FFFFFF;
+
+}
+
+.RewardHistoryCardContainer .RewardHistoryCardBox .rewardDetail .rewardBottom .rewardStatusBoxDone {
+    height: 40px;
+    border-radius: 50px;
+    background-color: #29AE4C;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 10px;
+    color: #FFFFFF;
+}
+
+.RewardHistoryCardContainer .RewardHistoryCardBox .rewardDetail .rewardBottom .rewardStatusBoxCancel {
+    height: 40px;
+    border-radius: 50px;
+    background-color: #DE2D1E;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 10px;
+    color: #FFFFFF;
+}
+
+.RewardHistoryCardContainer .RewardHistoryCardBox .rewardDetail .rewardBottom .rewardStatus {
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 22px;
+    text-align: left;
+}

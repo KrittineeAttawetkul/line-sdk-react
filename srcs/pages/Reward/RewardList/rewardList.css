@@ -18,7 +18,7 @@
 }
 
 .rewardListContainer .rewardListBox .rewardListRewardBox {
-    margin: 50px 0 0 0;
+    margin: 70px 0 0 0;
     height: 100vh;
     /* background-color: deeppink; */
 }
@@ -31,13 +31,13 @@
     /* background-color: cadetblue; */
     /* overflow-y: auto; */
     padding: 0 0 20px 0;
-    gap: 10px;
+    gap: 15px;
 }
 
 .rewardListContainer .rewardListBox .rewardListRewardBox button {
     border: none;
     background-color: transparent;
-    padding: 10px;
+    padding: 0;
 }
 
 .loading {

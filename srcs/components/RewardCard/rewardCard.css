@@ -3,7 +3,7 @@
 }
 
 .rewardCard-container .rewardCard-box {
-    width: 150px;
+    width: 170px;
     height: 200px;
     background-color: white;
     /* background-color: gold; */
@@ -14,14 +14,14 @@
 }
 
 .rewardCard-container .rewardCard-box .rewardPic {
-    width: 150px;
-    height: 100px;
+    width: 170px;
+    height: 115px;
     border-radius: 10px 10px 0 0;
     display: flex;
 }
 
 .rewardCard-container .rewardCard-box .rewardPic .img {
-    width: 150px;
+    width: 170px;
     height: 100px;
     object-fit: cover;
     border-radius: 10px 10px 0 0;
@@ -30,7 +30,7 @@
 }
 
 .rewardCard-container .rewardCard-box .rewardCard-text {
-    height: 100%;
+    height: 100px;
     display: flex;
     flex-direction: column;
     /* background-color: #ffaca4; */
@@ -39,19 +39,24 @@
 }
 
 .rewardCard-container .rewardCard-box .rewardCard-text .rewardName {
-    font-size: 15px;
+    font-size: 12px;
     font-weight: 700;
     text-align: left;
     color: #333333;
-    white-space: normal;
-    /* Prevents the text from wrapping to a new line */
+    line-height: 17px;
+
+    /* Ensure multi-line ellipsis */
+    display: -webkit-box;
+    /* Required for the ellipsis to work */
+    -webkit-line-clamp: 2;
+    /* Number of lines to show */
+    -webkit-box-orient: vertical;
+    /* Required for proper text orientation */
     overflow: hidden;
-    /* Hides the overflow text */
+    /* Hide the overflowing text */
     text-overflow: ellipsis;
-    /* Adds an ellipsis (...) to indicate overflow */
+    /* Adds the ellipsis (...) */
 }
-
-
 
 .rewardCard-container .rewardCard-box .rewardCard-text .rewardPoint {
     font-size: 15px;

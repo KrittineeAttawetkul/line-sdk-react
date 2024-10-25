@@ -1,0 +1,28 @@
+.rewardHistoryContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.rewardHistoryContainer .rewardHistoryBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.rewardHistoryContainer .rewardHistoryBox .rewardHistoryTitle {
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 22px;
+    text-align: center;
+    color: #DE2D1E;
+    padding: 20px 0;
+}
+
+.rewardHistoryContainer .rewardHistoryBox .rewardHistoryRewardBox ul {
+    list-style-type: none;
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}

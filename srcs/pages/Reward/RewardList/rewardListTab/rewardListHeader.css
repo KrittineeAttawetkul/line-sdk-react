@@ -23,8 +23,8 @@
     color: #DE2D1E;
     position: absolute;
     /* Center title absolutely */
-    left: 50%;
-    transform: translateX(-50%);
+    /* left: 50%; */
+    /* transform: translateX(-50%); */
     /* Perfect center horizontally */
 }
 
