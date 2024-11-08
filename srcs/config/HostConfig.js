@@ -4,15 +4,12 @@ let host_config = {};
 if (hostname === 'localhost') {
     host_config = {
         baseApi: 'https://line-sdk.onrender.com',
-        // suburl: process.env.SUB_URL
-
-        // baseApi: process.env.BASE_API,
-        // suburl: process.env.SUB_URL
+        suburl: import.meta.env.VITE_SUB_URL
     }
 } else {
     host_config = {
-        baseApi: process.env.BASE_API,
-        suburl: process.env.SUB_URL
+        baseApi: import.meta.env.VITE_BASE_API,
+        suburl: import.meta.env.VITE_SUB_URL
     }
 }
 
