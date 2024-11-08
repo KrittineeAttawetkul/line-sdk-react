@@ -32,3 +32,24 @@
     margin-left: auto;
     /* Push button to the right */
 }
+
+.rewardListHeaderContainer .rewardListHeaderBtn a {
+    text-decoration: none;
+}
+
+.rewardListHeaderContainer .rewardListHeaderBtn button {
+    display: flex;
+    border: none;
+    width: 115px;
+    height: 30px;
+    border-radius: 30px;
+    background-color: #DE2D1E;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 30.22px;
+    text-align: center;
+    color: #FFFFFF;
+}

@@ -1,5 +1,7 @@
 .rewardCard-container {
     display: flex;
+    width: 170px;
+    height: 200px;
 }
 
 .rewardCard-container .rewardCard-box {
@@ -71,8 +73,10 @@
     font-weight: 400;
     line-height: 13.6px;
     text-align: end;
+    color: #333333;
 }
 
+/* 
 .rewardCard-container .rewardBottom .rewardExp {
     text-align: end;
-}
+} */
