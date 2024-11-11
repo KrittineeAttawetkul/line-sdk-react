@@ -1,12 +1,11 @@
 .rewardCard-container {
     display: flex;
     width: 170px;
-    height: 200px;
 }
 
 .rewardCard-container .rewardCard-box {
     width: 170px;
-    height: 200px;
+    height: 100%;
     background-color: white;
     /* background-color: gold; */
     border-radius: 10px;
@@ -17,7 +16,6 @@
 
 .rewardCard-container .rewardCard-box .rewardPic {
     width: 170px;
-    height: 115px;
     border-radius: 10px 10px 0 0;
     display: flex;
 }
