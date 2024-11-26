@@ -4,6 +4,7 @@ import Button from '../../../components/Button/Button';
 import { useLocation } from 'react-router-dom';
 import { POPUP } from '../../../components/popUp/PopUP';
 import { USER_ACTION } from '../../../apis/userApi';
+import { BASE_URL } from "../../../config/HostConfig";
 
 const RewardVerify = () => {
     const location = useLocation();
@@ -68,7 +69,7 @@ const RewardVerify = () => {
                     <div className='rewardBox'>
                         <div className='rewardPic'>
                             <img
-                                src={reward?.reward_url || 'https://fastly.picsum.photos/id/419/500/300.jpg?hmac=nav6fNv5jNUzZZwMyUPGSGILObchi-eNRdPfQVbpkB0'}
+                                src={`${BASE_URL.baseApi}/${reward?.reward_url}` || 'https://fastly.picsum.photos/id/419/500/300.jpg?hmac=nav6fNv5jNUzZZwMyUPGSGILObchi-eNRdPfQVbpkB0'}
                                 alt={reward?.reward_name || 'Unknown Reward'}
                             />
                         </div>

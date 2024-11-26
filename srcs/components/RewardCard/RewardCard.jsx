@@ -1,5 +1,6 @@
 import React from 'react';
 import './rewardCard.css';
+import { BASE_URL } from "../../config/HostConfig";
 
 const RewardCard = ({ Reward }) => {
     // Check if the reward_end is valid and create a date object
@@ -38,7 +39,7 @@ const RewardCard = ({ Reward }) => {
                 <div className='rewardPic'>
                     <img
                         className='img'
-                        src={Reward.reward_url || 'https://fastly.picsum.photos/id/16/500/300.jpg?hmac=SU2Y-E3ZP-ugNciYn7JT774pevCOLNShSuN3XPEk0Ag'}
+                        src={`${BASE_URL.baseApi}/${Reward.reward_url}` || 'https://fastly.picsum.photos/id/16/500/300.jpg?hmac=SU2Y-E3ZP-ugNciYn7JT774pevCOLNShSuN3XPEk0Ag'}
                         alt="Reward"
                     />
                 </div>
