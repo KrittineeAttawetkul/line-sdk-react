@@ -129,9 +129,12 @@ const RewardDetail = () => {
             const balance = await USER_ACTION.getCardByUserId(userPayload);
 
             if (balance.status) {
-                setBalanceStatus(balance.data);
+                setBalanceStatus(balance.status);
                 setBalanceData(balance.data.balance);
+
+                // console.log(balance.data.balance);
                 // setBalanceData('10');
+
             } else {
                 setBalanceStatus(balance.status);
                 console.error("Error balance API");
@@ -143,14 +146,14 @@ const RewardDetail = () => {
 
     return (
         <>
-            {RewardData && BalanceData ? (
+            {RewardData && BalanceData !== undefined && BalanceData !== null ? (
                 <div className='rewardDetailContainer'>
                     <div className='rewardDetailBox'>
                         <div className='rewardDetailTitle'>
                             รางวัล
                         </div>
                         <div className='rewardDetailPic'>
-                            <img src={RewardData.reward_url} alt={RewardData.reward_name} />
+                            <img src={`${BASE_URL.baseApi}/${RewardData.reward_url}`} alt={RewardData.reward_name} />
                         </div>
                         <div className='dataBox'>
                             <div className='rewardDetailName'>
