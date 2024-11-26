@@ -37,12 +37,6 @@ const MyQr = () => {
     console.log('Stored Profile:', storedProfile); // Debugging log
     const profile = storedProfile ? JSON.parse(storedProfile) : null;
 
-    // const profile = {
-    //     display_name: "KΓΙΤΤΙΝΞΞ",
-    //     picture_url: "https://profile.line-scdn.net/0hT3lRG4bpCxxBKxu4e151YzF7CHZiWlIOOE9NeyEvBisvExhObBgTeCQjVHx6S0wZOU9MKHN7VyVNOHx6X333KEYbVi19HExPbEVE-A",
-    //     status_messeage: "Status Message TestTest",
-    //     user_id: "U956e1520ac3235c6778f4725b4b09200",
-    // }
     setLineProfile(profile);
     console.log('Parsed Profile:', profile); // Debugging log
 

@@ -29,7 +29,6 @@ const RankingCard = () => {
 
         const payload = {
             user_id: profile.user_id
-            // user_id: 'U956e1520ac3235c6778f4725b4b09200'
         }
 
         const res = await USER_ACTION.getCardByUserId(payload);
@@ -41,12 +40,6 @@ const RankingCard = () => {
                 lv_name: res.data.lv_name,
                 balance: res.data.balance,
                 lineProfile: profile
-                // lineProfile: {
-                //     display_name: "KΓΙΤΤΙΝΞΞ",
-                //     picture_url: "https://profile.line-scdn.net/0hT3lRG4bpCxxBKxu4e151YzF7CHZiWlIOOE9NeyEvBisvExhObBgTeCQjVHx6S0wZOU9MKHN7VyVNOHx6X333KEYbVi19HExPbEVE-A",
-                //     status_messeage: "Status Message TestTest",
-                //     user_id: "U956e1520ac3235c6778f4725b4b09200",
-                // }
             });
             console.log('data.lineProfile', data.lineProfile);
         } else {

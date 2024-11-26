@@ -36,6 +36,7 @@ function warningPopUp(content) {
     Swal.fire({
         title: content.title,
         text: content.text,
+        html: content.html,
         icon: "warning",
         confirmButtonText: 'ปิด',
         confirmButtonColor: "#C7C7C7",
@@ -59,6 +60,7 @@ function errorPopUp(content) {
     Swal.fire({
         title: content.title,
         text: content.text,
+        html: content.html,
         icon: "error",
         confirmButtonText: 'ปิด',
         confirmButtonColor: "#C7C7C7",

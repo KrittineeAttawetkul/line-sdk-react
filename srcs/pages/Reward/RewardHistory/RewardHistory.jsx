@@ -26,7 +26,6 @@ const RewardHistory = () => {
 
         setLoading(true);
         const updatedPayload = {
-            // user_id: 'U956e1520ac3235c6778f4725b4b09200',
             user_id: JSON.parse(localStorage.getItem('lineProfile')).user_id,
             pageNo: page,
             itemPerPage: itemPerPage

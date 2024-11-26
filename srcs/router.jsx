@@ -20,8 +20,8 @@ import RewardHistory from "./pages/Reward/RewardHistory/RewardHistory"
 
 const router = createBrowserRouter([
     {
-        path: BASE_URL.suburl + "/",
-        element: (<Try />),
+        path: BASE_URL.suburl + "/*",
+        element: (<TelVerify />),
     },
     {
         path: BASE_URL.suburl + "/myqr",

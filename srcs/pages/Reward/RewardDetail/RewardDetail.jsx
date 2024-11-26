@@ -55,7 +55,6 @@ const RewardDetail = () => {
 
         const userPayload = {
             user_id: profile.user_id
-            // user_id: 'U956e1520ac3235c6778f4725b4b09200'
         }
 
         try {

@@ -49,7 +49,7 @@ const TelVerify = () => {
         else {
             if (data == 'Different user') {
 
-                POPUP.erroePopUp({
+                POPUP.errorPopUp({
                     title: 'โอ้ว..ไม่นะ',
                     text: 'มีชื่อผู้ใช้งานนี้แล้ว',
                     function: () => {
@@ -60,7 +60,7 @@ const TelVerify = () => {
             }
             else if (data == 'คุณไม่ได้เป็นพนักงาน Nilecon') {
 
-                POPUP.erroePopUp({
+                POPUP.errorPopUp({
                     title: 'โอ้ว..ไม่นะ',
                     text: 'คุณไม่ได้เป็นพนักงาน Nilecon',
                     function: () => {
@@ -72,7 +72,7 @@ const TelVerify = () => {
             }
             else if (data == 'Failed to save record') {
 
-                POPUP.erroePopUp({
+                POPUP.errorPopUp({
                     title: 'เข้าสู่ระบบไม่สำเร็จ',
                     text: 'ชื่อผู้ใช้หรือรหัสไม่ถูกต้อง ลองอีกครั้ง',
                     function: () => {
@@ -82,8 +82,8 @@ const TelVerify = () => {
                 })
             }
             else {
-       
-                POPUP.erroePopUp({
+
+                POPUP.errorPopUp({
                     title: 'เกิดปัญหาขัดข้อง',
                     text: 'เกิดปัญหาขัดข้อง ลองอีกครั้ง',
                     function: () => {

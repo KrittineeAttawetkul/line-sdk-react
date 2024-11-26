@@ -45,7 +45,6 @@ const History = () => {
 
     const pageInit = async () => {
         setPayload({
-            // user_id: 'U956e1520ac3235c6778f4725b4b09200',
             user_id: JSON.parse(localStorage.getItem('lineProfile')).user_id,
             pageNo: {
                 all: 1,
