@@ -6,13 +6,15 @@ import Button from '../../components/Button/Button'
 import useLineLogin from '../../utils/addons/useLineLogin'
 import Liff_Id from '../../assets/Liff_Id'
 import { POPUP } from '../../components/popUp/PopUP';
-
+import loadingIcon from '../../assets/loadingIcon.gif';
 
 const TelVerify = () => {
     const [tel, setTel] = useState('')
     const [isSubmitting, setIsSubmitting] = useState(false)
     const [response, setResponse] = useState(null);
     const [lineProfile, setLineProfile] = useState(null);
+    const [loading, setLoading] = useState(false);
+
 
     useEffect(() => {
         pageInit();
@@ -29,6 +31,7 @@ const TelVerify = () => {
                     text: 'คุณได้เข้าสู่ระบบสำเร็จ',
                     function: () => {
                         setIsSubmitting(true);
+                        setLoading(false)
                         liff.closeWindow();
                     } // Correct way to pass the function
                 })
@@ -41,66 +44,41 @@ const TelVerify = () => {
                     text: 'คุณได้สมัครสมาชิกสำเร็จ',
                     function: () => {
                         setIsSubmitting(true);
+                        setLoading(false)
                         liff.closeWindow();
                     } // Correct way to pass the function
                 })
             }
         }
         else {
-            if (data == 'Different user') {
+            const titleMessages = {
+                'Different user': 'โอ้ว..ไม่นะ',
+                'คุณไม่ได้เป็นพนักงาน Nilecon': 'โอ้ว..ไม่นะ',
+                'Failed to save record': 'เข้าสู่ระบบไม่สำเร็จ',
+                default: 'เกิดปัญหาขัดข้อง',
+            };
+            const errorMessages = {
+                'Different user': 'มีชื่อผู้ใช้งานนี้แล้ว',
+                'คุณไม่ได้เป็นพนักงาน Nilecon': 'คุณไม่ได้เป็นพนักงาน Nilecon',
+                'Failed to save record': 'ชื่อผู้ใช้หรือรหัสไม่ถูกต้อง ลองอีกครั้ง',
+                default: 'เกิดปัญหาขัดข้อง ลองอีกครั้ง',
+            };
 
-                POPUP.errorPopUp({
-                    title: 'โอ้ว..ไม่นะ',
-                    text: 'มีชื่อผู้ใช้งานนี้แล้ว',
-                    function: () => {
-                        setIsSubmitting(true);
-                        liff.closeWindow();
-                    } // Correct way to pass the function
-                })
-            }
-            else if (data == 'คุณไม่ได้เป็นพนักงาน Nilecon') {
-
-                POPUP.errorPopUp({
-                    title: 'โอ้ว..ไม่นะ',
-                    text: 'คุณไม่ได้เป็นพนักงาน Nilecon',
-                    function: () => {
-                        setIsSubmitting(true);
-                        liff.closeWindow();
-                    } // Correct way to pass the function
-                })
-
-            }
-            else if (data == 'Failed to save record') {
-
-                POPUP.errorPopUp({
-                    title: 'เข้าสู่ระบบไม่สำเร็จ',
-                    text: 'ชื่อผู้ใช้หรือรหัสไม่ถูกต้อง ลองอีกครั้ง',
-                    function: () => {
-                        setIsSubmitting(true);
-                        liff.closeWindow();
-                    } // Correct way to pass the function
-                })
-            }
-            else {
-
-                POPUP.errorPopUp({
-                    title: 'เกิดปัญหาขัดข้อง',
-                    text: 'เกิดปัญหาขัดข้อง ลองอีกครั้ง',
-                    function: () => {
-                        setIsSubmitting(true);
-                        liff.closeWindow();
-                    } // Correct way to pass the function
-                })
-
-            }
+            POPUP.errorPopUp({
+                title: titleMessages[data] || errorMessages.default,
+                text: errorMessages[data] || errorMessages.default,
+                function: () => {
+                    setIsSubmitting(true);
+                    setLoading(false)
+                    liff.closeWindow();
+                } // Correct way to pass the function
+            });
         }
     }
 
     const pageInit = async () => {
-        console.log('liff id: ', Liff_Id.tel);
-
-        const local = await useLineLogin(Liff_Id.tel);
-        console.log('local', local)
+        // console.log('liff id: ', Liff_Id.tel);
+        await useLineLogin(Liff_Id.tel);
         userInit();
     }
 
@@ -126,9 +104,12 @@ const TelVerify = () => {
                 user_id: lineProfile.user_id
             }
 
+            setLoading(true)
+
             const res = await USER_ACTION.Register(payload);
             console.log('user res: ', res);
             console.log('res Data: ', res.data);
+
 
             popup(res.status, res.data)
 
@@ -160,16 +141,16 @@ const TelVerify = () => {
                                 required
                             />
                         </div>
-                        <div type="submit" className={`telBtn ${isSubmitting ? 'disabled' : ''}`} >
-                            <Button text={isSubmitting ? 'ยืนยันแล้ว' : 'ยืนยัน'} disabled={isSubmitting} />
+                        <div type="submit" className={`telBtn ${loading ? 'disabled' : ''}`} >
+                            <Button text={loading ? 'กำลังดำเนินการ...' : 'ยืนยัน'} disabled={loading} />
                         </div>
                     </form>
-                    {/* {response && (
-                        <div className='responseMessage'>
-                            <p>{response}</p>
-                        </div>
-                    )} */}
                 </div>
+                {loading && (
+                    <div className="loadingContainer">
+                        <img src={loadingIcon} alt="Loading..." className="loadingIcon" />
+                    </div>
+                )}
             </div>
         </>
     )

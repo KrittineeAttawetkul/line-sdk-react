@@ -1,6 +1,7 @@
 .telContainter {
     display: flex;
     justify-content: center;
+    flex-direction: column;
 }
 
 .telContainter .telBox {
@@ -70,4 +71,16 @@
 .telContainter .telBox .telForm .telBtn {
     position: fixed;
     bottom: 50px;
+}
+
+.telContainter .loadingContainer {
+    height: 40vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.telContainter .loadingIcon {
+    width: 40px;
+    height: 40px;
 }
